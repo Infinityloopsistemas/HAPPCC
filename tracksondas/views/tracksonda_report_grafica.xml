@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <data>
+
+        <template id="tracksondas.tracksonda_report_grafica_document">
+
+                <t t-call="report.layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-2" style="margin-top:10px;">
+                                    <img t-if="envios.imagen" t-att-src="'data:image/png;base64,%s' % envios.imagen"
+                                    style="max-height: 800px;"/>
+                                </div>
+
+                             </div>
+                    </div>
+                 </t>
+        </template>
+
+
+
+    <template id="tracksonda_report_grafica">
+        <t t-call="report.html_container">
+                 <t t-foreach="docs" t-as="envios">
+                    <t t-call="tracksondas.tracksonda_report_grafica_document" />
+                 </t>
+
+        </t>
+    </template>
+
+   </data>
+</odoo>

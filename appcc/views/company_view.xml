@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_inherit_appcc_form">
+            <field name="name">res.company.form.appcc.inherit</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='account_grp']" position="inside">
+                    <separator string="APPCC" colspan="4"/>
+                    <field name="nrgseaa"/>
+                    <field name="auditora_id" />
+                    <field name="auditor_id" />
+                 </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+
+
+
+
+

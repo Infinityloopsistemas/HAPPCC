@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <template id="appcc.report_avisos_document">
+        <t t-call="appcc.manualauto_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+            <div class="page">
+                <div class="row">
+                    <div class="row mt16 mb16">
+                        <h3>
+                            <center>
+                                <span t-field="o.name"/>
+                            </center>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16">
+                    <div class="col-xs-6" >
+                        <strong>Destinatarios:</strong>
+                        <table>
+                         <tr t-foreach="o.partner_ids" t-as="p">
+                            <p t-field="p.name"/>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16" style="border:1px solid black;background-color:7DB519;">
+                </div>
+
+                <span><p> </p></span>
+
+                <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                    <thead>
+                        <tr>
+                            <th class="text-center">F. Auditada</th>
+                            <th class="text-center">F. Ultima </th>
+                            <th class="text-center">Registro</th>
+                            <th class="text-center">Dias Desfase</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-striped table-bordered">
+                        <tr t-foreach="o.revisareg_ids" t-as="l">
+                            <td class="text-center">
+                                <span t-field="l.fechaaudit" t-field-options='{"format": "dd-MM-yyyy"}'/>
+                            </td>
+                            <td class="text-center" >
+                                <span t-field="l.fechaultima" t-field-options='{"format": "dd-MM-yyyy"}'/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="l.name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="l.desfase"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="appcc_report_avisos">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_avisos_document"/>
+            </t>
+    </template>
+
+</data>
+</openerp>

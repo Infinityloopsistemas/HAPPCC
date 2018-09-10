@@ -1,0 +1,20 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+public_access_hub,tracksonda hub,model_tracksonda_hub,base.group_public,1,0,1,0
+public_access_sonda,tracksonda,model_tracksonda,base.group_public,1,0,1,0
+public_access_loaddatdev,tracksonda loaddev,model_tracksonda_loaddatdev,base.group_public,1,0,1,0
+public_access_loaddatson,tracksonda sonda,model_tracksonda_loaddatson,base.group_public,1,0,1,0
+public_access_tracksonda_alarmasson,tracksonda_alarmasson,model_tracksonda_alarmasson,base.group_public,1,0,1,0
+conf_access_hub,tracksonda hub conf,model_tracksonda_hub,group_tracksonda_conf,1,1,1,1
+conf_access_sonda,tracksonda conf,model_tracksonda,group_tracksonda_conf,1,1,1,1
+conf_access_loaddatdev,tracksonda loaddev conf,model_tracksonda_loaddatdev,group_tracksonda_conf,1,1,1,1
+conf_access_loaddatson,tracksonda sonda conf,model_tracksonda_loaddatson,group_tracksonda_conf,1,1,1,1
+conf_access_tracksonda_alarmasson,tracksonda_alarmasson conf,model_tracksonda_alarmasson,group_tracksonda_conf,1,1,1,1
+user_access_hub,tracksonda hub user,model_tracksonda_hub,group_tracksonda_user,1,0,0,0
+user_access_sonda,tracksonda user,model_tracksonda,group_tracksonda_user,1,0,0,0
+user_access_loaddatdev,tracksonda loaddev user,model_tracksonda_loaddatdev,group_tracksonda_user,1,0,0,0
+user_access_loaddatson,tracksonda sonda user,model_tracksonda_loaddatson,group_tracksonda_user,1,0,0,0
+user_access_tracksonda_alarmasson,access_tracksonda_alarmasson user,model_tracksonda_alarmasson,group_tracksonda_user,1,0,0,0
+conf_access_tracksonda_envios,access_tracksonda_envios,model_tracksonda_envios,group_tracksonda_conf,1,0,0,0
+user_access_tracksonda_delivery_carrier,access_tracksonda_delivery_carrier user,model_tracksonda_delivery_carrier,group_tracksonda_user,1,1,1,1
+user_access_tracksonda_delivery_line,access_tracksonda_delivery_line user,model_tracksonda_delivery_line,group_tracksonda_user,1,1,1,1
+user_access_tracksonda_delivery,access_tracksonda_delivery user,model_tracksonda_delivery,group_tracksonda_user,1,1,1,1

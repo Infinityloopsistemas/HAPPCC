@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1">
+
+
+      <record model="ir.cron" id="graph_temp_cron">
+        <field name="name">EMAIL GRAFICAS TEMP</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+        <field name="doall" eval="True"/>
+        <field name="model" eval="'tracksonda.envios'"/>
+        <field name="function" eval="'cron_graph_temp'"/>
+      </record>
+
+
+
+        <record model="ir.cron" id="aviso_recep_datos_sensores">
+        <field name="name">VALIDA RECEPCION DATA SENSORES</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().date() + timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+        <field name="doall" eval="True"/>
+        <field name="model" eval="'tracksonda.envios'"/>
+        <field name="function" eval="'cron_validate_periodic_write'"/>
+      </record>
+
+
+        <record model="ir.cron" id="aviso_fueraderango">
+        <field name="name">FUERA DE RANGO</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().date() + timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+        <field name="doall" eval="True"/>
+        <field name="model" eval="'tracksonda.envios'"/>
+        <field name="function" eval="'cron_validate_range_out'"/>
+      </record>
+
+
+      <record model="ir.cron" id="load_temp_cron">
+        <field name="name">CARGA DATOS FTP</field>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().date() + timedelta(minutes=10)).strftime('%Y-%m-%d %H:%M:%S')" />
+        <field name="doall" eval="True"/>
+        <field name="model" eval="'tracksonda.hub'"/>
+        <field name="function" eval="'cron_action_loaddata'"/>
+      </record>
+
+
+        <record id="cat_6" model="res.partner.category">
+             <field name="name">AVISOS EMAIL</field>
+        </record>
+
+
+      <record model="ir.mail_server" id="mail_server_infinity">
+        <field name="name">INFINITYLOOP</field>
+        <field name="sequence">1</field>
+        <field name="smtp_host">xxxxxxxxxxx</field>
+        <field name="smtp_port">25</field>
+        <field name="smtp_encryption">starttls</field>
+        <field name="smtp_user">info@xxxx.com</field>
+        <field name="smtp_pass">XXXXXXXXX</field>
+      </record>
+
+
+      <record id="email_template_grafica_temperatura" model="mail.template">
+            <field name="name">Grafica Temperatura</field>
+            <field name="model_id" ref="tracksondas.model_tracksonda_envios"/>
+            <field name="email_from">info@givasl.com</field>
+            <field name="subject">Graficas de temperatura</field>
+            <field name="email_to">julian@infinityloop.es</field>
+            <field name="auto_delete" eval="False" />
+            <field name="mail_server_id" ref="mail_server_infinity" />
+            <!--<field name="report_template" ref="tracksondas.tracksonda_report_grafica_envios" />
+            <field name="report_name">Grafica_${(object.trackhub_id.name or '').replace('/','_')}_${datetime.datetime.now()}</field>-->
+            <field name="body_html"><![CDATA[
+                <p><strong>Envios de Graficas</strong></p>
+                    --
+                <table cellspacing=0 cellpadding=0>
+                   <tr>
+                   <div style="overflow-x:auto;">
+                   <td><img src="/tracksondas/images/logo_givasl_crop.png" style="width:20%; height:auto;"><br>
+                   </td></div>
+                   </tr>
+                   <tr>
+
+
+                ]]></field>
+      </record>
+
+
+
+
+    <record id="email_template_data_recepcion" model="mail.template">
+            <field name="name">Perdida Conexion Sensores</field>
+            <field name="model_id" ref="tracksondas.model_tracksonda_envios"/>
+            <field name="email_from">info@givasl.com</field>
+            <field name="subject">Urgente perdida de conexion datos</field>
+            <field name="email_to">julian@infinityloop.es</field>
+            <field name="auto_delete" eval="False" />
+            <field name="mail_server_id" ref="mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <p><strong>Perdida de conexión datos de sensores</strong></p>
+                  <p>
+                  <div style="font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                           Hub: <span style="margin-left:10px">${object.trackhub_id.name or ''}</span>
+                  </div>
+                  <p>
+                     <table cellspacing="0" cellpadding="0" border="1" style="margin-top: 15px; margin-left: 10px;font-size: 16px;">
+
+                                           
+                                            <thead>
+
+                                                <th style="vertical-align:top;">
+                                                    Sonda
+                                                </th>
+                                                 <th style="vertical-align:top;">
+                                                    Motivo
+                                                </th>
+
+                                                <th style="vertical-align:top;">
+                                                    F. Ultima Recepcion
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                            % for alarmas in object.alarmas_ids:
+                                            <tr>
+
+
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${alarmas.tracksonda_id.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${alarmas.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;"> ${alarmas.fechaultimo or ''} </span>
+                                                        </div>
+                                                </td>
+
+                                            </tr>
+
+                                            % endfor
+                                            </tbody>
+                                    </table>
+
+
+                <p>
+                <p>
+
+
+                ]]></field>
+      </record>
+
+        <record id="email_avisos_fuerarango" model="mail.template">
+            <field name="name">Fuera de Limites de Control</field>
+            <field name="email_from">info@xxxx.com</field>
+            <field name="subject">URGENTE: VALORES FUERA DE LIMITES DE CONTROL</field>
+            <field name="model_id" ref="tracksondas.model_tracksonda_envios"/>
+            <field name="email_to" >${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}</field>
+            <!--<field name="partner_to">${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }</field>-->
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+
+                </style>
+                <p>
+                A la atención del responsable del APPCC-SIVA de ${object.company_id.name}:
+                </p>
+                <p>
+                <p>
+                <p style="font-weight:bold;"> Por medio del presente le comunicamos que el equipo abajo referenciado presenta incidencia grave:</p>
+                <p>
+                <p>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+
+                                    <table cellspacing="0" cellpadding="0" border="1" style="margin-top: 15px; margin-left: 10px;font-size: 16px;">
+                                            <thead>
+                                                <th style="vertical-align:top;">
+                                                    Equipo
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    F.Incidencia
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    Valor
+                                                </th>
+                                                 <th style="vertical-align:top;">
+                                                    Limites
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                            % for registros in object.alarmas_ids:
+                                            <tr>
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${registros.tracksonda_id.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;"> ${registros.fechaultimo or ''} </span>
+                                                        </div>
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;">${registros.valor or ''}</span>
+                                                        </div>
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;">${registros.name or ''}</span>
+                                                        </div>
+                                                </td>
+                                            </tr>
+
+                                            % endfor
+                                            </tbody>
+                                    </table>
+
+                    </div>
+                    <p>
+                    <p>
+                    <p>
+                    Le sugerimos resolver la incidencia a la mayor brevedad, dado que la negligencia en su resolucion incumple la gestión de su sistema de autocontrol y puede derivar en sanción administrativa al incumplir los prerrequisitos normativos vigentes.
+                    </p>
+                    <p>
+                    <p>
+                    <p>
+                    Para cualquier duda o consulta puede indicárnoslo al email: info@xxxxx.com o al teléfono: 928 77 45 79
+                    </p>
+                    </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+                </div>
+                ]]>
+                </field>
+        </record>
+
+
+    </data>
+
+</odoo>

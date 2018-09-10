@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="appcc.report_totevalm_document">
+            <head>
+                <t t-call="appcc.simple_layout"/>
+            </head>
+
+            <div class="page">
+                 <t t-raw="0">
+                     <header>
+                        <table class="table table-condensed">
+                            <tr>
+                                <td>
+                                    <strong>EVALUACIONES COMPRENDIDAS ENTRE</strong>
+                                </td>
+                                <td>
+                                    <t t-if="o['start']">
+                                        <strong>Fecha Desde :</strong>
+                                        <span t-esc="o['start']"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <t t-if="o['stop']">
+                                        <strong>Fecha Hasta :</strong>
+                                        <span t-esc="o['stop']"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                     </header>
+                </t>
+
+                <t t-foreach="o['rescomp']" t-as="oo">
+                    <t t-raw="0">
+                        <div class="text-center" style="font-size:24px;">
+                            <span> TABLAS RESUMEN</span>
+                        </div>
+                    </t>
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                        <caption style="font-size:24px;"> Puntuación por establecimiento</caption>
+                        <thead>
+                            <tr style="font-size:14px">
+                                <t t-foreach="oo['cabcol']" t-as="cab">
+                                    <th class="text-center">
+                                        <span t-esc="cab['name']"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="oo['totevals']" t-as="l">
+                                <td class="text-left" style="font-size:14px">
+                                    <span t-esc="l['empresa']"/>
+                                </td>
+                                <td class="text-center" t-foreach="oo['cabrow']" t-as="cab" style="font-size:16px">
+                                    <span t-esc="l['evals'][cab['name']]"/>
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+                        <table class="last-page table table-striped table-bordered" style="overflow-x:auto;">
+                            <caption style="font-size:24px;">Puntuación por empresa</caption>
+                            <thead>
+                                <tr style="font-size:14px">
+                                    <th>RESUMEN</th>
+                                    <t t-foreach="oo['cabrow']" t-as="cab">
+                                        <th class="text-center">
+                                            <span t-esc="cab['name']"/>
+                                        </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tfoot>
+
+                                <tr style="font-size:14px;background-color: #FFF;">
+                                    <td class="text-right">
+                                        Totales
+                                    </td>
+                                    <t t-foreach="oo['cabrow']" t-as="col">
+                                        <td class="text-center">
+                                            <span t-esc="oo['total'][col['name']]"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </table>
+
+                    <p style="page-break-before:always;"> </p>
+
+                    <table class="table table-condensed">
+                            <tr>
+                                <td>
+                                    <strong>EVALUACIONES COMPRENDIDAS ENTRE</strong>
+                                </td>
+                                <td>
+                                    <t t-if="o['start']">
+                                        <strong>Fecha Desde :</strong>
+                                        <span t-esc="o['start']"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <t t-if="o['stop']">
+                                        <strong>Fecha Hasta :</strong>
+                                        <span t-esc="o['stop']"/>
+                                    </t>
+                                </td>
+                            </tr>
+                    </table>
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                        <caption style="font-size:24px;">Puntuación total por criterio de evaluación</caption>
+                        <thead>
+                            <tr style="font-size:14px">
+                                <t t-foreach="o['cabcol']" t-as="cab">
+                                    <th class="text-center">
+                                        <span t-esc="cab['name']"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="o['totevals']" t-as="l">
+                                <td class="text-left" style="font-size:14px">
+                                    <span t-esc="l['indicador']"/>
+                                </td>
+                                <td class="text-center" t-foreach="o['cabrow']" t-as="cab" style="font-size:16px">
+                                    <span t-esc="l['evals'][cab['name']]"/>
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+
+                        <table class="last-page table table-striped table-bordered" style="overflow-x:auto;">
+                            <caption style="font-size:24px;">Totalizado del resumen por criterio de evaluación</caption>
+                            <thead>
+                                <tr style="font-size:14px">
+                                    <th>RESUMEN</th>
+                                    <t t-foreach="o['cabrow']" t-as="cab">
+                                        <th class="text-center">
+                                            <span t-esc="cab['name']"/>
+                                        </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tfoot>
+
+                                <tr style="font-size:14px;background-color: #FFF;">
+                                    <td class="text-right">
+                                        Totales
+                                    </td>
+                                    <t t-foreach="o['cabrow']" t-as="col">
+                                        <td class="text-center">
+                                            <span t-esc="o['total'][col['name']]"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </table>
+
+                    <p style="page-break-before:always;"> </p>
+
+                    <div>
+                        <img t-if="o['grafica'][0]" t-att-src="'data:image/png;base64,%s' % o['grafica'][0]"
+                             style="max-width:auto;max-height:auto;margin-top:15px;margin-bottom:15px;"/>
+                    </div>
+                </t>
+
+
+
+
+            </div>
+
+        </template>
+
+
+
+
+
+        <template id="report_toteval_multi">
+            <t t-call="report.html_container">
+                <t t-foreach="evaluaciones" t-as="o">
+                    <t t-call="appcc.report_totevalm_document"/>
+                </t>
+            </t>
+        </template>
+
+
+
+    </data>
+</odoo>

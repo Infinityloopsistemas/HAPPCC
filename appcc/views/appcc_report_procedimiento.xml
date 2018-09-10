@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="appcc.report_procedimiento_document">
+            <t t-call="appcc.manualauto_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+                <div class="page">
+                    <div class="row">
+                        <div class="row mt16 mb16">
+                            <h3>
+                                <center>
+                                    <span t-field="o.name"/>
+                                </center>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="row mt16 mb16">
+                        <div class="col-xs-6">
+                            <strong>Fecha implantación:</strong>
+                            <p t-field="o.fecha"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong>Plan al que pertecene el procedimineto:</strong>
+                            <p t-field="o.manautctrl_id.name"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong>Revisión del documento:</strong>
+                            <p t-field="o.revision_id.name"/>
+                        </div>
+                    </div>
+
+                    <div class="row mt16 mb16" style="border-top:1px solid gray">
+                        <div class="col-xs-6">
+                            <strong>Medida de vigilancia:</strong>
+                            <p t-field="o.tpmedvig_id.name"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong>Medida de actuación preventiva:</strong>
+                            <p t-field="o.tpmedactp_id.name"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong>Medida correctiva:</strong>
+                            <p t-field="o.tpmedactc_id.name"/>
+                        </div>
+                        <div class="col-xs-12" t-if="o.observaciones==True">
+                            <strong>Observaciones referidas a la vigilancia:</strong>
+                            <p t-field="o.observaciones" t-field-options='{"widget": "html"}'/>
+                        </div>
+                    </div>
+                    <div class="row mt16 mb16" style="border-top:1px solid gray">
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;" t-if="o.valanali_ids">
+                        <caption style="font-size:24px;"> Valores a analizar:</caption>
+                        <thead>
+                            <tr style="font-size:10px">
+                                <th class="text-center">Parámetro</th>
+                                <th class="text-center">Valor</th>
+                                <th class="text-center">Margen de tolerancia</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="o.valanali_ids" t-as="v">
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="v.paramanali_id.name"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="v.valores"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                     <span t-field="v.tolerancia"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    </div>
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;" t-if="o.zonas_ids">
+                        <caption style="font-size:24px;"> Zonas:</caption>
+                        <thead>
+                            <tr style="font-size:10px">
+                                <th class="text-center">Denominación de la zona</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="o.zonas_ids" t-as="z">
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="z.name"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                     <div class="row mt16 mb16">
+                        <div class="col-xs-12" t-if="o.operaciones">
+                            <strong>Detalle zonas:</strong>
+                            <p t-field="o.zonalimpieza" t-field-options='{"widget": "html"}'/>
+                        </div>
+                        <div class="col-xs-12">
+                            <strong>Equipos:</strong>
+                            <t t-foreach="o.equipos_ids" t-as="eq">
+                                <p t-field="eq.name"/>
+                            </t>
+                        </div>
+                         <div class="col-xs-12">
+                            <strong>Personal implicado:</strong>
+                            <t t-foreach="o.personal_ids" t-as="pe">
+                                <p t-field="pe.name"/>
+                            </t>
+                        </div>
+                         <div class="col-xs-12">
+                            <strong>Productos a emplear:</strong>
+                            <t t-foreach="o.productos_ids" t-as="pro">
+                                <p t-field="pro.name"/>
+                            </t>
+                        </div>
+                    </div>
+
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                        <caption style="font-size:24px;"> Productos de limpieza:</caption>
+                        <thead>
+                            <tr style="font-size:10px">
+                                <th class="text-center">Productos de limpieza</th>
+                                <th class="text-center">Dosis</th>
+                                <th class="text-center">Dosificación</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="o.consumibles_ids" t-as="con">
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="con.consumible_id.name"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="con.name"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="con.dosis"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                     <div class="row mt16 mb16">
+                        <div class="col-xs-12" t-if="o.operaciones">
+                            <strong>Detalle zonas:</strong>
+                            <p t-field="o.operaciones" t-field-options='{"widget": "html"}'/>
+                        </div>
+                     </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="appcc_report_procedimiento">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_procedimiento_document"/>
+            </t>
+        </template>
+
+
+    </data>
+</openerp>

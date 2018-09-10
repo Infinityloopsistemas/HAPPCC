@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="appcc.report_certforma_document">
+            <head>
+                <t t-call="appcc.simple_layout"/>
+            </head>
+
+            <div class="page">
+                <t t-raw="0">
+                    <div class="row text-left mt16 mb16">
+                        <p>La entidad formadora:</p>
+
+                        <div class="text-center" style=";font-size=18;font-color:rgb(124, 167, 39)">
+                            <span t-field="o['forma'].name"/>
+                        </div>
+
+                        <p>Certifica que el personal descrito en la tabla que se encuentra a continuación han recibido el curso:</p>
+
+                        <div class="text-center" style=";font-size=18;font-color:rgb(124, 167, 39)">
+                            <span t-field="o['tipocurso'].name"/>
+                        </div>
+
+                        <p>con fecha de certificación</p>
+
+                        <div class="text-center" style=";font-size=18;font-color:rgb(124, 167, 39)">
+                            <span t-field="o['alumcursos'][0].fechavalida"/>
+                        </div>
+
+                        <p>cuyo contenido se desglosa a continuación</p>
+
+                        <div class="text-center">
+                            <span t-field="o['tipocurso'].contenido" t-field-options='{"widget": "html"}'/>
+                        </div>
+
+                        <p>conforme a</p>
+
+                        <div>
+                            <span t-field="o['tipocurso'].legislacion_id.name"/>
+                        </div>
+
+                        <div class="text-center">
+                            <span style="font-size=18;color:rgb(124, 167, 39)" t-field="o['tipocurso'].legislacion_id.ayuda"  t-field-options='{"widget": "html"}'/>
+                        </div>
+
+                    </div>
+
+                    <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                        <thead>
+                            <tr style="font-size:10px">
+
+                                <th class="text-center">Apellidos, Nombre</th>
+                                <th class="text-center">DNI</th>
+                                <th class="text-center">Ocupación</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table table-striped table-bordered">
+                            <tr t-foreach="o['alumcursos']" t-as="ac">
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="ac.personal_id.name"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="ac.personal_id.identification_id"/>
+                                </td>
+                                <td class="text-center" style="font-size:9px">
+                                    <span t-field="ac.personal_id.job_id.name"/>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Se recomienda la formación continuada anual conforme a la actividad que se desempeña y el APPCC.</p>
+                </t>
+            </div>
+        </template>
+
+
+        <template id="appcc.report_certforma">
+            <t t-call="report.html_container">
+                <t t-foreach="alumnos" t-as="o">
+                    <t t-call="appcc.report_certforma_document"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

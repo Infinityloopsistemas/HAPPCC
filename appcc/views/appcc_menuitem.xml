@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- La secuencia del menu se encuentra en este archivo y se suprime de las views -->
+        <!-- Views donde fueron declaradas -->
+
+
+        <!-- Principal parent = menu_appcc -->
+
+        <menuitem name="SIVA"
+            id="menu_appcc"
+            icon="fa-usd"
+            web_icon="appcc,static/description/icon.png"
+            groups="group_appcc_user"
+            sequence="1"/>
+
+        <menuitem name="APPCC"
+            id="menu_appcc_appcc"
+            icon="fa-usd"
+            parent="menu_appcc"
+            sequence="1"/>
+
+        <menuitem name="Anexo APPCC"
+            id="menu_appcc_appccanexo"
+            parent="menu_appcc"
+            groups="group_appcc_user"
+            sequence="100"/>
+
+        <menuitem name="Informes"
+            id="menu_appcc_informes"
+            parent="menu_appcc"
+            groups="group_appcc_user"
+            sequence="200"/>
+
+        <menuitem name="Configuracion"
+            id="menu_appcc_config"
+            parent="menu_appcc"
+            groups="group_appcc_tecnicos"
+            sequence="300"/>
+
+         <!-- Informes -->
+
+        <menuitem
+            id="menu_report_evaluacion"
+            name="Evaluaciones"
+            parent="menu_appcc_informes"
+            groups="group_appcc_manager"/>
+
+        <!-- parent="menu_appcc_appcc" -->
+
+        <menuitem name="Plan Autocontrol"
+            id="menu_appcc_planauto"
+            parent="menu_appcc_appcc"
+            groups="group_appcc_user"
+            sequence="10"/>
+
+        <menuitem name="Cuadros de Gestion"
+            string="Cuadros de gestión"
+            id="menu_appcc_cuadgest"
+            parent="menu_appcc_appcc"
+            groups="group_appcc_manager"
+            sequence="30"/>
+
+        <menuitem name="Registros"
+            id="menu_appcc_registros"
+            parent="menu_appcc_appcc"
+            groups="group_appcc_user"
+            sequence="40"/>
+
+        <!-- parent="menu_appcc_planauto" -->
+
+        <!-- parent="menu_appcc_appccanexo" -->
+
+        <menuitem name="Analiticas"
+            id="menu_appcc_cabana"
+            parent="menu_appcc_appccanexo"
+            groups="group_appcc_tecnicos"
+            sequence="2"/>
+
+        <menuitem name="Productos"
+            id="menu_appcc_productos"
+            parent="menu_appcc_appccanexo"
+            groups="group_appcc_manager"
+            sequence="3"/>
+
+        <menuitem name="Evaluaciones"
+            id="menu_appcc_auditorias"
+            parent="menu_appcc_appccanexo"
+            groups="group_appcc_manager"
+            sequence="4"/>
+
+        <!-- parent="menu_appcc_cabana" -->
+
+
+        <!-- parent="menu_appcc_productos" -->
+
+
+        <!-- parent="menu_appcc_auditorias" -->
+
+
+        <!-- parent="menu_appcc_config" -->
+
+        <menuitem name="Tipos"
+            id="menu_appcc_maestros_tipos"
+            parent="menu_appcc_config"
+            groups="group_appcc_tecnicos"
+            sequence="1"/>
+
+        <menuitem name="Parametros"
+            id="menu_appcc_maestros_param"
+            parent="menu_appcc_config"
+            groups="group_appcc_tecnicos"
+            sequence="2"/>
+
+        <menuitem name="Procesos"
+            id="menu_appcc_maestros_proces"
+            parent="menu_appcc_config"
+            groups="group_appcc_tecnicos"
+            sequence="3"/>
+
+        <menuitem name="Plantillas"
+            id="menu_appcc_template"
+            parent="menu_appcc_config"
+            groups="group_appcc_tecnicos"
+            sequence="4"/>
+
+        <!-- parent="menu_appcc_maestros_param" -->
+
+        <menuitem id="appcc_units"
+                  name="Unidades"
+                  parent="menu_appcc_maestros_param"
+                  action="product.product_uom_form_action"
+                  sequence="1"
+                  groups="group_appcc_manager"/>
+
+    </data>
+</openerp>

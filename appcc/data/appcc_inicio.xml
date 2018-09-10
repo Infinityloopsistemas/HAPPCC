@@ -1,0 +1,529 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="cat_1" model="res.partner.category">
+             <field name="name">AUDITORA</field>
+        </record>
+        <record id="cat_2" model="res.partner.category">
+            <field name="name">AUDITOR</field>
+        </record>
+        <record id="cat_3" model="res.partner.category">
+             <field name="name">VETERINARIO</field>
+        </record>
+        <record id="cat_4" model="res.partner.category">
+             <field name="name">LABORATORIO</field>
+        </record>
+        <record id="cat_5" model="res.partner.category">
+             <field name="name">MANTENEDOR</field>
+        </record>
+        <record id="cat_6" model="res.partner.category">
+             <field name="name">FORMACION</field>
+        </record>
+
+
+
+        <record id="cat_12" model="appcc.maestros.categorias">
+             <field name="name">LIMPIEZA Y DESINFECCION DE INSTALACIONES Y EQUIPOS</field>
+        </record>
+        <record id="cat_22" model="appcc.maestros.categorias">
+            <field name="name">FORMACION CONTINUADA MANIPULADOR DE ALIMIENTOS</field>
+        </record>
+        <record id="cat_32" model="appcc.maestros.categorias">
+             <field name="name">CONTROL POTABILIDAD DEL AGUA</field>
+        </record>
+        <record id="cat_42" model="appcc.maestros.categorias">
+             <field name="name">MANTENIMIENTO PREVENTIVO Y CORRECTIVO</field>
+        </record>
+        <record id="cat_52" model="appcc.maestros.categorias">
+             <field name="name">CONTROL DE TEMPERATURAS</field>
+        </record>
+        <record id="cat_62" model="appcc.maestros.categorias">
+             <field name="name">CONTROL DE PLAGAS</field>
+        </record>
+        <record id="cat_72" model="appcc.maestros.categorias">
+             <field name="name">HOMOLOGACION DE PROVEEDORES</field>
+        </record>
+        <record id="cat_82" model="appcc.maestros.categorias">
+             <field name="name">EVACUACION DE RESIDUOS SOLIDOS Y LIQUIDOS</field>
+        </record>
+        <record id="cat_92" model="appcc.maestros.categorias">
+             <field name="name">TRAZABILIDAD</field>
+        </record>
+
+
+
+
+                <!-- Email Solicitud de Mantenimiento -->
+
+        <record id="email_solicitud_mantenimiento" model="mail.template">
+            <field name="name">Solicitud de Mantenimiento</field>
+            <field name="email_from">info@xxx.xxxx</field>
+            <field name="subject">Solicitud de mantenimiento en ${object.equipo_id.name}</field>
+            <field name="model_id" ref="appcc.model_appcc_gestorincidencias"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+                </style>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+                     <div>
+                     <p style="font-weight:bold;">
+                     AVISO DE SOLICITUD DE MANTENIENTO DE FECHA : ${object.fincidencia}
+                     </p>
+                     <p>
+                     </div>
+                     <table class="table table-striped" width="1200">
+                        <tbody>
+                        <tr>
+                        <td style="font-weight:bold;">Appcc:</td>
+                        <td>${object.appcc_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Registro:</td>
+                        <td>${object.detreg_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Responsable:</td>
+                        <td>${object.personal_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Equipo a actuar:</td>
+                        <td>${object.equipo_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Ubicacion:</td>
+                        <td>${object.zonas_id.name}</td>
+                        </tr>
+
+                        </tbody>
+                        </table>
+                        <p style="font-weight:bold;" >
+                         DESCRIPCION DEL MANTENIMIENTO :
+                        </p>
+                        <p>
+                        ${object.observaciones or ''}
+
+                        </div>
+                         </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+
+                ]]>
+                </field>
+        </record>
+
+
+
+        <!-- Email Incidencias -->
+
+        <record id="email_avisos_incidencias" model="mail.template">
+            <field name="name">Aviso registro fuera de limites</field>
+            <field name="email_from">info@xxxx.com</field>
+            <field name="subject">${object.name}</field>
+            <field name="model_id" ref="appcc.model_appcc_gestorincidencias"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+                </style>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+                     <div>
+                     <p>
+                     AVISO DE FECHA : ${object.fincidencia}
+                     </p>
+                     <p>
+                     </div>
+                      <table class="table table-striped" width="1200">
+                        <tbody>
+                        <tr>
+                        <td style="font-weight:bold;">Appcc:</td>
+                        <td>${object.appcc_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Registro:</td>
+                        <td>${object.detreg_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Responsable:</td>
+                        <td>${object.personal_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Equipo a actuar:</td>
+                        <td>${object.equipo_id.name}</td>
+                        </tr>
+                        <tr>
+                        <td style="font-weight:bold;">Ubicacion:</td>
+                        <td>${object.zonas_id.name}</td>
+                        </tr>
+
+                        </tbody>
+                        </table>
+                        <p style="font-weight:bold;" >
+                         DESCRIPCION DEL AVISO :
+                        </p>
+                        <p>
+                            ${object.observaciones or ''}
+                        </div>
+                         </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+                ]]>
+                </field>
+        </record>
+
+
+
+
+        <!-- Email Avisos  Desfase-->
+
+
+        <record id="email_avisos_desfase" model="mail.template">
+            <field name="name">Desfase completar registros</field>
+            <field name="email_from">info@xxx.com</field>
+            <field name="subject">${object.name}</field>
+            <field name="model_id" ref="appcc.model_appcc_config_avisos"/>
+            <field name="email_to" >${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+
+                </style>
+                <p>
+                A la atención del responsable del APPCC-SIVA de ${object.company_id.name}:
+                </p>
+                <p>
+                <p>
+                <p style="font-weight:bold;"> Por medio del presente le comunicamos que los registros de control de su APPCC a la presente fecha en encuentra sin COMPLETAR: </p>
+                <p>
+                <p>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+
+                                    <table cellspacing="0" cellpadding="0" border="1" style="margin-top: 15px; margin-left: 10px;font-size: 16px;">
+                                            <thead>
+                                                <th style="vertical-align:top;">
+                                                    Denominación Registro
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    F.Ultimo
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    Días Desfase
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                            % for registros in object.revisareg_ids:
+                                            <tr>
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${registros.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;"> ${registros.fechaultima or ''} </span>
+                                                        </div>
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;">${registros.desfase or ''}</span>
+                                                        </div>
+                                                </td>
+                                            </tr>
+
+                                            % endfor
+                                            </tbody>
+                                    </table>
+
+                    </div>
+                    <p style="text-align: justify; text-justify: inter-word;">
+                    Le recordamos que estos registros deben estar disponibles y actualizados, a efectos de inspección de salud pública,
+                    como se indican en la regulacion:
+                    </p>
+
+                     <span>${object.marcolegal | safe}</span>
+                    <p style="text-align: justify;text-justify: inter-word;"font-weight:bold;">
+                    Le sugerimos que deben cumplimentar los registros a la mayor brevedad, dado que la negligencia en la gestión de su sistema de autocontrol puede derivar en sanción administrativa al incumplir los prerrequisitos normativos vigentes.
+                    </p>
+                    <p>
+                    <p>
+                    <p>
+
+                    </p>
+                    </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+                </div>
+                ]]>
+                </field>
+        </record>
+
+
+        <!-- Email template for reset password -->
+        <record id="reset_password_email_siva" model="mail.template">
+            <field name="name">Reset Password</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.email|safe}</field>
+            <field name="subject">Restaurar contraseña de SIVA</field>
+            <field name="body_html">
+                <![CDATA[
+                <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">${object.name}, </p>
+                <p>Este mensaje se ha generado automáticamente para restaurar su contraseña de SIVA</p>
+                <p>Para establecer una nueva contraseña haga clic <a href="${object.signup_url}">en el este enlace</a>, el cual será válido durante 24 horas.</p>
+                <p>Si no has solicitado una nueva contraseña para tu cuenta de SIVA, puedes ignorar y borrar este mensaje.</p>
+                 </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+                <table cellspacing=0 cellpadding=0>
+                   <tr>
+                   <div style="overflow-x:auto;">
+
+                   </div>
+                   </tr>
+                   <tr>
+                   <td align="left" valign="top" style="padding:15px;">
+
+                   </td></tr>
+                 </table>
+                ]]>
+
+
+            </field>
+        </record>
+
+        <!-- Email template for new users SIVA -->
+        <record id="set_password_email_siva" model="mail.template">
+            <field name="name">Siva Conexion</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.email|safe}</field>
+            <field name="subject"><![CDATA[ | ${object.company_id.name} invitación para entrar en SIVA]]></field>
+            <field name="body_html">
+                <![CDATA[
+
+
+                ]]>
+            </field>
+        </record>
+
+
+        <!-- EMAIL FORMACION -->
+
+        <record id="email_avisos_formacion" model="mail.template">
+            <field name="name">Aviso de vencimiento de la formacion</field>
+            <field name="email_from">info@xxxx.com</field>
+            <field name="subject">${object.name}</field>
+            <field name="model_id" ref="appcc.model_appcc_config_avisos"/>
+            <field name="email_to" >${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+
+                </style>
+                <p>
+                A la atención del responsable del APPCC-SIVA de ${object.company_id.name}:
+                </p>
+                <p>
+                <p>
+                <p style="font-weight:bold;"> Por medio del presente le comunicamos que los trabajadores  requieren la renovación de los siguientes certificados que se detallan: </p>
+                <p>
+                <p>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+
+                                    <table cellspacing="0" cellpadding="0" border="1" style="margin-top: 15px; margin-left: 10px;font-size: 16px;">
+                                            <thead>
+                                                <th style="vertical-align:top;">
+                                                    Trabajador
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    Denominación del Curso
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    Dias
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                            % for registros in object.revisareg_ids:
+                                            <tr>
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${registros.planforma_id.personal_id.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                          % for regcursos in registros.planforma_id.tiposcursos_ids:
+                                                           <span style="text-align:center;"> ${regcursos.name or ''} </span>
+                                                           % endfor
+                                                        </div>
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;">${registros.desfase or ''}</span>
+                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            % endfor
+                                            </tbody>
+                                    </table>
+
+                    </div>
+                    <p style="text-align: justify; text-justify: inter-word;">
+                    Le recordamos que estos cursos deben estar vigentes, a efectos de inspección de salud pública,
+                    como se indican en la regulacion:
+                    </p>
+                     <span style="font-style:italic;" >${object.marcolegal | safe}</span>
+
+                    <p style="text-align: justify;text-justify: inter-word;"font-weight:bold;">
+                    Le sugerimos se ponga en contacto con la empresa que imparte los cursos de formación arriba referenciados a la mayor brevedad, dado que la negligencia en la gestión de su sistema de autocontrol puede derivar en sanción administrativa al incumplir los prerrequisitos normativos vigentes.
+                    </p>
+                    <p>
+                    <p>
+                    <p>
+
+
+                    </p>
+                    </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+                </div>
+                ]]>
+                </field>
+        </record>
+
+
+          <!-- EMAIL CONTROL PLAGAS -->
+
+        <record id="email_control_plagas" model="mail.template">
+            <field name="name">Control de plagas</field>
+            <field name="email_from">info@xxxx.com</field>
+            <field name="subject">${object.name}</field>
+            <field name="model_id" ref="appcc.model_appcc_config_avisos"/>
+            <field name="email_to" >${('' if object.partner_id and object.partner_id.email and object.partner_id.email==object.email else object.email|safe)}</field>
+            <!--<field name="partner_to">${object.partner_id and object.partner_id.email and object.partner_id.email==object.email and object.partner_id.id or False }</field>-->
+            <field name="auto_delete" eval="True"/>
+            <field name="mail_server_id" ref="tracksondas.mail_server_infinity" />
+            <field name="body_html"><![CDATA[
+                <style>
+                    span.oe_mail_footer_access {
+                        display:block;
+                        text-align:center;
+                        color:grey;
+                    }
+
+                </style>
+                <p>
+                A la atención del responsable del APPCC-SIVA de ${object.company_id.name}:
+                </p>
+                <p>
+                <p>
+                <p style="font-weight:bold;"> Por medio del presente le comunicamos que esta proxima a caducarse el último control de plagas: </p>
+                <p>
+                <p>
+                <div style="border-radius: 2px; max-width: 1200px; height: auto;margin-left: auto;margin-right: auto;background-color:#f9f9f9;">
+                    <div style="height: auto;margin-left:12px;margin-top:30px;">
+
+                                    <table cellspacing="0" cellpadding="0" border="1" style="margin-top: 15px; margin-left: 10px;font-size: 16px;">
+                                            <thead>
+                                                <th style="vertical-align:top;">
+                                                    Denominación
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    F.Ultima Acción
+                                                </th>
+                                                <th style="vertical-align:top;">
+                                                    Dias
+                                                </th>
+                                            </thead>
+                                            <tbody>
+
+                                            % for registros in object.revisareg_ids:
+                                            <tr>
+                                                <td style="vertical-align:top;">
+
+                                                        <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${registros.name or ''}</span>
+                                                        </div>
+
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                   <div style="width: 400px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="margin-left:5px">${registros.fechaultima or ''}</span>
+                                                        </div>
+                                                </td>
+                                                <td  style="vertical-align:top;">
+                                                    <div style="width: 200px; background : #CCCCCC; font-family: Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;">
+                                                           <span style="text-align:center;">${registros.desfase or ''}</span>
+                                                     </div>
+                                                </td>
+                                            </tr>
+
+                                            % endfor
+                                            </tbody>
+                                    </table>
+
+                    </div>
+                    <p style="text-align: justify; text-justify: inter-word;">
+                    Le recordamos plan de control de plagas debe estar vigente, a efectos de inspección de salud pública,
+                    como se indican en la regulacion:
+                    </p>
+                     <span style="font-style:italic;" >${object.marcolegal | safe}</span>
+
+                    <p style="text-align: justify;text-justify: inter-word;"font-weight:bold;">
+                    Le sugerimos se ponga en contacto con la empresa que realiza la acción de fumigacion y control de plagas  a la mayor brevedad, dado que la negligencia en la gestión de su sistema de autocontrol puede derivar en sanción administrativa al incumplir los prerrequisitos normativos vigentes.
+                    </p>
+                    <p>
+                    <p>
+                    <p>
+
+                    </p>
+                    </a></li></ul><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"> Reciba un cordial saludo,</p>
+                --
+
+                </div>
+                ]]>
+                </field>
+        </record>
+
+
+
+
+
+
+
+
+    </data>
+</odoo>

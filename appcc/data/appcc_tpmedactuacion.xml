@@ -1,0 +1,535 @@
+<openerp>
+    <data noupdate="1">
+        <record id="tpact_1" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DE CONTROL DE POTABILIDAD DEL AGUA</field>
+            <field name="ayuda">&lt;ol&gt;&lt;li&gt;Proveedor
+                homologado (Gestora concertada para el abastecimiento de agua potable).
+
+
+                &lt;/li&gt;&lt;li&gt;Aplicar plan de limpieza, desinfección y mantenimiento de los depósitos.
+
+
+                &lt;/li&gt;&lt;li&gt;Tratamiento de hipercloración
+                de la red interior de agua, por empresa autorizada que aporte cerificado
+                de tratamiento.
+
+                &amp;nbsp;
+                &lt;/li&gt;&lt;/ol&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_2" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL CONTROL DE POTABILIDAD DEL AGUA</field>
+            <field name="ayuda">&lt;ol&gt;&lt;li&gt;Notificar
+                a empresa gestora si el problema es externo. En caso de ser interno comunicarlo
+                a mantenimiento.&amp;nbsp;Si
+                persiste el problema emplear agua envasada.&lt;/li&gt;&lt;li&gt;Realizar tratamiento certificado de
+                limpieza, desinfección y mantenimiento de
+                filtros.
+
+                &lt;/li&gt;&lt;li&gt;Repetir
+                el tratamiento en caso de que la analítica sea desfavorable al tratamiento
+                efectuado.&lt;/li&gt;&lt;li&gt;Medición de cloro en la entrada, si es incorrecto se notificará a la
+                empresa
+                gestora, si es correcto al servicio de mantenimiento, dado que el problema es
+                interno.
+
+
+                &amp;nbsp;
+                &lt;/li&gt;&lt;/ol&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_3" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DEL PLAN DE LIMPIEZA Y DESINFECCIÓN</field>
+            <field name="ayuda">&lt;span&gt;Niveles de contaminación microbiana
+                (Aerobios mesófilos y Enterobacterias) inferiores a 10 U.F.C./25 cm2 de
+                superficie hisopada para cámara frigorífica y vehículos distribución.&lt;/span&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_4" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL PLAN DE LIMPIEZA Y DESINFECCIÓN</field>
+            <field name="ayuda">&lt;ol&gt;&lt;li&gt;REALIZAR CURSO DE FORMACIÓN DEL PLAN DE LIMPIEZA Y DESINFECCIÓN EN
+                CASO DE NO CONOCER LOS PROCEDIMIENTOS.&lt;/li&gt;&lt;li&gt;REALIZAR NUEVO ANÁLISIS DE SUPERFICIE SI SE
+                SUPERA LAS 10 U.F.C.&lt;/li&gt;&lt;li&gt;SUSTITUIR LOS PRODUCTOS DE LIMPIEZA Y DESINFECCIÓN SI EL EFECTO
+                NO ES EL DESEADO EN CONTROL MICROBIOLÓGICO.&lt;/li&gt;&lt;/ol&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_5" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DEL PLAN DE MANTENIMIENTO DE INSTALACIONES Y EQUIPOS</field>
+            <field name="ayuda">Prevenir
+                los peligros originados por el deterioro y/o funcionamiento defectuoso de las
+                instalaciones y los equipos.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_6" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL PLAN DE MANTENIMIENTO DE INSTALACIONES Y EQUIPOS</field>
+            <field name="ayuda">Registro
+                de acciones de mantenimiento practicadas: (ver modelo a cumplimentar en los
+                anexos de registros de autocontrol)
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_7" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DEL PLAN DE LUCHA CONTRA PLAGAS</field>
+            <field name="ayuda">Establecer
+                las medidas de prevención y en caso necesario de erradicación necesarias para
+                evitar la contaminación de los alimentos por vectores.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_8" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL PLAN DE LUCHA CONTRA PLAGAS</field>
+            <field name="ayuda">SOLICITAR ACTUACIÓN DE EMPRESA CONTRATA EN CUALQUIER CASO DE PRESENCIA DE PLAGAS EN LAS
+                INSTALACIONES.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_9" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DEL CONTROL DE TEMPERATURAS</field>
+            <field name="ayuda">Establecer las medidas de
+                prevención y control de recepción y almacenamiento de los productos a
+                temperatura regulada
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_10" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL CONTROL DE TEMPERATURAS</field>
+            <field name="ayuda">Se registrará la temperatura de los
+                displays
+                ópticos de los equipos a temperatura regulada, anotándolos por la mañana y por
+                la tarde en el registro de autocontrol
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_11" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DEL PLAN DE TRAZABILIDAD</field>
+            <field name="ayuda">.- El gabinete de alertas o crisis
+                alimentarias,
+                se encargará de la gestión de todo el proceso de
+
+                potencial alerta o crisis, desde su
+                detección hasta su cierre.
+
+                ORTHIDAL, S.L., constituye un
+                gabinete de alertas y crisis formado por un Coordinador (Director),
+
+                los representantes de las áreas de
+                compras, comercial, almacén y calidad.
+
+                Las
+                funciones del gabinete de alertas o crisis son:
+
+                &lt;div&gt;-Elegir
+                un interlocutor con la Administración y otros agentes externos.&lt;/div&gt;
+
+                &lt;div&gt;-Caracterizar
+                y evaluar la alerta o crisis alimentaria.&lt;/div&gt;
+
+                &lt;div&gt;-Proponer
+                y gestionar planes concretos para recuperar la situación de normalidad.&lt;/div&gt;
+
+                &lt;div&gt;-Dirigir,
+                definir y ejecutar con medios internos y/o externos la política de
+                comunicación.&lt;/div&gt;
+
+                &lt;div&gt;-Establecer
+                procedimientos y sistemas de control y evaluar los objetivos y acciones a
+                llevar a cabo.&lt;/div&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_12" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS PREVENTIVAS DEL PLAN DE TRAZABILIDAD</field>
+            <field name="ayuda">-
+                Garantizar la identificación y registro de todos los alimentos que se
+                encuentren bajo la responsabilidad de la empresa en el almacén
+                frigorífico-congelador.
+
+
+                &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Garantizar en caso de que se detecte un
+                riesgo para la salud, la localización de un lote o producto distribuido.&lt;/span&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_13" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS CORRECTORAS DE LA GUÍA DE BUENAS PRÁCTICAS DE HIGIENE</field>
+            <field name="ayuda">EN BASE A LA AUDITORÍA INTERNA SE ESTABLECE LOS NIVELES DE INCIDENCIAS REGISTRADOS EN
+                LAS PRÁCTICAS DE MANIPULACIÓN DEL PERSONAL.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_15" model="appcc.maestros.tpmedactuacion">
+            <field name="name">NOTIFICAR AL PROVEEDOR MEDIDAS CORRECTORAS</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_16" model="appcc.maestros.tpmedactuacion">
+            <field name="name">APERCIBIMIENTO AL PROVEEDOR POR ESCRITO EN PARTE DE INCIDENCIAS</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_17" model="appcc.maestros.tpmedactuacion">
+            <field name="name">RECHAZO DE LA MERCANCÍA EN MAL ESTADO</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_18" model="appcc.maestros.tpmedactuacion">
+            <field name="name">HOMOLOGACIÓN DE PROVEEDORES</field>
+            <field name="ayuda">&lt;span&gt;-Homologación
+                documentada de proveedores.&lt;br&gt;-Solicitar copia del RGSEAA (Registro sanitario).&amp;nbsp;&lt;/span&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_19" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS FÍSICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y VEHÍCULO
+                TRANSPORTE
+            </field>
+            <field name="ayuda">&lt;span&gt;-Inspección
+                ocular cajón camión y mercancía. Vigilar condiciones de limpieza y
+                mantenimiento&lt;br&gt;&lt;/span&gt;&lt;span&gt;- Ausencia
+                de riesgos físicos en la inspección ocular de la mercancía y vehículo
+                transporte.&lt;br&gt;&lt;/span&gt;&lt;br&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_20" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS QUÍMICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y VEHÍCULO
+                TRANSPORTE.
+            </field>
+            <field name="ayuda">-Ausencia
+                de riesgos químicos en la inspección ocular de la mercancía y vehículo
+                transporte.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_21" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE NICHOS POSIBLES DE RIESGOS MICROBIOLÓGICOS EN LA INSPECCIÓN DE LA MERCANCÍA Y
+                VEHÍCULO
+            </field>
+            <field name="ayuda">&lt;div&gt;Ausencia
+                de nichos posibles de&amp;nbsp; riesgos
+                microbiológicos en la inspección ocular de la mercancía y vehículo transporte.&lt;/div&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_22" model="appcc.maestros.tpmedactuacion">
+            <field name="name">DESCARGA EFICAZ E INMEDIATA DE LA MERCANCÍA</field>
+            <field name="ayuda">Descarga
+                eficaz e inmediata de la mercancía.&amp;nbsp;
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_23" model="appcc.maestros.tpmedactuacion">
+            <field name="name">COMPROBAR TEMPERATURA DEL CAJÓN DEL VEHÍCULO Y MERCANCÍA</field>
+            <field name="ayuda">Comprobar
+                temperatura del cajón, y mercancía.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_24" model="appcc.maestros.tpmedactuacion">
+            <field name="name">COMPROBAR TEMPERATURA DEL TERMÓGRAFO Y/O DISPLAY DIGITAL DEL CAMIÓN</field>
+            <field name="ayuda">&lt;span&gt;Comprobar
+                temperatura del termógrafo y/o display
+                digital del camión.&lt;/span&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_25" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS FÍSICOS EN LA INSPECCIÓN DE LA MERCANCÍA Y CÁMARA FRIGORÍFICA</field>
+            <field name="ayuda">Ausencia
+                de riesgos físicos en la inspección ocular de la mercancía y cámara frigorífica&amp;nbsp;
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_26" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS FÍSICOS EN LA INSPECCIÓN DE LA MERCANCÍA Y CÁMARA DE CONGELACIÓN
+            </field>
+            <field name="ayuda">Ausencia
+                de riesgos físicos en la inspección ocular de la mercancía y cámara &amp;nbsp;de congelación.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_27" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS QUÍMICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y CÁMARA
+                FRIGORÍFICA
+            </field>
+            <field name="ayuda">Ausencia
+                de riesgos químicos en la inspección ocular de la mercancía y cámara
+                frigorífica .
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_28" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS QUÍMICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y CÁMARA DE
+                CONGELACIÓN
+            </field>
+            <field name="ayuda">Ausencia
+                de riesgos químicos en la inspección ocular de la mercancía y cámara &amp;nbsp;de congelación.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_29" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE NICHOS MICROBIOLÓGICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y CÁMARA
+                FRIGORÍFICA
+            </field>
+            <field name="ayuda">Ausencia
+                de nichos posibles de&amp;nbsp; riesgos
+                microbiológicos en la inspección ocular de la mercancía y cámara frigorífica.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_30" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS MICROBIOLÓGICOS EN LA INSPECCIÓN OCULAR DE LA MERCANCÍA Y CÁMARA DE
+                CONGELACIÓN
+            </field>
+            <field name="ayuda">Ausencia
+                de nichos posibles de&amp;nbsp; riesgos
+                microbiológicos en la inspección ocular de la mercancía y cámara &amp;nbsp;de congelación.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_31" model="appcc.maestros.tpmedactuacion">
+            <field name="name">CONTROL DE CADENA DE FRÍO</field>
+            <field name="ayuda">-Comprobar
+                temperatura de cámaras, y mercancía.
+
+                &lt;br&gt;&lt;span&gt;-Comprobar
+                temperatura del termógrafo y/o display
+                digital de las cámaras.&lt;/span&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_32" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS FÍSICOS EN LA MERCANCÍA Y VEHÍCULO DE TRANSPORTE</field>
+            <field name="ayuda">Ausencia
+                de riesgos físicos en la mercancía y vehículo transporte.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_33" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS QUÍMICOS EN LA MERCANCÍA Y VEHÍCULO DE TRANSPORTE</field>
+            <field name="ayuda">Ausencia
+                de riesgos químicos en la mercancía y vehículo transporte.&lt;br&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_34" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE NICHOS POSIBLES DE RIESGOS MICROBIOLÓGICOS EN LA MERCANCÍA Y VEHÍCULO</field>
+            <field name="ayuda">Ausencia
+                de nichos posibles de&amp;nbsp; riesgos
+                microbiológicos en la mercancía y vehículo transporte.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_35" model="appcc.maestros.tpmedactuacion">
+            <field name="name">CARGA EFICAZ E INMEDIATA DE LA MERCANCÍA</field>
+            <field name="ayuda">Carga
+                eficaz e inmediata de la mercancía&lt;br&gt;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_36" model="appcc.maestros.tpmedactuacion">
+            <field name="name">RECHAZO DE LA MERCANCÍA EN MAL ESTADO Y APERCIBIMIENTO POR ESCRITO DE LA INCIDENCIA AL
+                PROVEEDOR
+            </field>
+            <field name="ayuda">&lt;div&gt;-Rechazo
+                de la mercancía en mal estado. Y apercibimiento por escrito de la incidencia al
+                proveedor.&lt;/div&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_37" model="appcc.maestros.tpmedactuacion">
+            <field name="name">RECHAZO DE MERCANCÍA POR NO CUMPLIR REQUISITOS FÍSICOS, QUÍMICOS Y MICROBIOLÓGICOS
+            </field>
+            <field name="ayuda">En
+                caso de no cumplimiento por defectos físicos, químicos y/o microbiológicos se
+                procede al rechazo de la mercancía y documentar la incidencia.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_38" model="appcc.maestros.tpmedactuacion">
+            <field name="name">ALMACENAMIENTO A TEMPERATURA REGULADA EN CAMIÓN HASTA SUBSANAR DEFICIENCIAS</field>
+            <field name="ayuda">En
+                caso de no cumplimiento por defectos humanos o materiales se procede al
+                almacenamiento a temperatura regulada en el camión de la mercancía hasta
+                subsanar deficiencias.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_39" model="appcc.maestros.tpmedactuacion">
+            <field name="name">CERTIFICADO OFICIAL VETERINARIO DE DECOMISO Y DESTRUCCIÓN</field>
+            <field name="ayuda">En
+                caso de no cumplimiento por defectos físicos, químicos y/o microbiológicos se
+                procede a inmovilizar la mercancía para su destrucción certificada por el
+                veterinario colegiado mediante la Gestora de Residuos Autorizada para productos y subproductos &amp;nbsp;de
+                orígen animal o bien por el Complejo Medioambiental Autorizado.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_40" model="appcc.maestros.tpmedactuacion">
+            <field name="name">RECHAZO DE LA MERCANCÍA EN MAL ESTADO E INFORME DE INCIDENCIAS CON CERTIFICACIÓN OFICIAL
+                VETERINARIA
+            </field>
+            <field name="ayuda">&lt;div&gt;-Rechazo
+                de la mercancía. Informe escrito de la incidencia para destrucción de la
+                mercancía certificada por el veterinario colegiado en el Complejo
+                Medioambiental Autorizado.&lt;/div&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_41" model="appcc.maestros.tpmedactuacion">
+            <field name="name">ALMACENAMIENTO A TEMPERATURA REGULADA DE MERCANCÍA NO APTA Y DESTRUIRLA CON
+                CERTIFIACIÓN
+            </field>
+            <field name="ayuda">Almacenamiento
+                de la mercancía que no reúna requisitos de temperatura para su destrucción.Certificado Veterinario para
+                destrucción de la mercancía en Gestora Autorizada Medioambiental.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_42" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AVISAR A EMPRESA GESTORA DE AGUA SI EL PROBLEMA ES EXTERNO</field>
+            <field name="ayuda">Notificar
+                a empresa gestora si el problema es externo.&amp;nbsp;
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_43" model="appcc.maestros.tpmedactuacion">
+            <field name="name">NOTIFICAR A PERSONAL INTERNO SI LA AVERÍA ES EN LA ACOMETIDA A LA INSTALACIÓN INTERIOR
+            </field>
+            <field name="ayuda">&amp;nbsp;En caso de ser interno comunicarlo
+                a mantenimiento.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_44" model="appcc.maestros.tpmedactuacion">
+            <field name="name">EMPLEAR AGUA DE CUBA</field>
+            <field name="ayuda">En caso de un desabastecimiento de agua potable, solicitar una cuba de agua potable.&lt;br&gt;Requerir
+                la documentación: registro sanitario proveedor, análisis de agua, parte de visita con datos de camión y
+                nivel de cloro.&lt;br&gt;En este caso no se dispone de aljibe intermedia.
+            </field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_45" model="appcc.maestros.tpmedactuacion">
+            <field name="name">REALIZAR CONTRAANÁLISIS DE AGUA SI ES DESFAVORABLE</field>
+            <field name="ayuda">En
+                caso desfavorable, solicitar contranálisis con gestora de agua externa&lt;br&gt;</field>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_46" model="appcc.maestros.tpmedactuacion">
+            <field name="name">CONTROL ANALÍTICO FÍSICO QUÍMICO Y MICROBIOLÓGICO DEL AGUA SEGÚN R.D. 140/2003</field>
+            <field name="ayuda">CONTROL ANALÍTICO FÍSICO QUÍMICO Y MICROBIOLÓGICO DEL AGUA SEGÚN R.D. 140/2003 DE 7 DE
+                FEBRERO.
+            </field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_47" model="appcc.maestros.tpmedactuacion">
+            <field name="name">AUSENCIA DE RIESGOS FÍSICOS, QUÍMICOS Y MICROBIOLÓGICOS</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_48" model="appcc.maestros.tpmedactuacion">
+            <field name="name">COMPROBAR TEMPERATURA DE CÁMARA DE CONGELACIÓN</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_49" model="appcc.maestros.tpmedactuacion">
+            <field name="name">COMPROBAR TEMPERATURA DE CÁMARA DE REFRIGERACIÓN</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_50" model="appcc.maestros.tpmedactuacion">
+            <field name="name">VOLVER A REALIZAR EL PROCESO DE LIMPIEZA Y DESINFECCIÓN ANTE NO CONFORMIDAD</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_51" model="appcc.maestros.tpmedactuacion">
+            <field name="name">REPETIR EL PROCESO DE LIMPIEZA Y DESINFECCIÓN</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_52" model="appcc.maestros.tpmedactuacion">
+            <field name="name">APLICAR DE FORMA CORRECTA EL PLAN DE LIMPIEZA DE LA ZONA</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_53" model="appcc.maestros.tpmedactuacion">
+            <field name="name">APLICAR DE FORMA CORRECTA EL PLAN DE LIMPIEZA DEL EQUIPO</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_88" model="appcc.maestros.tpmedactuacion">
+            <field name="name">IDENTIFICAR MERCANCÍA NO APTA PARA DISTRIBUCIÓN</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_5770" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE HOMOLOGACIÓN DE PROVEEDORES/ PLAN DE LIMPIEZA Y DESINFECCIÓN/ PLAN DE
+                MANTENIMIENTO
+            </field>
+            <field name="ayuda">&amp;nbsp;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5771" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE CONTROL Y HOMOLOGACIÓN DE PROVEEDORES</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5772" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE LIMPIEZA Y DESINFECCIÓN/ PLAN DE MANTENIMIENTO/ PLAN DE CONTROL DE TEMPERATURAS
+            </field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5773" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE LIMPIEZA Y DESINFECCIÓN/ PLAN DE MANTENIMIENTO</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5774" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE LIMPIEZA Y DESINFECCIÓN</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5775" model="appcc.maestros.tpmedactuacion">
+            <field name="name">NOTIFICAR AL PROVEEDOR INCIDENCIAS Y MEDIDAS CORRECTORAS / RECHAZO DE MERCANCÍA EN MAL
+                ESTADO
+            </field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_5776" model="appcc.maestros.tpmedactuacion">
+            <field name="name">NOTIFICAR AL PROVEEDOR INCIDENCIAS Y MEDIDAS CORRECTORAS / RECHAZO DEL SUMINISTRO</field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_5777" model="appcc.maestros.tpmedactuacion">
+            <field name="name">MEDIDAS GUÍA DE BPM/ RECHAZO MERCANCÍA EN MAL ESTADO/ INFORME INCIDENCIAS CON
+                CERTIFICACIÓN OFICIAL
+            </field>
+            <field name="ayuda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="tpact_5778" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE HOMOLOGACIÓN DE PROVEEDORES</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5779" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE CONTROL DE TEMPERATURAS</field>
+            <field name="ayuda">&amp;nbsp;</field>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5812" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE BPM/ PLAN DE LIMPIEZA Y DESINFECCIÓN/ PLAN DE MANTENIMIENTO/ PLAN DE CONTROL DE
+                Tª.
+            </field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_5813" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE BUENAS PRÁCTICAS DE MANUFACTURA</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_6123" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE MANTENIMIENTO</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+        <record id="tpact_6124" model="appcc.maestros.tpmedactuacion">
+            <field name="name">PLAN DE BPM/ PLAN DE LIMPIEZA Y DESINFECCIÓN/ PLAN DE MANTENIMIENTO</field>
+            <field name="ayuda"/>
+            <field name="tipo">P</field>
+        </record>
+    </data>
+</openerp>

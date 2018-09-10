@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data noupdate="1">
+        <record id="cron_1" model="ir.cron">
+            <field name="name">GENERAR AGENDA</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.detallesregistros</field>
+            <field name="function">action_button_generaragenda</field>
+            <field name="args">()</field>
+        </record>
+
+         <record id="cron_2" model="ir.cron">
+            <field name="name">CALCULO MEDIA TEMPERATURA</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.detallesregistros</field>
+            <field name="function">cron_calculate_valor</field>
+            <field name="args">()</field>
+        </record>
+
+        <record id="cron_3" model="ir.cron">
+            <field name="name">REVISION DESFAS REGISTROS</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.config.avisos</field>
+            <field name="function">action_genera_revision</field>
+            <field name="args">()</field>
+        </record>
+
+         <record id="cron_4" model="ir.cron">
+            <field name="name">REVISION VENCE FORMA</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.config.avisos</field>
+            <field name="function">cron_planformacion</field>
+            <field name="args">()</field>
+        </record>
+
+        <record id="cron_5" model="ir.cron">
+            <field name="name">REVISION VENCE PLAGAS</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.config.avisos</field>
+            <field name="function">cron_planautocontrol</field>
+            <field name="args">()</field>
+        </record>
+
+        <record id="cron_6" model="ir.cron">
+            <field name="name">CALCULO TEMPERATURA CINETICA</field>
+            <field name="numbercall">-1</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now().date() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="model">appcc.detallesregistros</field>
+            <field name="function">cron_calculate_temp_cinetica</field>
+            <field name="args">()</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="web_task_color_assets_backend"
+                  name="web_task_color_assets_backend"
+                  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!--Be sure to call your module name in place of project_task_agenda_coloring. This is the name of my module! -->
+                <script src="/appcc/static/src/js/web_task_color.js" type="text/javascript"></script>
+            </xpath>
+        </template>
+
+
+
+        <record id="view_calendar_event_form_popup" model="ir.ui.view">
+            <field name="name">appcc.regcal.form</field>
+            <field name="model">appcc.registros</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <form string="Registro" >
+                    <field name="detreg_id"        invisible="1"/>
+                    <field name="state"            invisible="1"/>
+                    <field name="tipo"             invisible="1" />
+                    <field name="state"            invisible="1" />
+                    <field name="stop_date"        invisible="1" />
+                    <field name="incidencia"       invisible="1" />
+
+                    <sheet>
+                        <header>
+                           <span><h2>ENTRADA DE DATOS</h2></span>
+                        </header>
+                        <group>
+
+                            <group>
+                                <field name="start_date" readonly="1" />
+
+                                <field name="valor"         attrs="{'invisible': [('tipo','=','C')] , 'readonly': [('state','=','done')] }"/>
+                                <field name="estado"        attrs="{'invisible': [('tipo','=','V')] , 'readonly': [('state','=','done')] }"/>
+                            </group>
+                            <group>
+                                <field name="firmas_id"     attrs="{'readonly': [('state','=','done')] }" />
+                            </group>
+
+                        </group>
+                        <group>
+                            <field name="observaciones" attrs="{ 'readonly': [('state','=','done')] }"/>
+                        </group>
+
+                        <footer>
+
+
+                            <div  class="row" >
+
+                                <div class="col-xs-9" attrs="{'invisible':[('state','=','done')]}" >
+
+                                    <div attrs="{'invisible':[('state','=','draft')]}" >
+                                        <h3>
+                                            ESTADO: INCOMPLETO
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9" attrs="{'invisible':[('state','=','done')]}" >
+                                    <div attrs="{'invisible':[('state','=',False)]}" class="row" >
+                                        <h3>
+                                            ESTADO: PROCEDA A GENERAR AVISO
+
+                                        </h3>
+                                        <field name="textoincidencia"  attrs="{ 'readonly': 1 }" />
+                                    </div>
+                                </div>
+                                <div attrs="{'invisible':[('state','=','done')]}" >
+                                        <button name="action_button_incidencia"  type="object" string="Aviso" class="oe_highlight" />
+                            </div>
+
+                            </div>
+
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_regtask_calendar" model="ir.ui.view">
+            <field name="name">appcc.regtask.calendar</field>
+            <field name="model">appcc.registros</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <calendar mode="day"  color="actividad_id" date_start="start_datetime" string="Registros"  date_stop="stop" state="state"  quick_add="False" event_open_popup="%(appcc.view_calendar_event_form_popup)s">
+                    <field name="detreg_id"/>
+                    <field name="state"/>
+
+
+                </calendar>
+            </field>
+        </record>
+
+
+        <record id="action_appcc_regcal" model="ir.actions.act_window">
+            <field name="name">Registros Programados</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.registros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,form</field>
+            <field name="domain"> "['|',('detreg_id.departamento_ids.member_ids.user_id', 'in', [uid]), ('detreg_id.departamento_ids','=',False), ] </field>
+        </record>
+
+        <menuitem name="Tareas Registros"
+                  action="action_appcc_regcal"
+                  id="menu_appcc_regcal"
+                  icon="fa-calendar"
+                  parent="menu_appcc_registros"
+                  groups="group_appcc_user"
+                  sequence="13"/>
+
+        <record id="action_appcc_regcal_tecnico" model="ir.actions.act_window">
+            <field name="name">Registros Programados</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.registros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,form</field>
+        </record>
+
+        <menuitem name="Tecnicos Registros"
+                  action="action_appcc_regcal_tecnico"
+                  id="menu_appcc_regcal_1"
+                  icon="fa-calendar"
+                  parent="menu_appcc_registros"
+                  groups="group_appcc_tecnicos"
+                  sequence="14"/>
+
+
+    </data>
+</openerp>

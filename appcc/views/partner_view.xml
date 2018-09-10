@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_appcc_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.appcc.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="APPCC" name="appcc">
+                        <!-- something to do here -->
+                        <group colspan="2" col="2">
+                            <separator string="Firma Digitalizada" colspan="2"/>
+                                <field name="imgsignature" label="1" widget="image"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

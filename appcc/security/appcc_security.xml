@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="appcc.menu_appcc" model="ir.ui.menu">
+              <field name="name">APPCC</field>
+              <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+         </record>
+
+        <record id="module_category_appcc" model="ir.module.category">
+            <field name="name">APPCC</field>
+            <field name="description">Helps you manage your appcc.</field>
+            <field name="parent_id" ref="base.module_category_reporting"/>
+            <field name="sequence">6</field>
+        </record>
+
+        <!-- GRUPOS APPCC -->
+        <!--<record id="group_appcc_fumi" model="res.groups">-->
+            <!--<field name="name">Fumigadoras</field>-->
+            <!--<field name="category_id" ref="module_category_appcc"/>-->
+        <!--</record>-->
+
+        <!--<record id="group_appcc_labora" model="res.groups">-->
+            <!--<field name="name">Laboratorio</field>-->
+            <!--<field name="category_id" ref="module_category_appcc"/>-->
+        <!--</record>-->
+
+        <record id="group_appcc_userplagas" model="res.groups">
+            <field name="name">Plagas</field>
+            <field name="category_id" ref="module_category_appcc"/>
+        </record>
+
+        <record id="group_appcc_userlab" model="res.groups">
+            <field name="name">Laboratorio</field>
+            <field name="category_id" ref="module_category_appcc"/>
+        </record>
+
+        <record id="group_appcc_user" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="module_category_appcc"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_appcc_manager" model="res.groups">
+            <field name="name">Responsable</field>
+            <field name="category_id" ref="module_category_appcc"/>
+            <field name="implied_ids" eval="[(4, ref('group_appcc_user'))]"/>
+        </record>
+
+         <record id="group_appcc_tecnicos" model="res.groups">
+            <field name="name">Tecnicos</field>
+            <field name="category_id" ref="module_category_appcc"/>
+            <field name="implied_ids" eval="[(4, ref('group_appcc_manager'))]"/>
+        </record>
+
+        <record id="group_appcc_admin" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="category_id" ref="module_category_appcc"/>
+            <field name="implied_ids" eval="[(4, ref('group_appcc_tecnicos'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="0">
+
+        <!-- MODEL APPCC -->
+
+
+
+        <record id="appcc_appcc_rule" model="ir.rule">
+            <field name="name">Rule APPCC</field>
+            <field name="model_id" ref="model_appcc"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+         <record id="appcc_appcc_manualautocontrol_rule" model="ir.rule">
+            <field name="name">Rule Manualautocontrol</field>
+            <field name="model_id" ref="model_appcc_manualautocontrol"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+         <record id="appcc_appcc_planautocontrol_rule" model="ir.rule">
+            <field name="name">Rule Planautocontrol</field>
+            <field name="model_id" ref="model_appcc_planautocontrol"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_planformacion_rule" model="ir.rule">
+            <field name="name">Rule Planformacion</field>
+            <field name="model_id" ref="model_appcc_planformacion"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_consumibles_rule" model="ir.rule">
+            <field name="name">Rule Consumibles</field>
+            <field name="model_id" ref="model_appcc_consumibles"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+
+        <record id="appcc_appcc_cabregistros_rule" model="ir.rule">
+            <field name="name">Rule Cabecera registros</field>
+            <field name="model_id" ref="model_appcc_cabregistros"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_detallesregistros_rule" model="ir.rule">
+            <field name="name">Rule Detalles registros</field>
+            <field name="model_id" ref="model_appcc_detallesregistros"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_registros_rule" model="ir.rule">
+            <field name="name">Rule Registros</field>
+            <field name="model_id" ref="model_appcc_registros"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_cuadrosgestion_rule" model="ir.rule">
+            <field name="name">Rule Cuadro de gestion</field>
+            <field name="model_id" ref="model_appcc_cuadrosgestion"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_gestorincidencias_rule" model="ir.rule">
+            <field name="name">Rule Gestor de incidencias</field>
+            <field name="model_id" ref="model_appcc_gestorincidencias"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_cabanaliticas_rule" model="ir.rule">
+            <field name="name">Rule Cabecera analiticas</field>
+            <field name="model_id" ref="model_appcc_cabanaliticas"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_detanaliticas_rule" model="ir.rule">
+            <field name="name">Rule Detalle analiticas</field>
+            <field name="model_id" ref="model_appcc_detanaliticas"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_cabinfotecnicos_rule" model="ir.rule">
+            <field name="name">Rule Cabecera informes tecnicos</field>
+            <field name="model_id" ref="model_appcc_cabinfotecnicos"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_detinfotecnicos_rule" model="ir.rule">
+            <field name="name">Rule Detalle informes tecnicos</field>
+            <field name="model_id" ref="model_appcc_detinfotecnicos"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_excepcalendar_rule" model="ir.rule">
+            <field name="name">Rule Excepciones calendario</field>
+            <field name="model_id" ref="model_appcc_excepcalendar"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+         <!-- MODEL APPCC EVALUACIONES -->
+
+        <!--<record id="appcc_appcc_templeval_rule" model="ir.rule">
+            <field name="name">Rule Template evaluacion</field>
+            <field name="model_id" ref="model_appcc_template_evaluacion"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>-->
+
+        <record id="appcc_appcc_evaluacion_rule" model="ir.rule">
+            <field name="name">Rule Registros</field>
+            <field name="model_id" ref="model_appcc_evaluacion"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_evalinea_rule" model="ir.rule">
+            <field name="name">Rule Cuadro de gestion</field>
+            <field name="model_id" ref="model_appcc_evaluacion_lineas"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="appcc_appcc_evadet_rule" model="ir.rule">
+            <field name="name">Rule Gestor de incidencias</field>
+            <field name="model_id" ref="model_appcc_evaluacion_detalle"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+
+        <record id="appcc_appcc_evadet_rule" model="ir.rule">
+            <field name="name">Rule Gestor de incidencias</field>
+            <field name="model_id" ref="model_appcc_evaluacion_detalle"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+
+         <record id="appcc_appcc_config_avi_rule" model="ir.rule">
+            <field name="name">Rule Configuracion Avisos </field>
+            <field name="model_id" ref="model_appcc_config_avisos"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+    </data>
+</openerp>
+
+

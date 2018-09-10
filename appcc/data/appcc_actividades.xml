@@ -1,0 +1,791 @@
+<openerp>
+
+    <data noupdate="1">
+        <record id="acti_317" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR COCINA DE GAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_318" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR PLANCHA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_319" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR SUELO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_320" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR TREN DE LAVADO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_321" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA CUBOS Y CONTENEDORES DE BASURA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_322" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE EQUIPOS FRIGORÍFICOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_323" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE EQUIPOS CONGELADORES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_324" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE BOTELLEROS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_325" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE ASEOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_326" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MICROONDAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_327" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MÁQUINA DE CAFÉ</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_328" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MÁQUINA DE ZUMO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_329" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE BAÑO MARÍA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_330" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE FERMENTADORA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_331" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE FREIDORAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_332" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE LAVAVASOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_333" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MÁQUINA CORTADORA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_334" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MÁQUINA DE VACÍO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_335" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE TURMIX</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_336" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR CAMPANA EXTRACTORA Y FILTROS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_337" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MÁQUINA DE HIELO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_338" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE PICADORA DE CARNE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_339" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE MESAS DE TRABAJO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_340" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE TAJOS DE CORTE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_341" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA DE CUCHILLOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_342" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE CLORO EN RED</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_343" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA DE BAÑO MARÍA Nº1</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_344" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA DE BAÑO MARÍA Nº2</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_345" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CÁMARA SALSAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_346" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM CENTRAL 1</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_347" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM CENTRAL 2</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_348" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM VERDURAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_349" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM CARNE 1</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_350" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM CARNE 2</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_351" model="appcc.maestros.actividades">
+            <field name="name">CONTROL TEMPERATURA CBM COMPONER PIZZERO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_352" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CBM MIXTA PIZZERO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_353" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CÁMARA FRIGORÍFICA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_354" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CONGELADOR KALISE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_355" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA CONGELACIÓN ARCÓN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_356" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA PLATOS FRÍOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_357" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA PLATOS CALIENTES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_358" model="appcc.maestros.actividades">
+            <field name="name">CONTROL TEMPERATURA TREN DE LAVADO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_359" model="appcc.maestros.actividades">
+            <field name="name">DESINFECCIÓN DE VERDURAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_360" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE CALIDAD DEL ACEITE DE FRITURA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_361" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE RECEPCIÓN DE MERCANCÍAS</field>
+            <field eval="False" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_362" model="appcc.maestros.actividades">
+            <field name="name">FUMIGACIÓN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_363" model="appcc.maestros.actividades">
+            <field name="name">AUDITORÍA SANITARIA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_774" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE CLORO, COLOR, OLOR Y SABOR DEL AGUA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_775" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR MESAS, TABURETES Y BANCOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_776" model="appcc.maestros.actividades">
+            <field name="name">REPONER SERVILLETAS, COMANDAS, BOLÍGRAFOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_777" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR MÁRMOLES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_778" model="appcc.maestros.actividades">
+            <field name="name">BARRER Y FREGAR SUELO DE SALA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_779" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA Y REPOSICIÓN ASEOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_780" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR Y RECOGER MESAS/SILLAS DE TERRAZA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_781" model="appcc.maestros.actividades">
+            <field name="name">CERRAR Y RECOGER SOMBRILLAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_782" model="appcc.maestros.actividades">
+            <field name="name">BARRER SUELO DE TERRAZA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_783" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR TARTERAS Y CAMBIAR BLONDAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_784" model="appcc.maestros.actividades">
+            <field name="name">EQUIPOS DE CERVEZA (GRIFOS, TUBOS)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_785" model="appcc.maestros.actividades">
+            <field name="name">EQUIPO PEPSI (BOQUILLA Y EXTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_786" model="appcc.maestros.actividades">
+            <field name="name">CAFETERA (CIEGO Y MOLINILLOS)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_787" model="appcc.maestros.actividades">
+            <field name="name">BOTELLEROS (EXTERIOR) Y REPONER BEBIDAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_788" model="appcc.maestros.actividades">
+            <field name="name">MUEBLES (COLOCACIÓN VAJILLA, MENAJE, CRISTALERÍA)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_789" model="appcc.maestros.actividades">
+            <field name="name">MÁRMOLES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_790" model="appcc.maestros.actividades">
+            <field name="name">EQUIPOS INFORMÁTICOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_791" model="appcc.maestros.actividades">
+            <field name="name">PAPELERAS (LIMPIAS Y REPUESTAS)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_792" model="appcc.maestros.actividades">
+            <field name="name">Prod:cambio a gastro limpio/fechado Ok/con film</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_793" model="appcc.maestros.actividades">
+            <field name="name">ALMACENADO EN CÁMARA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_794" model="appcc.maestros.actividades">
+            <field name="name">HORNOS POR FUERA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_795" model="appcc.maestros.actividades">
+            <field name="name">MUEBLE HORNOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_796" model="appcc.maestros.actividades">
+            <field name="name">CARRO BANDEJERO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_797" model="appcc.maestros.actividades">
+            <field name="name">MESAS FRÍAS (EXTERIOR E INTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_798" model="appcc.maestros.actividades">
+            <field name="name">FREIDORA POR FUERA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_799" model="appcc.maestros.actividades">
+            <field name="name">STEAMER (INTERIOR/EXTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_800" model="appcc.maestros.actividades">
+            <field name="name">ESEXTREM (INTERIOR/EXTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_801" model="appcc.maestros.actividades">
+            <field name="name">LÁMPARA DE CALOR</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_802" model="appcc.maestros.actividades">
+            <field name="name">SARTÉN CALAMARES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_803" model="appcc.maestros.actividades">
+            <field name="name">MUEBLE COCINA (ORGANIZADO)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_804" model="appcc.maestros.actividades">
+            <field name="name">IMPRESORA/MÁRMOLES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_805" model="appcc.maestros.actividades">
+            <field name="name">CRISTALES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_806" model="appcc.maestros.actividades">
+            <field name="name">BARRER/FREGAR SUELOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_807" model="appcc.maestros.actividades">
+            <field name="name">PAPELERAS/CUBOS DE BASURA (LIMPIAS Y REPUESTAS)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_808" model="appcc.maestros.actividades">
+            <field name="name">VERIFICACIÓN/LIMPIEZA TERMÓMETRO PINCHO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_809" model="appcc.maestros.actividades">
+            <field name="name">VAJILLA, MENAJE,Y UTENSILIOS LIMPIOS Y ORGANIZADOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_810" model="appcc.maestros.actividades">
+            <field name="name">ESTANTERÍAS/ZONA DE ALMACÉN LIMPIAS Y ORGANIZADAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_811" model="appcc.maestros.actividades">
+            <field name="name">CARRO PATATERO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_812" model="appcc.maestros.actividades">
+            <field name="name">MICROONDAS (EXTERIOR E INTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_813" model="appcc.maestros.actividades">
+            <field name="name">CORTADORA DE PAN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_814" model="appcc.maestros.actividades">
+            <field name="name">LAVAVAJILLAS (EXTERIOR E INTERIOR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_815" model="appcc.maestros.actividades">
+            <field name="name">BAYETAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_816" model="appcc.maestros.actividades">
+            <field name="name">BALDES DE RECOGIDA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_817" model="appcc.maestros.actividades">
+            <field name="name">PAPELERAS/CUBOS DE BASURA (LIMPIAS Y REPUESTAS)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_818" model="appcc.maestros.actividades">
+            <field name="name">CÁMARA LIMPIA Y ORGANIZADA (BARRER Y FREGAR)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_819" model="appcc.maestros.actividades">
+            <field name="name">TODO EL PRODUCTO ESTÁ BIEN PROTEGIDO Y/O ENVASADO Y FECHADO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_820" model="appcc.maestros.actividades">
+            <field name="name">REPOSICIÓN DE CUARTO DE BARRILES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_821" model="appcc.maestros.actividades">
+            <field name="name">CUARTO DE LIMPIEZA (LIMPIO Y ORGANIZADO)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_822" model="appcc.maestros.actividades">
+            <field name="name">CONDENSADORES CÁMARAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_823" model="appcc.maestros.actividades">
+            <field name="name">POSTERIOR MESAS FRÍAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_824" model="appcc.maestros.actividades">
+            <field name="name">MADERAS SALA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_825" model="appcc.maestros.actividades">
+            <field name="name">MAQUINARIA PEPSI</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_826" model="appcc.maestros.actividades">
+            <field name="name">MAQUINARIA MAHOU</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_827" model="appcc.maestros.actividades">
+            <field name="name">CÁMARA REFRIGERADORA/CONGELADORES/ESTANTERÍAS/PAREDES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_828" model="appcc.maestros.actividades">
+            <field name="name">AZULEJOS ASEOS PÚBLICOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_829" model="appcc.maestros.actividades">
+            <field name="name">AZULEJOS OFFICE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_830" model="appcc.maestros.actividades">
+            <field name="name">DESCALCIFICADOR CAFETERA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_831" model="appcc.maestros.actividades">
+            <field name="name">MÁRMOLES DE BARRA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_832" model="appcc.maestros.actividades">
+            <field name="name">CABALLETE/PIZARRAS/MENÚ BOARD</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_833" model="appcc.maestros.actividades">
+            <field name="name">CRISTALES ENTRADA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_834" model="appcc.maestros.actividades">
+            <field name="name">INTERIOR Y CRISTALES HORNOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_835" model="appcc.maestros.actividades">
+            <field name="name">MESAS Y TABURETES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_836" model="appcc.maestros.actividades">
+            <field name="name">BOTELLEROS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_837" model="appcc.maestros.actividades">
+            <field name="name">CUADROS/EXTINTORES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_838" model="appcc.maestros.actividades">
+            <field name="name">REJILLAS DE AIRE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_839" model="appcc.maestros.actividades">
+            <field name="name">MÁQUINA DE HIELO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_840" model="appcc.maestros.actividades">
+            <field name="name">PUERTAS DE MADERA/CERÁMICAS/OBJETOS DECORATIVOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_841" model="appcc.maestros.actividades">
+            <field name="name">MUEBLE DECORACIÓN HORNO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_842" model="appcc.maestros.actividades">
+            <field name="name">MESAS Y TABURETES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_843" model="appcc.maestros.actividades">
+            <field name="name">FAROLES, LUMINARIAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_844" model="appcc.maestros.actividades">
+            <field name="name">ESTANTERÍAS BARRA/COCINA/CUBOS DE BASURA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_845" model="appcc.maestros.actividades">
+            <field name="name">CÁMARA REFRIGERACIÓN/MESA FRÍA 1/CÁMARA CONGELADOS/CÁMARA BARRA/ARCÓN 1/ALMACÉN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_846" model="appcc.maestros.actividades">
+            <field name="name">REGISTRO MENSUAL DE CONTROL DE ORDEN Y ROTACIÓN EN CÁMARAS Y ALMACÉN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_847" model="appcc.maestros.actividades">
+            <field name="name">ORDEN/ROTACIÓN/SEPARACIÓN DEL SUELO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_848" model="appcc.maestros.actividades">
+            <field name="name">LÁMPARA DE CALOR ON/OFF</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_849" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA CÁMARA FRÍA INTERIOR</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_850" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA MESA FRÍA INTERIOR</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_851" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA PRODUCTO MESA FRÍA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_852" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA CÁMARA BARRA (LECHE/CHOCOLATE)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_853" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA CONGELADOR</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_854" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA ARCÓN 1</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_855" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA ARCÓN 2</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_856" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA HORNO 1</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_857" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA HORNO 2</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_858" model="appcc.maestros.actividades">
+            <field name="name">CONTROL DE TEMPERATURA DE CÁMARA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_859" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA FREIDORA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_860" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA STREAMER</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_861" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA ESEXTREM</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_862" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA SARTÉN CALAMARES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_863" model="appcc.maestros.actividades">
+            <field name="name">LIMPIEZA BANDEJA DE HORNOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_864" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR BANDEJAS DE HORNO</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_865" model="appcc.maestros.actividades">
+            <field name="name">Tª LAVAVAJILLAS OFFICE LAVADO (40-60º)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_866" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA LAVAVAJILLAS LAVADO 40-60ºC</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_867" model="appcc.maestros.actividades">
+            <field name="name">Tª LAVAVAJILLAS OFFICE ACLARADO (&gt;82ºC)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_868" model="appcc.maestros.actividades">
+            <field name="name">Tª LAVAVAJILLAS BARRA ACLARADO (&gt;82ºC)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_869" model="appcc.maestros.actividades">
+            <field name="name">Tª LAVAVAJILLAS BARRA LAVADO (40-60º)</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_964" model="appcc.maestros.actividades">
+            <field name="name">CONTROL TEMPERATURA ACEITE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_965" model="appcc.maestros.actividades">
+            <field name="name">TEST ACEITE/CAMBIO ACEITE/LOTE ACEITE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_966" model="appcc.maestros.actividades">
+            <field name="name">CONTROL TEMPERATURA PLATOS CALIENTES</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_967" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA DEL PAN</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_968" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA DE LA FREIDORA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_969" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA DE LAS PAPAS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_970" model="appcc.maestros.actividades">
+            <field name="name">TEMPERATURA DEL ACEITE</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_1630" model="appcc.maestros.actividades">
+            <field name="name">HOMOLOGACIÓN DE PROVEEDORES</field>
+            <field eval="False" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_1631" model="appcc.maestros.actividades">
+            <field name="name">FORMACIÓN DE MANIPULADORES DE ALIMENTOS</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_3294" model="appcc.maestros.actividades">
+            <field name="name">CONTROL TEMPERATURA FRIGORÍFICO LA GUAGUA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">V</field>
+        </record>
+        <record id="acti_3295" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR MESAS, TABURETES Y BANCOS LA GUAGUA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_3296" model="appcc.maestros.actividades">
+            <field name="name">VAJILLA, MENAJE, UTENSILIOS LIMPIOS Y ORGANIZADOS LA GUAGUA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_3297" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR TARTERAS, CAMBIAR BLONDAS LA GUAGUA</field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+        <record id="acti_3298" model="appcc.maestros.actividades">
+            <field name="name">LIMPIAR SUELO, LAVAMANOS CUBOS DE BASURA, MICROONDAS, CAFETERAS, DISPNSADORES LA GUAGUA
+            </field>
+            <field eval="True" name="agenda"/>
+            <field name="tipo">C</field>
+        </record>
+    </data>
+</openerp>

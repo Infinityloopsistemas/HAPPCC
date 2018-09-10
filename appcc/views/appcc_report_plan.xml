@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <template id="appcc.report_plan_document">
+        <t t-call="appcc.manualauto_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+            <div class="page">
+                <div class="row">
+                    <div class="row mt16 mb16">
+                        <h3>
+                            <center>
+                                <span t-field="o.name"/>
+                            </center>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16">
+                    <div class="col-xs-6" t-if="o.company_id">
+                        <strong>Local:</strong>
+                        <p t-field="o.company_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.appcc_id">
+                        <strong>APPCC:</strong>
+                        <p t-field="o.appcc_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.revision_id">
+                        <strong>Revisión del documento:</strong>
+                        <p t-field="o.revision_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.tpplancontrol_id">
+                        <strong>Tipo de plan:</strong>
+                        <p t-field="o.tpplancontrol_id.name"/>
+                    </div>
+                </div>
+
+                <div class="row text-left mt16 mb16">
+                    <p>Objeto</p>
+                    <div class="text-left">
+                        <span t-field="o.objeto" t-field-options='{"widget": "html"}'/>
+                    </div>
+
+                    <p>Alcance</p>
+                    <div class="text-left">
+                        <span t-field="o.alcance" t-field-options='{"widget": "html"}'/>
+                    </div>
+
+                    <p>Contenido</p>
+                    <div class="text-left">
+                        <span t-field="o.contenido" t-field-options='{"widget": "html"}'/>
+                    </div>
+
+                    <p>Marco Legal</p>
+                    <div class="text-left">
+                        <span t-field="o.marcolegal" t-field-options='{"widget": "html"}'/>
+                    </div>
+
+                    <p>Procedimiento</p>
+                    <div class="text-left">
+                        <span t-field="o.procedimiento" t-field-options='{"widget": "html"}'/>
+                    </div>
+               </div>
+            </div>
+        </t>
+    </template>
+
+
+
+    <template id="appcc_report_plan">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_plan_document"/>
+            </t>
+    </template>
+
+
+</data>
+</openerp>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appcc_wizard_evaluacion_view" model="ir.ui.view">
+            <field name="name">appcc.wizard.evaluacion.form</field>
+            <field name="model">appcc.wizard.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Generar Evaluaciones">
+                  <sheet>
+                      <group col="4" string="Plantillas">
+                          <group>
+                              <field name="name"/>
+                              <field name="fecha"/>
+                              <field name="tecnicos_id"/>
+                          </group>
+                          <group>
+                              <field name="regeval_id" />
+                              <field name="mes_ini"/>
+                              <field name="mes_fin"/>
+                          </group>
+
+                      </group>
+                        <field colspan="4" nolabel="1" name="evaldet_ids" widget="one2many_list">
+                            <tree string="Asignar Evaluaciones" editable="bottom">
+                                <field name="tipotemplate" widget="selection" />
+                                <field name="property_departament" options="{'no_create': True, 'no_open':True}"  />
+                                <field name="property_employee"    options="{'no_create': True, 'no_open':True}"  />
+                                <field name="property_centro"      options="{'no_create': True, 'no_open':True}"  />
+                                <field name="property_equipos"     options="{'no_create': True, 'no_open':True}"   />
+                                <field name="name" />
+                            </tree>
+                        </field>
+                    </sheet>
+                    <footer>
+                        <button string="Generar Evaluacion" name="action_button_generar" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="action_appcc_wizard_evaluacion"
+                    name="Generador de Evaluaciones"
+                    src_model="appcc.evaluacion"
+                    res_model="appcc.wizard.evaluacion"
+                    view_mode="form"
+                    view_type="form"
+                    target="new"
+                    multi="True" />
+
+
+        <menuitem name="Generar Evaluaciones"
+                  action="action_appcc_wizard_evaluacion"
+                  id="menu_appcc_wizard_evaluacion"
+                  parent="menu_appcc_auditorias"
+                  groups="group_appcc_tecnicos"
+                  sequence="1"
+                  />
+
+        </data>
+</odoo>

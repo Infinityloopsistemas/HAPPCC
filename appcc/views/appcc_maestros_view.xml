@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+ <!-- ACTIVIDADES -->
+
+        <record id="appc_maestros_actividades_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.actividades.tree</field>
+            <field name="model">appcc.maestros.actividades</field>
+            <field name="arch" type="xml">
+                <tree string="Actividades del APPCC" >
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="actividades_ids" string="No. Sondas" />
+                    <field name="agenda"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_actividades_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.actividades.form</field>
+            <field name="model">appcc.maestros.actividades</field>
+            <field name="arch" type="xml">
+                <form string="Actividades de APPCC" version="9.0">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Actividad <field name="name" class="oe_inline"/></h1>
+                    </div>
+                    <group>
+                        <field name="tipo"/>
+                        <field name="colorback"/>
+                        <field name="colortxt"  />
+                        <field name="agenda"/>
+                        <field name="active"/>
+                    </group>
+
+                    <field colspan="4" nolabel="1" string="Asociar Sondas a Equipos" name="actividades_ids" widget="one2many_list" attrs="{'invisible': [('tipo','=','C')]}">
+                            <tree string="Asociar Sondas Equipos" editable="bottom">
+                                <field name="equipo_id" />
+                                <field name="tracksonda_id" />
+                                <field name="alarma" />
+                            </tree>
+                        </field>
+
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mactividades" model="ir.actions.act_window">
+            <field name="name">Actividades</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.actividades</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Actividades"
+            action="action_appcc_mactividades"
+            id="menu_maestros_actividades"
+            parent="menu_appcc_maestros_tipos"
+            sequence="30"
+            />
+
+       <!-- PELIGROS -->
+
+         <record id="appc_maestros_peligros_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.peligros.tree</field>
+            <field name="model">appcc.maestros.peligros</field>
+            <field name="arch" type="xml">
+                <tree string="Definición de Peligros">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_peligros_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.peligros.form</field>
+            <field name="model">appcc.maestros.peligros</field>
+            <field name="arch" type="xml">
+                <form string="Definicion de Peligros" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Peligro <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="ayuda" widget="html"/>
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mpeligros" model="ir.actions.act_window">
+            <field name="name">Definicion de Peligros</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.peligros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Peligros"
+            action="action_appcc_mpeligros"
+            id="menu_maestros_peligros"
+            parent="menu_appcc_maestros_tipos"
+            sequence="30"/>
+
+
+        <!-- MEDIDAS DE ACTUACION -->
+
+         <record id="appc_maestros_mactua_tree_view1" model="ir.ui.view">
+            <field name="name">appcc.maestros.mactua.tree</field>
+            <field name="model">appcc.maestros.tpmedactuacion</field>
+            <field name="arch" type="xml">
+                <tree string="Medidas Actuación">
+                    <field name="name"/>
+                    <field name="tipo" />
+                    <field name="solmante" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mactua_form_view1" model="ir.ui.view">
+            <field name="name">appcc.maestros.mactua.form</field>
+            <field name="model">appcc.maestros.tpmedactuacion</field>
+            <field name="arch" type="xml">
+                <form string="Medidas de Actuación">
+
+                <sheet>
+
+                        <div class="oe_title">
+                            <h2>Actuacion <field name="name" class="oe_inline"/></h2>
+                        </div>
+
+                         <field name="tipo" />
+                         <field name="solmante" attrs="{'invisible':[('tipo','=','P')]}" />
+
+
+                         <group>
+                            <field name="ayuda" widget="html"/>
+                             <field name="active"/>
+                         </group>
+
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mactua" model="ir.actions.act_window">
+            <field name="name">Medidas de Actuacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpmedactuacion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Medidas Actuación"
+            action="action_appcc_mactua"
+            id="menu_maestros_actua"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+        <!--MEDIDAS DE VIGILANCIA -->
+
+
+         <record id="appc_maestros_mvigila_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mactua.tree</field>
+            <field name="model">appcc.maestros.tpmedvigilancia</field>
+            <field name="arch" type="xml">
+                <tree string="Medidas Vigilancia">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mactua_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mactua.form</field>
+            <field name="model">appcc.maestros.tpmedvigilancia</field>
+            <field name="arch" type="xml">
+                <form string="Medidas Vigilancia" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Vigilancia <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="analitica" />
+                            <field name="ayuda" widget="html"/>
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mvigila" model="ir.actions.act_window">
+            <field name="name">Medidas de Vigilancia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpmedvigilancia</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Medidas Vigilancia"
+            action="action_appcc_mvigila"
+            id="menu_maestros_vigila"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+
+
+        <!-- ETAPAS -->
+
+        <record id="appc_maestros_metapas_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.metapas.tree</field>
+            <field name="model">appcc.maestros.etapas</field>
+            <field name="arch" type="xml">
+                <tree string="Etapas">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_metapas_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.metapas.form</field>
+            <field name="model">appcc.maestros.etapas</field>
+            <field name="arch" type="xml">
+                <form string="Etapas Cuadros Gestión" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Etapa <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="ayuda" widget="html"/>
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_metapa" model="ir.actions.act_window">
+            <field name="name">Etapas cuadros de Gestion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.etapas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Etapas"
+            action="action_appcc_metapa"
+            id="menu_maestros_etapa"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+        <!-- PLANES DE CONTROL -->
+
+        <record id="appc_maestros_mplancontrol_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mplancontrol.tree</field>
+            <field name="model">appcc.maestros.tpplancontrol</field>
+            <field name="arch" type="xml">
+                <tree string="Planes de Control">
+                    <field name="name"/>
+                    <field name="habilitaregistros"/>
+                    <field name="habilitanaliticas"/>
+                    <field name="habilitaformacion"/>
+                    <field name="habilitaavisos"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mplancontrol_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mplancontrol.form</field>
+            <field name="model">appcc.maestros.tpplancontrol</field>
+            <field name="arch" type="xml">
+                <form string="Planes de Control" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Plan <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                             <field name="habilitaregistros"/>
+                             <field name="habilitanaliticas"/>
+                             <field name="habilitaformacion"/>
+                             <field name="habilitaavisos"/>
+                             <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mplancontrol" model="ir.actions.act_window">
+            <field name="name">Planes de Control</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpplancontrol</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Plan de Control"
+            action="action_appcc_mplancontrol"
+            id="menu_maestros_plancontrol"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+  <!-- ZONAS -->
+
+        <record id="appc_maestros_mzonas_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.stocklocation.tree</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_tree2"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='company_id']" position="after" >
+                    <field name="superficie"/>
+                    <field name="altura" />
+                    <field name="volumen" />
+               </xpath>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mzonas_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.stocklocation.form</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after" >
+
+                             <field name="department_ids"/>
+
+                </xpath>
+
+                <xpath expr="//field[@name='barcode']" position="after" >
+
+                             <field name="superficie"/>
+                             <field name="altura" />
+                             <field name="volumen" readonly="1" />
+
+
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_appcc_mzonas" model="ir.actions.act_window">
+            <field name="name">Zonas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.location</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Zonas"
+            action="action_appcc_mzonas"
+            id="menu_maestros_zonas"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+        <!-- LIMITES CRITICOS -->
+
+        <record id="appc_maestros_mlimitcritico_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mplimitcritico.tree</field>
+            <field name="model">appcc.maestros.tpmlimitescriticos</field>
+            <field name="arch" type="xml">
+                <tree string="Definición Limites Criticos">
+                    <field name="name"/>
+                    <field name="indicador_id"/>
+                    <field name="ayuda"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mlimitcritico_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mlimitcritico.form</field>
+            <field name="model">appcc.maestros.tpmlimitescriticos</field>
+            <field name="arch" type="xml">
+                <form string="Definición Limites Criticos" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Limite <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                              <field name="indicador_id"/>
+                              <field name="ayuda" widget="html"/>
+                              <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mlimitcritico" model="ir.actions.act_window">
+            <field name="name">Limites Criticos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpmlimitescriticos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Limites Criticos"
+            action="action_appcc_mlimitcritico"
+            id="menu_maestros_limitcritico"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+        <!-- TIPOS DE LEGISLACION -->
+
+        <record id="appc_maestros_mlegislacion_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mlegislacion.tree</field>
+            <field name="model">appcc.maestros.tplegislacion</field>
+            <field name="arch" type="xml">
+                <tree string="Definición Legislacion">
+                    <field name="name"/>
+                    <field name="ayuda"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mlegislacion_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mlegislacion.form</field>
+            <field name="model">appcc.maestros.tplegislacion</field>
+            <field name="arch" type="xml">
+                <form string="Definición Legislación" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Legislacion <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                              <field name="ayuda" widget="html"/>
+                              <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mlegislacion" model="ir.actions.act_window">
+            <field name="name">Legislacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tplegislacion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Legislación"
+            action="action_appcc_mlegislacion"
+            id="menu_maestros_legislacion"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+        <!-- CURSOS -->
+
+
+         <record id="appc_maestros_mcursos_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mcursos.tree</field>
+            <field name="model">appcc.maestros.tpcursos</field>
+            <field name="arch" type="xml">
+                <tree string="Definición Cursos">
+                    <field name="name"/>
+                    <field name="legislacion_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mcursos_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mcursos.form</field>
+            <field name="model">appcc.maestros.tpcursos</field>
+            <field name="arch" type="xml">
+                <form string="Definición Cursos" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Curso<field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                              <field name="legislacion_id"/>
+                              <field name="contenido" widget="html"/>
+                              <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mcursos" model="ir.actions.act_window">
+            <field name="name">Cursos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpcursos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Cursos"
+            action="action_appcc_mcursos"
+            id="menu_maestros_cursos"
+            parent="menu_appcc_maestros_tipos"
+            sequence="40"/>
+
+
+
+        <!-- PARAMETROS ANALISIS -->
+
+        <record id="appc_maestros_paramanalisis_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.paramanalisis.tree</field>
+            <field name="model">appcc.maestros.paraanalisis</field>
+            <field name="arch" type="xml">
+                <tree string="Parámetros de análisis">
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="unidades_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_paramanalisis_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.paramanalisis.form</field>
+            <field name="model">appcc.maestros.paraanalisis</field>
+            <field name="arch" type="xml">
+                <form string="Parámetros de análisis" version="9.0">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Parametro <field name="name" class="oe_inline"/> </h1>
+                    </div>
+                    <group>
+                        <field name="tipo"/>
+                        <field name="unidades_id"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mparamanalisis" model="ir.actions.act_window">
+            <field name="name">Parametros Análisis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.paraanalisis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="P.Analisis"
+            action="action_appcc_mparamanalisis"
+            id="menu_maestros_paramanalisis"
+            parent="menu_appcc_maestros_param"
+            sequence="2"/>
+
+
+        <!-- TIPOS INDICADOR -->
+
+        <record id="appc_maestros_mindica_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mindica.tree</field>
+            <field name="model">appcc.maestros.tiposindicador</field>
+            <field name="arch" type="xml">
+                <tree string="Indicadores">
+                    <field name="name"/>
+                    <field name="indicador_id" />
+                    <field name="vmin" />
+                    <field name="vmax" />
+                    <field name="tipocalculo" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mindica_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mactua.form</field>
+            <field name="model">appcc.maestros.tiposindicador</field>
+            <field name="arch" type="xml">
+                <form string="Indicadores" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Indicadores <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="indicador_id" />
+                            <field name="vmin" />
+                            <field name="vmax" />
+                        </group>
+                        <group>
+                            <field name="tipocalculo" />
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mindica" model="ir.actions.act_window">
+            <field name="name">Definir Indicadores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tiposindicador</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Indicadores"
+            action="action_appcc_mindica"
+            id="menu_maestros_indica"
+            parent="menu_appcc_maestros_param"
+            sequence="3"/>
+
+        <!-- TIPOS FRECUENCIAS -->
+
+        <record id="appc_maestros_mfrecuencia_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mfrecuencia.tree</field>
+            <field name="model">appcc.maestros.tpfrecuencias</field>
+            <field name="arch" type="xml">
+                <tree string="Frecuencia">
+                    <field name="name"/>
+                    <field name="nounidades" />
+                    <field name="diaslaborables" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mfrecuencia_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mfrecuencia.form</field>
+            <field name="model">appcc.maestros.tpfrecuencias</field>
+            <field name="arch" type="xml">
+                <form string="Frecuencia" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Frecuencia <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="nounidades"  help="horas"/>
+                            <field name="diaslaborables" />
+                            <field name="rrule_type" />
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mfrecuencia" model="ir.actions.act_window">
+            <field name="name">Definir Frecuencias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpfrecuencias</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Frecuencia"
+            action="action_appcc_mfrecuencia"
+            id="menu_maestros_frecuencia"
+            parent="menu_appcc_maestros_param"
+            sequence="4"/>
+
+        <!-- TIPOS DE TURNOS -->
+
+        <record id="appc_maestros_mtpturnos_tree_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mtpturnos.tree</field>
+            <field name="model">appcc.maestros.tpturnos</field>
+            <field name="arch" type="xml">
+                <tree string="Turnos">
+                    <field name="name"/>
+                    <field name="ihora" />
+                    <field name="fhora" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_maestros_mtpturnos_form_view" model="ir.ui.view">
+            <field name="name">appcc.maestros.mtpturnos.form</field>
+            <field name="model">appcc.maestros.tpturnos</field>
+            <field name="arch" type="xml">
+                <form string="Frecuencia" version="9.0">
+
+                <sheet>
+                        <div class="oe_title">
+                            <h1>Turno <field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <field name="ihora" />
+                            <field name="fhora" />
+                            <field name="active"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mturnos" model="ir.actions.act_window">
+            <field name="name">Definir Turnos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.tpturnos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Turnos"
+            action="action_appcc_mturnos"
+            id="menu_maestros_turnos"
+            parent="menu_appcc_maestros_param"
+            sequence="5"/>
+
+
+        <!-- Festivos -->
+
+        <record id="appcc_mfestivos_tree_view" model="ir.ui.view">
+            <field name="name">appcc.mfestivos.tree</field>
+            <field name="model">appcc.maestros.festivos</field>
+            <field name="arch" type="xml">
+                <tree string="Calendario Festivos">
+                    <field name="name"/>
+                    <field name="fechaini"/>
+                    <field name="fechafin"/>
+                    <field name="activo" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_mfestivos_form_view" model="ir.ui.view">
+            <field name="name">appcc.mfestivos.form</field>
+            <field name="model">appcc.maestros.festivos</field>
+            <field name="arch" type="xml">
+                <form string="Calendario Festivos" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="company_id" groups="base.group_multi_company" widget="many2many_tags" />
+                            </group>
+                            <group>
+                                <field name="fechaini"/>
+                                <field name="fechafin"/>
+                                <field name="activo"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_mfestivos" model="ir.actions.act_window">
+            <field name="name">CalendarioFestivos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.maestros.festivos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('activo','=',True)]</field>
+
+        </record>
+
+
+        <menuitem name="Calendario Festivos"
+                  action="action_appcc_mfestivos"
+                  id="menu_appcc_mfestivos"
+                  parent="menu_appcc_maestros_tipos"
+                  groups="group_appcc_manager"
+                  sequence="20"/>
+
+
+         <record id="product_appcc_action" model="ir.actions.act_window">
+            <field name="name">Variantes de productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+           <!-- <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new product.
+              </p><p>
+                You must define a product for everything you sell, whether it's
+                a physical product, a consumable or a service you offer to
+                customers.
+              </p><p>
+                The product form contains information to simplify the sale
+                process: price, notes in the quotation, accounting data,
+                procurement methods, etc.
+              </p>
+            </field>-->
+
+        </record>
+
+        <menuitem action="product_appcc_action"
+                  id="menu_product_template_action"
+                  parent="menu_appcc_productos"
+                  groups="group_appcc_manager"
+                  sequence="1" />
+
+
+    </data>
+</openerp>

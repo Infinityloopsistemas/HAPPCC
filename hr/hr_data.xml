@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- notify all employees of module installation -->
+        <record model="mail.message" id="module_install_notification">
+            <field name="model">mail.channel</field>
+            <field name="res_id" ref="mail.channel_all_employees"/>
+            <field name="message_type">notification</field>
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="subject">Recursos Humanos en SIVA instalado</field>
+            <field name="body"><![CDATA[<p>Modulo de gestión de recursos humanos de SIVA, instalado.</p>
+<p></p>]]></field>
+        </record>
+
+        <record id="dep_administration" model="hr.department">
+          <field name="name">Administracion</field>
+        </record>
+        <record id="dep_sales" model="hr.department">
+          <field name="name">Direccion</field>
+        </record>
+         <record id="dep_sales" model="hr.department">
+          <field name="name">Fruteria</field>
+        </record>
+        <record id="dep_sales" model="hr.department">
+          <field name="name">Carniceria</field>
+        </record>
+        <record id="dep_sales" model="hr.department">
+          <field name="name">Mantenimiento</field>
+        </record>
+
+             <record id="job_CONDUCTOR_A" model="hr.job">
+                <field  name="name">CONDUCTOR/A</field>
+                </record>
+             <record id="job_REPARTIDOR_A" model="hr.job">
+                <field  name="name">REPARTIDOR/A</field>
+                </record>
+             <record id="job_PERSONAL DE LIMPIEZA" model="hr.job">
+                <field  name="name">PERSONAL DE LIMPIEZA</field>
+                </record>
+             <record id="job_JEFE_A DE ALMACEN" model="hr.job">
+                <field  name="name">JEFE/A DE ALMACEN</field>
+                </record>
+             <record id="job_CAPATAZ" model="hr.job">
+                <field  name="name">CAPATAZ</field>
+                </record>
+             <record id="job_AUXILIAR ADMINISTRATIVO" model="hr.job">
+                <field  name="name">AUXILIAR ADMINISTRATIVO</field>
+                </record>
+             <record id="job_CONTABLE" model="hr.job">
+                <field  name="name">CONTABLE</field>
+                </record>
+             <record id="job_CONSERJE" model="hr.job">
+                <field  name="name">CONSERJE</field>
+                </record>
+             <record id="job_MOZO_A DE ALMACEN" model="hr.job">
+                <field  name="name">MOZO/A DE ALMACEN</field>
+                </record>
+             <record id="job_ENCARGADO_A" model="hr.job">
+                <field  name="name">ENCARGADO/A</field>
+                </record>
+             <record id="job_RESPONSABLE DE CARNICERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE CARNICERIA</field>
+                </record>
+             <record id="job_CARNICERO_A" model="hr.job">
+                <field  name="name">CARNICERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE CARNICERIA" model="hr.job">
+                <field  name="name">AYUDANTE DE CARNICERIA</field>
+                </record>
+             <record id="job_RESPONSABLE DE CHARCUTERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE CHARCUTERIA</field>
+                </record>
+             <record id="job_CHARCUTERO_A" model="hr.job">
+                <field  name="name">CHARCUTERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE CHARCUTERIA" model="hr.job">
+                <field  name="name">AYUDANTE DE CHARCUTERIA</field>
+                </record>
+             <record id="job_RESPONSABLE DE FRUTERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE FRUTERIA</field>
+                </record>
+             <record id="job_FRUTERO_A" model="hr.job">
+                <field  name="name">FRUTERO/A</field>
+                </record>
+             <record id="job_RESPONSABLE DE REPOSICIONES" model="hr.job">
+                <field  name="name">RESPONSABLE DE REPOSICIONES</field>
+                </record>
+             <record id="job_REPONEDOR_A" model="hr.job">
+                <field  name="name">REPONEDOR/A</field>
+                </record>
+             <record id="job_CAJERO_A" model="hr.job">
+                <field  name="name">CAJERO/A</field>
+                </record>
+             <record id="job_RESPONSABLE DE PESCADERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE PESCADERIA</field>
+                </record>
+             <record id="job_PESCADERO_A" model="hr.job">
+                <field  name="name">PESCADERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE PESCADERIA" model="hr.job">
+                <field  name="name">AYUDANTE DE PESCADERIA</field>
+                </record>
+             <record id="job_OFICINISTA" model="hr.job">
+                <field  name="name">OFICINISTA</field>
+                </record>
+             <record id="job_CAMARERO_A" model="hr.job">
+                <field  name="name">CAMARERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE CAMARERO_A" model="hr.job">
+                <field  name="name">AYUDANTE DE CAMARERO/A</field>
+                </record>
+             <record id="job_HELADERO_A" model="hr.job">
+                <field  name="name">HELADERO/A</field>
+                </record>
+             <record id="job_COCINERO_A" model="hr.job">
+                <field  name="name">COCINERO/A</field>
+                </record>
+             <record id="job_PROPIETARIO_A" model="hr.job">
+                <field  name="name">PROPIETARIO/A</field>
+                </record>
+             <record id="job_RESPONSABLE DE PANADERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE PANADERIA</field>
+                </record>
+             <record id="job_PANADERO_A" model="hr.job">
+                <field  name="name">PANADERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE PANADERIA" model="hr.job">
+                <field  name="name">AYUDANTE DE PANADERIA</field>
+                </record>
+             <record id="job_CAJERO_A DE DEVOLUCIONES" model="hr.job">
+                <field  name="name">CAJERO/A DE DEVOLUCIONES</field>
+                </record>
+             <record id="job_SEGURITAS" model="hr.job">
+                <field  name="name">SEGURITAS</field>
+                </record>
+             <record id="job_RESPONSABLE DE PASTELERIA" model="hr.job">
+                <field  name="name">RESPONSABLE DE PASTELERIA</field>
+                </record>
+             <record id="job_PASTELERO_A" model="hr.job">
+                <field  name="name">PASTELERO/A</field>
+                </record>
+             <record id="job_AYUDANTE DE PASTELERIA" model="hr.job">
+                <field  name="name">AYUDANTE DE PASTELERÍA</field>
+                </record>
+             <record id="job_CORRETURNOS" model="hr.job">
+                <field  name="name">CORRETURNOS</field>
+                </record>
+             <record id="job_RECURSOS HUMANOS" model="hr.job">
+                <field  name="name">RECURSOS HUMANOS</field>
+                </record>
+             <record id="job_INFORMATICO_A" model="hr.job">
+                <field  name="name">INFORMATICO/A</field>
+                </record>
+             <record id="job_COMERCIAL" model="hr.job">
+                <field  name="name">COMERCIAL</field>
+                </record>
+
+
+
+    </data>
+</openerp>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data noupdate="0">
+
+                 <record id="festivos_174" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,8,15).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,8,15).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+                 <record id="festivos_175" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,10,12).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,10,12).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+                 <record id="festivos_176" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,11,1).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,11,1).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+                 <record id="festivos_177" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,12,6).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,12,6).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+                 <record id="festivos_178" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,12,8).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,12,8).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+                <record id="festivos_179" model="appcc.maestros.festivos">
+                    <field name="name">FESTIVO NACIONAL</field>
+                    <field name="fechaini" eval="DateTime(2017,3,25).strftime('%Y-%m-%d')" />
+                    <field name="fechafin" eval="DateTime(2017,3,25).strftime('%Y-%m-%d')" />
+                    <field name="company_id" search="[]" model="res.company" />
+                </record>
+
+
+        </data>
+
+</openerp>

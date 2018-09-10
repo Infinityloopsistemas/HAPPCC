@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data noupdate="1">
+
+
+   <!-- FRECUENCIAS -->
+
+        <record id="tpfrec_1" model="appcc.maestros.tpfrecuencias">
+             <field name="name">DIARIA</field>
+             <field name="nounidades">24</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_2" model="appcc.maestros.tpfrecuencias">
+             <field name="name">SEMANAL</field>
+             <field name="nounidades">168</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_3" model="appcc.maestros.tpfrecuencias">
+             <field name="name">QUICENAL</field>
+             <field name="nounidades">336</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_4" model="appcc.maestros.tpfrecuencias">
+             <field name="name">MENSUAL</field>
+             <field name="nounidades">720</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_5" model="appcc.maestros.tpfrecuencias">
+             <field name="name">SEMESTRAL</field>
+             <field name="nounidades">4320</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_6" model="appcc.maestros.tpfrecuencias">
+             <field name="name">ANUAL</field>
+             <field name="nounidades">8640</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_7" model="appcc.maestros.tpfrecuencias">
+             <field name="name">TRIMESTRAL</field>
+             <field name="nounidades">2160</field>
+             <field name="diaslaborales">F</field>
+        </record>
+        <record id="tpfrec_6" model="appcc.maestros.tpfrecuencias">
+             <field name="name">BIMENSUAL</field>
+             <field name="nounidades">1440</field>
+             <field name="diaslaborales">F</field>
+        </record>
+
+
+        <!-- UNIDADES Y CATEGORIAS -->
+
+         <record id="uom_categ_concentra" model="product.uom.categ">
+            <field name="name">Concentracion</field>
+         </record>
+         <record id="uom_categ_dilucion" model="product.uom.categ">
+            <field name="name">Dilucion</field>
+         </record>
+         <record id="uom_categ_temp" model="product.uom.categ">
+            <field name="name">Temperatura</field>
+         </record>
+         <record id="uom_categ_densd" model="product.uom.categ">
+            <field name="name">Densidad</field>
+         </record>
+
+
+
+         <record id="uom_ufc" model="product.uom">
+            <field name="category_id" ref="uom_categ_dilucion"/>
+            <field name="name">U.F.C./25 cm2 S.H.</field>
+            <field name="factor" eval="1.0"/>
+            <field name="rounding" eval="0.001"/>
+         </record>
+         <record id="uom_pppm" model="product.uom">
+            <field name="category_id" ref="uom_categ_concentra"/>
+            <field name="name">P.P.M</field>
+            <field name="factor" eval="1.0"/>
+            <field name="rounding" eval="0.01"/>
+         </record>
+         <record id="uom_temp" model="product.uom">
+            <field name="category_id" ref="uom_categ_temp"/>
+            <field name="name">ºC</field>
+            <field name="factor" eval="1.0"/>
+            <field name="rounding" eval="0.1"/>
+         </record>
+         <record id="uom_densd" model="product.uom">
+            <field name="category_id" ref="uom_categ_densd"/>
+            <field name="name">mg/L</field>
+            <field name="factor" eval="1.0"/>
+            <field name="rounding" eval="0.1"/>
+         </record>
+
+
+        <!--PARAMETROS ANALISIS -->
+
+         <record id="par_entero" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="uom_ufc"/>
+            <field name="name">ENTEROBACTERIAS</field>
+            <field name="tipo">I</field>
+         </record>
+         <record id="par_list" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="uom_ufc"/>
+            <field name="name">LISTERIA MONOCYTOGENES</field>
+            <field name="tipo">I</field>
+         </record>
+         <record id="par_aero" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="uom_ufc"/>
+            <field name="name">AEROBIOS MESOFILOS</field>
+            <field name="tipo">I</field>
+         </record>
+         <record id="par_ph" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="product.product_uom_unit"/>
+            <field name="name">PH</field>
+            <field name="tipo">I</field>
+         </record>
+         <record id="par_insp" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="product.product_uom_unit"/>
+            <field name="name">INSPECCION</field>
+            <field name="tipo">I</field>
+         </record>
+         <record id="par_temp" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="uom_temp"/>
+            <field name="name">TEMPERATURA</field>
+            <field name="tipo">I</field>
+         </record>
+        <record id="par_cloro" model="appcc.maestros.paraanalisis">
+            <field name="unidades_id" ref="uom_pppm"/>
+            <field name="name">CLORO</field>
+            <field name="tipo">I</field>
+         </record>
+
+        <!-- INDICADORES -->
+
+         <record id="indica_opera" model="appcc.maestros.tiposindicador">
+            <field name="name">OPERACION</field>
+            <field name="indicador_id" ref="par_insp"/>
+            <field name="vmax">0</field>
+            <field name="vmin">0</field>
+             <field name="tipocalculo">N</field>
+         </record>
+
+         <record id="indica_ph" model="appcc.maestros.tiposindicador">
+            <field name="name">PH</field>
+            <field name="indicador_id" ref="par_ph"/>
+            <field name="vmax">0</field>
+            <field name="vmin">0</field>
+             <field name="tipocalculo">N</field>
+         </record>
+         <record id="indica_tempcon" model="appcc.maestros.tiposindicador">
+            <field name="name">TEMPERATURA DE CONGELACION</field>
+            <field name="indicador_id" ref="par_temp"/>
+            <field name="vmax">-18</field>
+            <field name="vmin">-25</field>
+             <field name="tipocalculo">N</field>
+          </record>
+          <record id="indica_tempref" model="appcc.maestros.tiposindicador">
+            <field name="name">TEMPERATURA DE REFRIGERACION</field>
+            <field name="indicador_id" ref="par_temp"/>
+            <field name="vmax">6</field>
+            <field name="vmin">1</field>
+              <field name="tipocalculo">N</field>
+          </record>
+          <record id="indica_cloro" model="appcc.maestros.tiposindicador">
+            <field name="name">CLORO LIBRE EN RED</field>
+            <field name="indicador_id" ref="par_cloro"/>
+            <field name="vmax">0.8</field>
+            <field name="vmin">0.2</field>
+              <field name="tipocalculo">N</field>
+          </record>
+
+          <record id="indica_cinetica" model="appcc.maestros.tiposindicador">
+            <field name="name">TEMPERATURA CINETICA</field>
+            <field name="indicador_id" ref="par_temp"/>
+            <field name="vmax">100</field>
+            <field name="vmin">-100</field>
+            <field name="tipocalculo">TC</field>
+          </record>
+
+        <!-- TIPOS LIMITES CRITICOS -->
+
+          <record id="tplimit_crit_1" model="appcc.maestros.tpmlimitescriticos">
+            <field name="name">NIVELES ESTABLECIDOS EN REAL DECRETO 140/2003 DE CALIDAD DEL AGUA </field>
+            <field name="indicador_id" ref="indica_cloro"/>
+          </record>
+
+        <!-- TIPOS TURNOS -->
+          <record id="tpturno_unico" model="appcc.maestros.tpturnos">
+            <field name="name">UNICO</field>
+            <field name="ihora">0</field>
+            <field name="fhora">24</field>
+          </record>
+
+
+
+        <!-- TIPOS DE PLAN DE CONTROL -->
+         <record id="tpplan_temp" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE CONTROL DE TEMPERATURAS</field>
+            <field name="habilitaregistros" eval="True"/>
+            <field name="habilitanaliticas" eval="True"/>
+         </record>
+         <record id="tpplan_aguas" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE POTABILIDAD DEL AGUA</field>
+            <field name="habilitaregistros" eval="True"/>
+            <field name="habilitanaliticas" eval="True"/>
+         </record>
+         <record id="tpplan_limpi" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE LIMPIEZA Y DESINFECCION</field>
+            <field name="habilitaregistros" eval="True"/>
+            <field name="habilitanaliticas" eval="True"/>
+        </record>
+        <record id="tpplan_prov" model="appcc.maestros.tpplancontrol">
+            <field name="name">AGUAS</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+        </record>
+        <record id="tpplan_plagas" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE CONTROL DE PLAGAS</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+            <field name="habilitaavisos"    eval="True" />
+         </record>
+         <record id="tpplan_manteni" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE MANTENIMIENTO</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+         </record>
+        <record id="tpplan_prov" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE HOMOLOGACION DE PROVEEDORES</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+         </record>
+        <record id="tpplan_resi" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE EVACUACION DE RESIDUOS SOLIDOS Y LIQUIDOS</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+         </record>
+        <record id="tpplan_trazabili" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE SISTEMA DE TRAZABILIDAD</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+         </record>
+        <record id="tpplan_trazabili" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE BUENAS PRACTICAS DE MANIPULACION</field>
+            <field name="habilitaregistros" eval="False"/>
+            <field name="habilitanaliticas" eval="False"/>
+         </record>
+         <record id="tpplan_forma" model="appcc.maestros.tpplancontrol">
+            <field name="name">PLAN DE FORMACION CONTINUADA</field>
+            <field name="habilitaregistros" eval="True"/>
+            <field name="habilitanaliticas" eval="False"/>
+             <field name="habilitaformacion" eval="True" />
+             <field name="habilitaavisos" eval="True" />
+         </record>
+
+         <!-- Formatos de Papel -->
+
+        <record id="paperformat_label_qr" model="report.paperformat">
+            <field name="name">Label QR</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">135</field>
+            <field name="page_width">100</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">2</field>
+            <field name="margin_right">2</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">1</field>
+            <field name="dpi">100</field>
+        </record>
+
+
+         <record id="paperformat_landscape_a4" model="report.paperformat">
+            <field name="name">Landscape A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+             <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">130</field>
+        </record>
+
+    </data>
+</openerp>

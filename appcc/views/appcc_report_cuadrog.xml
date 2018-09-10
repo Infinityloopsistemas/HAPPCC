@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <template id="appcc.report_cuadrog_document">
+        <t t-call="appcc.manualauto_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+            <div class="page">
+                <div class="row">
+                    <div class="row mt16 mb16">
+                        <h3>
+                            <center>
+                                <span t-field="o.name"/>
+                            </center>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16">
+                    <div class="col-xs-6" t-if="o.appcc_id">
+                        <strong>APPCC:</strong>
+                        <p t-field="o.appcc_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.revision_id">
+                        <strong>Revisión:</strong>
+                        <p t-field="o.revision_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.etapa_id">
+                        <strong>Etapa:</strong>
+                        <p t-field="o.etapa_id.name"/>
+                    </div>
+                    <div class="col-xs-6" t-if="o.parent_id">
+                        <strong>Etapa padre:</strong>
+                        <p t-field="o.parent_id.name"/>
+                    </div>
+                </div>
+
+                 <div class="row mt16 mb16" style="border:1px solid black;background-color:7DB519;">
+
+                    <div class="col-xs-3" t-if="o.peligro_id" style="margin-top:10px;">
+                        <strong>Peligro:</strong>
+                        <p t-field="o.peligro_id.name"/>
+                    </div>
+                    <div class="col-xs-3" t-if="o.probabilidad" style="margin-top:10px;" >
+                        <strong>Probabilidad:</strong>
+                        <p t-field="o.probabilidad"/>
+                    </div>
+                    <div class="col-xs-3" t-if="o.severidad" style="margin-top:10px;">
+                        <strong>Severidad:</strong>
+                        <p t-field="o.severidad"/>
+                    </div>
+                    <div class="col-xs-3" t-if="o.tipopeligro" style="margin-top:10px;">
+                        <strong>Tipo de peligro:</strong>
+                        <p t-field="o.tipopeligro"/>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16">
+                    <div class="col-xs-12">
+                        <strong>Medidas de actuación preventivas:</strong>
+                            <t t-foreach="o.tpmedactp_ids" t-as="pre">
+                                <p t-field="pre.name"/>
+                            </t>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16" style="border:1px solid black;background-color:7DB519;">
+                    <div class="col-xs-12">
+                        <strong>Medidas de vigilancia:</strong>
+                            <t t-foreach="o.tpmedvig_ids" t-as="vig">
+                                <p t-field="vig.name"/>
+                            </t>
+                    </div>
+
+                    <div class="col-xs-3" t-if="o.momento" style="margin-top:10px;">
+                        <strong>Momento:</strong>
+                        <p t-field="o.momento"/>
+                    </div>
+                    <div class="col-xs-3" style="margin-top:10px;">
+                        <strong>¿Es un punto de control?:</strong>
+                        <div t-if="o.ptocritico">
+                           <span> SI </span>
+                        </div>
+                        <div t-if="o.ptocritico==False">
+                           <span> NO </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3" style="margin-top:10px;" >
+                        <strong>¿Es un punto de control crítico?:</strong>
+                        <div t-if="o.ptoctrlcrit">
+                           <span> SI </span>
+                        </div>
+                        <div t-if="o.ptoctrlcrit==False">
+                           <span> NO </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3" t-if="o.tplimitcrit_id" style="margin-top:10px;">
+                        <strong>Límite crítico:</strong>
+                        <p t-field="o.tplimitcrit_id.name"/>
+                    </div>
+
+                </div>
+
+                 <div class="row mt16 mb16">
+                    <div class="col-xs-4" t-if="o.registros_id">
+                        <strong>Registro:</strong>
+                        <p t-field="o.registros_id.name"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.tpfrecreg_id">
+                        <strong>Frecuencia registro:</strong>
+                        <p t-field="o.tpfrecreg_id.name"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.ente_id">
+                        <strong>Personal:</strong>
+                        <p t-field="o.ente_id.name"/>
+                    </div>
+
+                </div>
+
+                <div class="row mt16 mb16">
+                    <div class="col-xs-12">
+                        <strong>Medidas correctivas:</strong>
+                            <t t-foreach="o.tpmedactc_ids" t-as="c">
+                                <p t-field="c.name"/>
+                            </t>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="appcc_report_cuadrog">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_cuadrog_document"/>
+            </t>
+    </template>
+
+
+</data>
+</openerp>

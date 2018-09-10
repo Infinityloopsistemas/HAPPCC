@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="tracksondas.tracksonda_report_delivery_document">
+
+            <t t-call="report.layout">
+            <div class="page">
+                <t t-set="company" t-value="res_company" ></t>
+                <t t-foreach="deli['pagina']" t-as="o">
+
+                            <t t-call="tracksondas.tracksonda_delivery_header"/>
+
+                           <t t-call="tracksondas.tracksonda_delivery_body"/>
+
+                           <t t-call="tracksondas.tracksonda_delivery_detail"/>
+
+                           <t t-call="tracksondas.tracksonda_delivery_grafica"/>
+
+                </t>
+            </div>
+            </t>
+
+        </template>
+
+        <template id="tracksonda_delivery_header">
+            <div class="header">
+
+                <table border="0" cellpadding="0" cellspacing="0"   width="100%">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table border="0" cellpadding="0" cellspacing="0" style="padding:0px 20px 20px 20px; margin:0; font-family: Arial,Helvetica, sans-serif; background:#fff; line-height:20px;" width="100%">
+                                        <tr>
+                                            <td align="left" colspan="2" style="color:#4D4D4F; font-size:12px; padding:9px 0px 9px 0px;" valign="top">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="color:#4D4D4F; font-size:12px; padding: 30px 0px 0px 0px; margin:0 " valign="middle">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" style="color:#4D4D4F; background-color:#d6dadb; font-size:12px; padding:0 0px; margin:0 " valign="middle">
+                                                                        <img style="max-height: 120px;" t-att-src="'data:image/png;base64,%s' %  company.logo" t-if="company.logo"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td align="right" rowspan="3" style="font-size:14px; padding:25px 0px 0px 15px; width:31.5%;" valign="top">
+                                                            <h3 t-attf-style="color:#ffffff; text-align:center;font-weight:bold; background-color:#274b87; text-transform:uppercase; padding:10px 0px; width: 250px;">INFORMES RUTAS</h3>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </template>
+
+        <template id="tracksonda_delivery_body">
+           <!-- <div class="header">-->
+               <table border="0" cellspacing="0" cellpadding="0" t-attf-style="padding:0px 0px 0px 30px; margin:0;" width="100%">
+               <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" t-attf-style="padding:0px 20px 10px 20px; margin:0; font-family: Arial,Helvetica, sans-serif; background:#fff; line-height:15px;">
+                                <tr style="background-color:#f2f2f2">
+                                    <td valign="top" width="25%"  align="center" style="color:#4D4D4F; font-size:12px; padding: 0 0 25px 0; line-height:16px; padding-top:16px;">
+
+                                        <h2 style="text-transform:capitalize; font-size :18px; padding:0px; margin:0;"><b>
+                                            <span>Ref:</span></b>
+
+                                        </h2>
+                                         <span t-esc="o['cab']['name']"/>
+                                    </td>
+                                    <td valign="top" width="25%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :18px; padding:0px; margin:0;"><b>
+                                                <span>Transporte:</span></b>
+                                            </h2>
+                                            <span t-esc="o['cab']['carrier']"/>
+                                    </td>
+                                    <td valign="top" width="25%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :18px; padding:0px; margin:0;"><b>
+                                                <span>Fecha:</span></b>
+                                            </h2>
+                                            <span t-esc="o['cab']['date']"/>
+                                    </td>
+                                    <td valign="top" width="25%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                             <h2 style="text-transform:capitalize; font-size :18px; padding:0px; margin:0;"><b>
+                                                <span>Hora Inicio: </span></b>
+                                            </h2>
+                                            <span t-esc="o['cab']['horainicio']"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+          <!--  </div>-->
+        </template>
+        <!--</div>-->
+
+        <template id="tracksonda_delivery_detail">
+             <table border="0" cellspacing="0" cellpadding="0"  t-attf-style="padding:0px 0px 0px 30px;" width="100%">
+               <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                            <table width="100%" border="1" cellspacing="0" cellpadding="0" t-attf-style="padding:0px 20px 10px 20px; margin:0; font-family: Arial,Helvetica, sans-serif; background:#fff; line-height:15px;">
+                                <tr style="background-color:#b7c9e5">
+                                    <td valign="top" width="12%"  align="center" style="color:#4D4D4F; font-size:10px; padding: 0 0 25px 0; line-height:16px; padding-top:16px;">
+
+                                        <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                            <span>Hora Entrega:</span></b>
+                                        </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                         <span t-esc="o['det'][0]['date_incoming']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="18%" align="center" style="color:#4D4D4F; font-size:10px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>Cliente:</span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['cliente']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="18%" align="center" style="color:#4D4D4F; font-size:10px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>Destinatario:</span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['destinatario']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="10%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>Albaran:</span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['name']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="10%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>No. Pedido:</span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['nopedido']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="10%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                            <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>TCM:</span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['tempcinetica']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="10%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                             <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>No Bultos: </span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['nobultos']"/>
+                                         </h2>
+                                    </td>
+                                    <td valign="top" width="10%" align="center" style="color:#4D4D4F; font-size:12px; padding:0px 0px 0px 0px; margin:0 ">
+                                             <h2 style="text-transform:capitalize; font-size :16px; padding:0px; margin:0;"><b>
+                                                <span>Kilos: </span></b>
+                                            </h2>
+                                         <h2 style="text-transform:capitalize; font-size :14px; padding:0px; margin:0;">
+                                            <span t-esc="o['det'][0]['kilos']"/>
+                                         </h2>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+
+
+
+
+        </template>
+
+        <template id="tracksonda_delivery_grafica">
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+               <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                            <table width="100%" border="1" cellspacing="0" cellpadding="0" t-attf-style="padding:20px 20px 10px 20px; margin:0; font-family: Arial,Helvetica, sans-serif; background:#fff; line-height:14px;">
+
+                                <t t-foreach="o['det'][0]['sondas']" t-as="s">
+                                 <tr style="background-color:#738fba">
+                                    <td valign="top" width="4%" align="center" style="color:#4D4D4F; font-size:14px; padding:20px 0px 0px 20px; margin:0 ">
+                                      <span>SONDA</span>
+                                    </td>
+                                      <t t-foreach="intervalos" t-as="ta">
+                                        <td valign="top" width="4%"  align="center" style="color:#4D4D4F; font-size:14px; padding:20px 0px 0px 20px; margin:0 ">
+                                            <span t-esc="ta"/>
+                                        </td>
+                                      </t>
+                                  </tr>
+                                  <tr style="background-color:#c1d5f4">
+                                    <td valign="top" width="4%"   align="center" style="color:#4D4D4F; font-size:12px; padding:20px 0px 0px 20px; margin:0 ">
+                                      <span t-esc="s['sonda']"/>
+                                    </td>
+                                      <t t-foreach="intervalos" t-as="ta">
+                                        <td valign="top" width="4%"  align="center" style="color:#4D4D4F; font-size:12px; padding:20px 0px 0px 20px; margin:0 ">
+                                            <span t-esc="s['tabla'][ta]"/>
+                                        </td>
+                                      </t>
+                                  </tr>
+                                </t>
+                            </table>
+                            </center>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+               <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                            <table width="100%" border="1" cellspacing="0" cellpadding="0" t-attf-style="padding:20px 20px 10px 20px; margin:0; font-family: Arial,Helvetica, sans-serif; background:#fff; line-height:14px;">
+                                <tr>
+                                 <td align="left" style="color:#4D4D4F; font-size:12px; padding:0 0px; margin:0 " valign="middle">
+
+                                     <img t-if="o['graf']" t-att-src="'data:image/png;base64,%s' % o['graf']" style="max-height: 600px;"/>
+
+                                </td>
+                                </tr>
+                            </table>
+                            </center>
+                        </td>
+                    </tr>
+               </tbody>
+        </table>
+
+
+
+
+        </template>
+
+        <template id="tracksonda_report_delivery">
+            <t t-call="report.html_container">
+                <t t-foreach="deliverys" t-as="deli">
+                    <t t-call="tracksondas.tracksonda_report_delivery_document" />
+                </t>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

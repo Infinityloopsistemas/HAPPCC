@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="appcc.report_toteval_document">
+            <t t-call="appcc.simple_layout"/>
+            <div class="page">
+                <t t-raw="0">
+
+                    <table class="table table-condensed first-page">
+                        <tr>
+                            <td>
+                                <strong>EVALUACIONES COMPRENDIDAS ENTRE</strong>
+                            </td>
+                            <td>
+                                <t t-if="o['start']">
+                                    <strong>Fecha Desde :</strong>
+                                    <span t-esc="o['start']"/>
+                                    <br/>
+                                </t>
+                            </td>
+                            <td>
+                                <t t-if="o['stop']">
+                                    <strong>Fecha Hasta :</strong>
+                                    <span t-esc="o['stop']"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+
+                </t>
+
+
+                <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                    <thead>
+                        <tr style="font-size:14px">
+                            <t t-foreach="o['cabcol']" t-as="cab">
+                                <th class="text-center">
+                                    <span t-esc="cab['name']"/>
+                                </th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-striped table-bordered">
+                        <tr t-foreach="o['totevals']" t-as="l">
+                            <td class="text-left" style="font-size:14px">
+                                <span t-esc="l['indicador']"/>
+                            </td>
+                            <td class="text-center" t-foreach="o['cabrow']" t-as="cab" style="font-size:16px">
+                                <span t-esc="l['evals'][cab['name']]"/>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <table class="last-page table table-striped table-bordered" style="overflow-x:auto;">
+
+                        <thead>
+                            <tr style="font-size:14px">
+                                <th>RESUMEN</th>
+                                <t t-foreach="o['cabrow']" t-as="cab">
+                                    <th class="text-center">
+                                        <span t-esc="cab['name']"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tfoot>
+
+                            <tr style="font-size:14px;background-color: #FFF;">
+                                <td class="text-right">
+                                    Totales
+                                </td>
+                                <t t-foreach="o['cabrow']" t-as="col">
+                                    <td class="text-center">
+                                        <span t-esc="o['total'][col['name']]"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </table>
+
+            </div>
+
+        </template>
+
+        <template id="report_toteval_res">
+            <t t-call="report.html_container">
+                <t t-foreach="evaluaciones" t-as="o">
+                    <t t-call="appcc.report_toteval_document"/>
+                </t>
+            </t>
+        </template>
+
+
+
+
+    </data>
+</odoo>
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- QWeb Reports -->
+        <report
+            id="tracksonda_report_grafica_envios"
+            model="tracksonda.envios"
+            string="Envios Graficas"
+            report_type="qweb-pdf"
+            name="tracksondas.tracksonda_report_grafica"
+            file="tracksondas.tracksonda_report_grafica"
+            attachment_use="False"
+            paperformat="appcc.paperformat_landscape_a4"
+        />
+
+        <report
+            id="tracksonda_report_grafica_delivery"
+            model="tracksonda.delivery"
+            string="Informe Entregas"
+            report_type="qweb-pdf"
+            name="tracksondas.tracksonda_report_delivery"
+            file="tracksondas.tracksonda_report_delivery"
+            attachment_use="False"
+            paperformat="appcc.paperformat_landscape_a4"
+        />
+    </data>
+</openerp>

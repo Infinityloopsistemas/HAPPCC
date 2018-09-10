@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="appcc.appcc_report">
+            <link href="/appcc/static/src/css/appcc_report.css" rel="stylesheet"/>
+            <link href="/web/static/lib/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+            <link href="/website/static/src/css/website.css" rel="stylesheet"/>
+            <link href="/web/static/lib/fontawesome/css/font-awesome.css" rel="stylesheet"/>
+            <link href="/base/static/src/css/description.css" rel="stylesheet"/>
+            <link href="/report/static/src/css/report.css" rel="stylesheet"/>
+        </template>
+
+        <template id="appcc.report_det_qr_document">
+
+             <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="initial-scale=1"/>
+                    <t t-call-assets="appcc.appcc_report"/>
+            </head>
+            <div class="page">
+                <table>
+                    <tbody>
+                    <t t-foreach="reg['cabecera']" t-as="cab">
+
+                    <tr>
+                        <td>
+                            <div>
+                                <!--<img class="img" t-if="cab[0]['lbl1'].qrimage" t-att-src="'data:image/png;base64,%s' % cab[0]['lbl1'].qrimage"
+                                 style="max-width:100%;max-height:100%;"/>-->
+                                <img class="img" width="300" height="300"  t-if="cab[0]['lbl1'].qrimage" t-att-src="'data:image/png;base64,%s' % cab[0]['lbl1'].qrimage"
+                                 />
+                            </div>
+
+<!--
+                                <div class="text-center" style="font-size:10px">
+                                        <span t-field="cab[0]['lbl1'].equipos_id.name"/>
+                                 </div>-->
+                                <div class="text-center" style="font-size:32px:font-weight:bold">
+                                       <h4><b><span t-field="cab[0]['lbl1'].equipos_id.serial"/></b></h4>
+                                </div>
+
+                        </td>
+
+                        <td>
+
+                            <div>
+                                <!--<img class="img" t-if="cab[0]['lbl2'].qrimage" t-att-src="'data:image/png;base64,%s' % cab[0]['lbl2'].qrimage"-->
+                                 <!--style="max-width:100%;max-height:100%;"/>-->
+                                 <img class="img" width="300" height="300" t-if="cab[0]['lbl2'].qrimage" t-att-src="'data:image/png;base64,%s' % cab[0]['lbl2'].qrimage"
+                                 />
+                            </div>
+
+
+                               <!-- <div class="text-center" style="font-size:10px">
+                                        <span t-field="cab[0]['lbl2'].equipos_id.name"/>
+                                 </div>-->
+                                <div class="text-center" style="font-size:32px:font-weight:bold">
+                                       <h4> <b><span t-field="cab[0]['lbl2'].equipos_id.serial"/></b> </h4>
+                                </div>
+
+                        </td>
+                    </tr>
+                    <div style="page-break-after: auto;"><span style="display: none;"> </span></div>
+                    </t>
+                    </tbody>
+                </table>
+            </div>
+       </template>
+
+
+    <template id="report_detreg_qr">
+        <t t-call="report.html_container">
+                 <t t-foreach="detregistros" t-as="reg">
+                    <t t-call="appcc.report_det_qr_document"/>
+                 </t>
+        </t>
+    </template>
+
+
+    </data>
+</odoo>

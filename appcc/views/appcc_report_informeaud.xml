@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <template id="appcc.report_informeaud_document">
+        <t t-call="appcc.manualauto_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+            <div class="page">
+                <div class="row">
+                    <div style="font-size:24px; color:green" >
+                        <h1>
+                            <center> <p t-field="o.establecimiento"/> </center>
+                        </h1>
+                    </div>
+                    <div class="row mt16 mb16">
+                        <h3>
+                            <center>
+                                <span t-field="o.appcc_id.name"/>
+                            </center>
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="row mt16 mb16" style="border:1px solid black">
+
+                    <div class="col-xs-6">
+                        <strong>Fecha de realización:</strong>
+                        <p t-field="o.fecha"/>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <strong>Expediente:</strong>
+                        <p t-field="o.expediente"/>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16" style="border:1px solid black">
+                    <div class="col-xs-12">
+                        <strong>Auditores:</strong>
+                            <t t-foreach="o.auditor_ids" t-as="aud">
+                                <p t-field="aud.name"/>
+                            </t>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16" style="border:1px solid black">
+                    <div class="col-xs-12">
+                        <strong>Responsables de la empresa:</strong>
+                            <t t-foreach="o.responsables_ids" t-as="coo">
+                                <p t-field="coo.name"/>
+                            </t>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16" style="border:1px solid black">
+                    <div class="col-xs-12">
+                        <strong>Legislación:</strong>
+                            <t t-foreach="o.legislacion_ids" t-as="leg">
+                                <p t-field="leg.name"/>
+                            </t>
+                    </div>
+                </div>
+
+                <span><p> </p></span>
+
+                <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                    <thead>
+                        <tr>
+                                <th class="text-center">Orden</th>
+                                <th class="text-center">Explicacion</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-striped table-bordered">
+                        <tr t-foreach="o.cabinfortec_ids" t-as="det">
+                             <td class="text-center">
+                                <span t-field="det.orden"/>
+                            </td>
+                            <td>
+                                <div class="col-xs-12">
+                                    <strong> <span class="text-center" t-field="det.titulo"/> </strong>
+                                     <p>
+
+                                     </p>
+                                        <span class="text-left" t-field="det.texto" t-field-options='{"widget": "html"}' />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="appcc_report_informeaud">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_informeaud_document"/>
+            </t>
+    </template>
+
+
+</data>
+</openerp>

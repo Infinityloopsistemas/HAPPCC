@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+         <record model="jasper.server" id="tracksondas_jasper_config">
+            <field name="host">reportes.givasl.com</field>
+            <field name="user">XXXXX</field>
+            <field name="pass">XXXXX</field>
+            <field name="enable" eval="True"/>
+        </record>
+
+        <record model="jasper.document" id="tracksondas_jasper_doc_1">
+            <field name="name">Graficas Temperatura</field>
+            <field name="model_id"  ref="tracksondas.model_tracksonda_envios"/>
+            <field name="server_id"   ref="tracksondas_jasper_config"/>
+            <field name="enabled" eval="True"/>
+            <field name="report_unit">Graficas_temperaturas</field>
+            <field name="jasper_file">main_jrxml</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+      <!-- Configuracion -->
+
+        <record id="textmagic_config_form_view" model="ir.ui.view">
+            <field name="name">textmagicsms.view.form</field>
+            <field name="model">textmagicsms.configuration</field>
+            <field name="arch" type="xml">
+                <form string="Config TextMagic" version="9.0">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="token"/>
+                                <field name="numsms" />
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_textmagic_config" model="ir.actions.act_window">
+            <field name="name">Configuracion TextMagic</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">textmagicsms.configuration</field>
+            <field name="limit">1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem name="TextMagic"
+                  id="menu_textmagic"
+                  parent="base.menu_administration"
+                  groups="base.group_configuration"
+                  sequence="101"/>
+
+
+        <menuitem name="Configuration"
+                  id="menu_textmagic_conf"
+                  parent="menu_textmagic"
+                  action="action_textmagic_config"
+                  sequence="102"/>
+
+
+        <!-- Ver Mensajes -->
+
+        <record id="textmagic_messages_tree_view" model="ir.ui.view">
+            <field name="name">textmagicsms.messages.view.form</field>
+            <field name="model">textmagicsms.messages</field>
+            <field name="arch" type="xml">
+                <tree string="Text Magic Messages SMS " readonly="1"  version="9.0">
+
+                                <field name="name"/>
+                                <field name="datetime"/>
+                                <field name="text" />
+                                <field name="model"/>
+                                <field name="sendstate"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+         <record id="action_textmagic_messages" model="ir.actions.act_window">
+            <field name="name">Messages TextMagic</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">textmagicsms.messages</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem name="Messages"
+                  id="menu_textmagic_mess"
+                  parent="menu_textmagic"
+                  action="action_textmagic_messages"
+                  sequence="103"/>
+
+
+    </data>
+</openerp>

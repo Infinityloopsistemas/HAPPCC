@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wizard_tracksonda_datson_view" model="ir.ui.view">
+            <field name="name">wizard.tracksonda.datsonwizard.form</field>
+            <field name="model">tracksonda.datsonwizard</field>
+            <field name="arch" type="xml">
+                <form string="Seleccion Sonda">
+                    <pages>
+                    <group string="Seleccionar">
+                        <field name="tracksonda_ids" widget="many2many_tags" />
+                        <field name="fecha" widget="date"/>
+                        </group>
+                        <group string="Intervalo Horas">
+                            <field name="tiempo_ini" />
+                            <field name="tiempo_fin" />
+                        </group>
+
+                    <footer>
+                        <button string="Ver Grafica" name="action_button_calchour" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Export PDF"  name="action_button_grafica_pdf" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
+                    </footer>
+                    </pages>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="action_tracksonda_datson_wizard"
+                    name="Ver Graficas Horarias Sondas"
+                    src_model="tracksonda.loaddatson"
+                    res_model="tracksonda.datsonwizard"
+                    view_mode="form"
+                    view_type="form"
+                    target="new"
+                    multi="True" />
+
+
+        <menuitem name="Sondas Horarias"
+                  action="action_tracksonda_datson_wizard"
+                  id="menu_tracksonda_datson_wizard"
+                  parent="menu_tracksonda_ana"
+                  sequence="5"/>
+
+
+  <!-- Horaria Datos Sonda -->
+
+         <record id="tracksonda_datsonhorario_tree_view" model="ir.ui.view">
+            <field name="name">tracksonda.datsonhorario.tree</field>
+            <field name="model">tracksonda.datsonhorario</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de Valores Sondas Horarios">
+                    <field name="tracksonda_id" string="Sonda" />
+                    <field name="hora"/>
+                    <field name="valor"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record model="ir.ui.view" id="view_tracksonda_datsonhorario_graph">
+            <field name="name">tracksonda.datsonhorario.graph</field>
+            <field name="model">tracksonda.datsonhorario</field>
+            <field name="arch" type="xml">
+                <graph string="Valores Sondas Horas" type="line">
+                    <field name="hora"   type="row"/>
+                    <field name="tracksonda_id" type="col"/>
+                    <field name="valor" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_tracksonda_datsonhorario_pivot" model="ir.ui.view">
+            <field name="name">tracksonda.datsonhorario.pivot</field>
+            <field name="model">tracksonda.datsonhorario</field>
+            <field name="arch" type="xml">
+                <pivot string="Tabla Registros Sondas Horas">
+                    <field name="hora" type="row"/>
+                    <field name="tracksonda_id" type="col"/>
+                    <field name="valor" operator="+" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <!---Carga de datos via CSV -->
+
+        <record id="wizard_tracksonda_loaddatcsv_view" model="ir.ui.view">
+            <field name="name">wizard.tracksonda.datloadfilecsvwizard.form</field>
+            <field name="model">tracksonda.datloadfilecsv</field>
+            <field name="arch" type="xml">
+                <form string="Seleccion Sonda">
+                    <pages>
+                    <group string="Seleccionar">
+                        <field name="tracksonda_id" />
+                        <field name="date_ini" widget="date"/>
+                        <field name="date_end" widget="date"/>
+                        <field name="file" />
+                        </group>
+
+                    <footer>
+
+                        <button string="Import CSV"  name="action_button_import_csv" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
+                    </footer>
+                    </pages>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="action_tracksonda_loaddatcsv_wizard"
+                    name="Cargas datos csv"
+                    src_model="tracksonda.loaddatson"
+                    res_model="tracksonda.datloadfilecsv"
+                    view_mode="form"
+                    view_type="form"
+                    target="new"
+                    multi="True" />
+
+
+        <menuitem name="Subir datos CSV"
+                  action="action_tracksonda_loaddatcsv_wizard"
+                  id="menu_tracksonda_loaddatcsv_wizard"
+                  parent="menu_tracksonda_conf"
+                  sequence="5"/>
+
+
+        </data>
+</odoo>

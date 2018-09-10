@@ -1,0 +1,510 @@
+<openerp>
+
+    <data noupdate="1">
+
+<record id="color_AliceBlue" model="appcc.maestros.colores">
+                <field  name="name"> AliceBlue </field>
+                <field  name="color"> #f0f8ff </field>
+                </record>
+             <record id="color_AntiqueWhite" model="appcc.maestros.colores">
+                <field  name="name"> AntiqueWhite </field>
+                <field  name="color"> #faebd7 </field>
+                </record>
+             <record id="color_AntiqueWhite1" model="appcc.maestros.colores">
+                <field  name="name"> AntiqueWhite1 </field>
+                <field  name="color"> #ffefdb </field>
+                </record>
+             <record id="color_AntiqueWhite2" model="appcc.maestros.colores">
+                <field  name="name"> AntiqueWhite2 </field>
+                <field  name="color"> #eedfcc </field>
+                </record>
+             <record id="color_AntiqueWhite3" model="appcc.maestros.colores">
+                <field  name="name"> AntiqueWhite3 </field>
+                <field  name="color"> #cdc0b0 </field>
+                </record>
+             <record id="color_AntiqueWhite4" model="appcc.maestros.colores">
+                <field  name="name"> AntiqueWhite4 </field>
+                <field  name="color"> #8b8378 </field>
+                </record>
+             <record id="color_aquamarine1" model="appcc.maestros.colores">
+                <field  name="name"> aquamarine1 </field>
+                <field  name="color"> #7fffd4 </field>
+                </record>
+             <record id="color_aquamarine2" model="appcc.maestros.colores">
+                <field  name="name"> aquamarine2 </field>
+                <field  name="color"> #76eec6 </field>
+                </record>
+             <record id="color_aquamarine4" model="appcc.maestros.colores">
+                <field  name="name"> aquamarine4 </field>
+                <field  name="color"> #458b74 </field>
+                </record>
+             <record id="color_azure1" model="appcc.maestros.colores">
+                <field  name="name"> azure1 </field>
+                <field  name="color"> #f0ffff </field>
+                </record>
+             <record id="color_azure2" model="appcc.maestros.colores">
+                <field  name="name"> azure2 </field>
+                <field  name="color"> #e0eeee </field>
+                </record>
+             <record id="color_azure3" model="appcc.maestros.colores">
+                <field  name="name"> azure3 </field>
+                <field  name="color"> #c1cdcd </field>
+                </record>
+             <record id="color_azure4" model="appcc.maestros.colores">
+                <field  name="name"> azure4 </field>
+                <field  name="color"> #838b8b </field>
+                </record>
+             <record id="color_beige" model="appcc.maestros.colores">
+                <field  name="name"> beige </field>
+                <field  name="color"> #f5f5dc </field>
+                </record>
+             <record id="color_bisque1" model="appcc.maestros.colores">
+                <field  name="name"> bisque1 </field>
+                <field  name="color"> #ffe4c4 </field>
+                </record>
+             <record id="color_bisque2" model="appcc.maestros.colores">
+                <field  name="name"> bisque2 </field>
+                <field  name="color"> #eed5b7 </field>
+                </record>
+             <record id="color_bisque3" model="appcc.maestros.colores">
+                <field  name="name"> bisque3 </field>
+                <field  name="color"> #cdb79e </field>
+                </record>
+             <record id="color_bisque4" model="appcc.maestros.colores">
+                <field  name="name"> bisque4 </field>
+                <field  name="color"> #8b7d6b </field>
+                </record>
+             <record id="color_black" model="appcc.maestros.colores">
+                <field  name="name"> black </field>
+                <field  name="color"> #000000 </field>
+                </record>
+             <record id="color_BlanchedAlmond" model="appcc.maestros.colores">
+                <field  name="name"> BlanchedAlmond </field>
+                <field  name="color"> #ffebcd </field>
+                </record>
+             <record id="color_blue1" model="appcc.maestros.colores">
+                <field  name="name"> blue1 </field>
+                <field  name="color"> #0000ff </field>
+                </record>
+             <record id="color_blue2" model="appcc.maestros.colores">
+                <field  name="name"> blue2 </field>
+                <field  name="color"> #0000ee </field>
+                </record>
+             <record id="color_blue4" model="appcc.maestros.colores">
+                <field  name="name"> blue4 </field>
+                <field  name="color"> #00008b </field>
+                </record>
+             <record id="color_BlueViolet" model="appcc.maestros.colores">
+                <field  name="name"> BlueViolet </field>
+                <field  name="color"> #8a2be2 </field>
+                </record>
+             <record id="color_brown" model="appcc.maestros.colores">
+                <field  name="name"> brown </field>
+                <field  name="color"> #a52a2a </field>
+                </record>
+             <record id="color_brown1" model="appcc.maestros.colores">
+                <field  name="name"> brown1 </field>
+                <field  name="color"> #ff4040 </field>
+                </record>
+             <record id="color_brown2" model="appcc.maestros.colores">
+                <field  name="name"> brown2 </field>
+                <field  name="color"> #ee3b3b </field>
+                </record>
+             <record id="color_brown3" model="appcc.maestros.colores">
+                <field  name="name"> brown3 </field>
+                <field  name="color"> #cd3333 </field>
+                </record>
+             <record id="color_brown4" model="appcc.maestros.colores">
+                <field  name="name"> brown4 </field>
+                <field  name="color"> #8b2323 </field>
+                </record>
+             <record id="color_burlywood" model="appcc.maestros.colores">
+                <field  name="name"> burlywood </field>
+                <field  name="color"> #deb887 </field>
+                </record>
+             <record id="color_burlywood1" model="appcc.maestros.colores">
+                <field  name="name"> burlywood1 </field>
+                <field  name="color"> #ffd39b </field>
+                </record>
+             <record id="color_burlywood2" model="appcc.maestros.colores">
+                <field  name="name"> burlywood2 </field>
+                <field  name="color"> #eec591 </field>
+                </record>
+             <record id="color_burlywood3" model="appcc.maestros.colores">
+                <field  name="name"> burlywood3 </field>
+                <field  name="color"> #cdaa7d </field>
+                </record>
+             <record id="color_burlywood4" model="appcc.maestros.colores">
+                <field  name="name"> burlywood4 </field>
+                <field  name="color"> #8b7355 </field>
+                </record>
+             <record id="color_CadetBlue" model="appcc.maestros.colores">
+                <field  name="name"> CadetBlue </field>
+                <field  name="color"> #5f9ea0 </field>
+                </record>
+             <record id="color_CadetBlue1" model="appcc.maestros.colores">
+                <field  name="name"> CadetBlue1 </field>
+                <field  name="color"> #98f5ff </field>
+                </record>
+             <record id="color_CadetBlue2" model="appcc.maestros.colores">
+                <field  name="name"> CadetBlue2 </field>
+                <field  name="color"> #8ee5ee </field>
+                </record>
+             <record id="color_CadetBlue3" model="appcc.maestros.colores">
+                <field  name="name"> CadetBlue3 </field>
+                <field  name="color"> #7ac5cd </field>
+                </record>
+             <record id="color_CadetBlue4" model="appcc.maestros.colores">
+                <field  name="name"> CadetBlue4 </field>
+                <field  name="color"> #53868b </field>
+                </record>
+             <record id="color_chartreuse1" model="appcc.maestros.colores">
+                <field  name="name"> chartreuse1 </field>
+                <field  name="color"> #7fff00 </field>
+                </record>
+             <record id="color_chartreuse2" model="appcc.maestros.colores">
+                <field  name="name"> chartreuse2 </field>
+                <field  name="color"> #76ee00 </field>
+                </record>
+             <record id="color_chartreuse3" model="appcc.maestros.colores">
+                <field  name="name"> chartreuse3 </field>
+                <field  name="color"> #66cd00 </field>
+                </record>
+             <record id="color_chartreuse4" model="appcc.maestros.colores">
+                <field  name="name"> chartreuse4 </field>
+                <field  name="color"> #458b00 </field>
+                </record>
+             <record id="color_chocolate" model="appcc.maestros.colores">
+                <field  name="name"> chocolate </field>
+                <field  name="color"> #d2691e </field>
+                </record>
+             <record id="color_chocolate1" model="appcc.maestros.colores">
+                <field  name="name"> chocolate1 </field>
+                <field  name="color"> #ff7f24 </field>
+                </record>
+             <record id="color_chocolate2" model="appcc.maestros.colores">
+                <field  name="name"> chocolate2 </field>
+                <field  name="color"> #ee7621 </field>
+                </record>
+             <record id="color_chocolate3" model="appcc.maestros.colores">
+                <field  name="name"> chocolate3 </field>
+                <field  name="color"> #cd661d </field>
+                </record>
+             <record id="color_coral" model="appcc.maestros.colores">
+                <field  name="name"> coral </field>
+                <field  name="color"> #ff7f50 </field>
+                </record>
+             <record id="color_coral1" model="appcc.maestros.colores">
+                <field  name="name"> coral1 </field>
+                <field  name="color"> #ff7256 </field>
+                </record>
+             <record id="color_coral2" model="appcc.maestros.colores">
+                <field  name="name"> coral2 </field>
+                <field  name="color"> #ee6a50 </field>
+                </record>
+             <record id="color_coral3" model="appcc.maestros.colores">
+                <field  name="name"> coral3 </field>
+                <field  name="color"> #cd5b45 </field>
+                </record>
+             <record id="color_coral4" model="appcc.maestros.colores">
+                <field  name="name"> coral4 </field>
+                <field  name="color"> #8b3e2f </field>
+                </record>
+             <record id="color_CornflowerBlue" model="appcc.maestros.colores">
+                <field  name="name"> CornflowerBlue </field>
+                <field  name="color"> #6495ed </field>
+                </record>
+             <record id="color_cornsilk1" model="appcc.maestros.colores">
+                <field  name="name"> cornsilk1 </field>
+                <field  name="color"> #fff8dc </field>
+                </record>
+             <record id="color_cornsilk2" model="appcc.maestros.colores">
+                <field  name="name"> cornsilk2 </field>
+                <field  name="color"> #eee8cd </field>
+                </record>
+             <record id="color_cornsilk3" model="appcc.maestros.colores">
+                <field  name="name"> cornsilk3 </field>
+                <field  name="color"> #cdc8b1 </field>
+                </record>
+             <record id="color_cornsilk4" model="appcc.maestros.colores">
+                <field  name="name"> cornsilk4 </field>
+                <field  name="color"> #8b8878 </field>
+                </record>
+             <record id="color_cyan1" model="appcc.maestros.colores">
+                <field  name="name"> cyan1 </field>
+                <field  name="color"> #00ffff </field>
+                </record>
+             <record id="color_cyan2" model="appcc.maestros.colores">
+                <field  name="name"> cyan2 </field>
+                <field  name="color"> #00eeee </field>
+                </record>
+             <record id="color_cyan3" model="appcc.maestros.colores">
+                <field  name="name"> cyan3 </field>
+                <field  name="color"> #00cdcd </field>
+                </record>
+             <record id="color_cyan4" model="appcc.maestros.colores">
+                <field  name="name"> cyan4 </field>
+                <field  name="color"> #008b8b </field>
+                </record>
+             <record id="color_DarkGoldenrod" model="appcc.maestros.colores">
+                <field  name="name"> DarkGoldenrod </field>
+                <field  name="color"> #b8860b </field>
+                </record>
+             <record id="color_DarkGoldenrod1" model="appcc.maestros.colores">
+                <field  name="name"> DarkGoldenrod1 </field>
+                <field  name="color"> #ffb90f </field>
+                </record>
+             <record id="color_DarkGoldenrod2" model="appcc.maestros.colores">
+                <field  name="name"> DarkGoldenrod2 </field>
+                <field  name="color"> #eead0e </field>
+                </record>
+             <record id="color_DarkGoldenrod3" model="appcc.maestros.colores">
+                <field  name="name"> DarkGoldenrod3 </field>
+                <field  name="color"> #cd950c </field>
+                </record>
+             <record id="color_DarkGoldenrod4" model="appcc.maestros.colores">
+                <field  name="name"> DarkGoldenrod4 </field>
+                <field  name="color"> #8b6508 </field>
+                </record>
+             <record id="color_DarkGreen" model="appcc.maestros.colores">
+                <field  name="name"> DarkGreen </field>
+                <field  name="color"> #006400 </field>
+                </record>
+             <record id="color_DarkKhaki" model="appcc.maestros.colores">
+                <field  name="name"> DarkKhaki </field>
+                <field  name="color"> #bdb76b </field>
+                </record>
+             <record id="color_DarkOliveGreen" model="appcc.maestros.colores">
+                <field  name="name"> DarkOliveGreen </field>
+                <field  name="color"> #556b2f </field>
+                </record>
+             <record id="color_DarkOliveGreen1" model="appcc.maestros.colores">
+                <field  name="name"> DarkOliveGreen1 </field>
+                <field  name="color"> #caff70 </field>
+                </record>
+             <record id="color_DarkOliveGreen2" model="appcc.maestros.colores">
+                <field  name="name"> DarkOliveGreen2 </field>
+                <field  name="color"> #bcee68 </field>
+                </record>
+             <record id="color_DarkOliveGreen3" model="appcc.maestros.colores">
+                <field  name="name"> DarkOliveGreen3 </field>
+                <field  name="color"> #a2cd5a </field>
+                </record>
+             <record id="color_DarkOliveGreen4" model="appcc.maestros.colores">
+                <field  name="name"> DarkOliveGreen4 </field>
+                <field  name="color"> #6e8b3d </field>
+                </record>
+             <record id="color_DarkOrange" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrange </field>
+                <field  name="color"> #ff8c00 </field>
+                </record>
+             <record id="color_DarkOrange1" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrange1 </field>
+                <field  name="color"> #ff7f00 </field>
+                </record>
+             <record id="color_DarkOrange2" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrange2 </field>
+                <field  name="color"> #ee7600 </field>
+                </record>
+             <record id="color_DarkOrange3" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrange3 </field>
+                <field  name="color"> #cd6600 </field>
+                </record>
+             <record id="color_DarkOrange4" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrange4 </field>
+                <field  name="color"> #8b4500 </field>
+                </record>
+             <record id="color_DarkOrchid" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrchid </field>
+                <field  name="color"> #9932cc </field>
+                </record>
+             <record id="color_DarkOrchid1" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrchid1 </field>
+                <field  name="color"> #bf3eff </field>
+                </record>
+             <record id="color_DarkOrchid2" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrchid2 </field>
+                <field  name="color"> #b23aee </field>
+                </record>
+             <record id="color_DarkOrchid3" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrchid3 </field>
+                <field  name="color"> #9a32cd </field>
+                </record>
+             <record id="color_DarkOrchid4" model="appcc.maestros.colores">
+                <field  name="name"> DarkOrchid4 </field>
+                <field  name="color"> #68228b </field>
+                </record>
+             <record id="color_DarkSalmon" model="appcc.maestros.colores">
+                <field  name="name"> DarkSalmon </field>
+                <field  name="color"> #e9967a </field>
+                </record>
+             <record id="color_DarkSeaGreen" model="appcc.maestros.colores">
+                <field  name="name"> DarkSeaGreen </field>
+                <field  name="color"> #8fbc8f </field>
+                </record>
+             <record id="color_DarkSeaGreen1" model="appcc.maestros.colores">
+                <field  name="name"> DarkSeaGreen1 </field>
+                <field  name="color"> #c1ffc1 </field>
+                </record>
+             <record id="color_DarkSeaGreen2" model="appcc.maestros.colores">
+                <field  name="name"> DarkSeaGreen2 </field>
+                <field  name="color"> #b4eeb4 </field>
+                </record>
+             <record id="color_DarkSeaGreen3" model="appcc.maestros.colores">
+                <field  name="name"> DarkSeaGreen3 </field>
+                <field  name="color"> #9bcd9b </field>
+                </record>
+             <record id="color_DarkSeaGreen4" model="appcc.maestros.colores">
+                <field  name="name"> DarkSeaGreen4 </field>
+                <field  name="color"> #698b69 </field>
+                </record>
+             <record id="color_DarkSlateBlue" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateBlue </field>
+                <field  name="color"> #483d8b </field>
+                </record>
+             <record id="color_DarkSlateGray" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateGray </field>
+                <field  name="color"> #2f4f4f </field>
+                </record>
+             <record id="color_DarkSlateGray1" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateGray1 </field>
+                <field  name="color"> #97ffff </field>
+                </record>
+             <record id="color_DarkSlateGray2" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateGray2 </field>
+                <field  name="color"> #8deeee </field>
+                </record>
+             <record id="color_DarkSlateGray3" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateGray3 </field>
+                <field  name="color"> #79cdcd </field>
+                </record>
+             <record id="color_DarkSlateGray4" model="appcc.maestros.colores">
+                <field  name="name"> DarkSlateGray4 </field>
+                <field  name="color"> #528b8b </field>
+                </record>
+             <record id="color_DarkTurquoise" model="appcc.maestros.colores">
+                <field  name="name"> DarkTurquoise </field>
+                <field  name="color"> #00ced1 </field>
+                </record>
+             <record id="color_DarkViolet" model="appcc.maestros.colores">
+                <field  name="name"> DarkViolet </field>
+                <field  name="color"> #9400d3 </field>
+                </record>
+             <record id="color_DeepPink1" model="appcc.maestros.colores">
+                <field  name="name"> DeepPink1 </field>
+                <field  name="color"> #ff1493 </field>
+                </record>
+             <record id="color_DeepPink2" model="appcc.maestros.colores">
+                <field  name="name"> DeepPink2 </field>
+                <field  name="color"> #ee1289 </field>
+                </record>
+             <record id="color_DeepPink3" model="appcc.maestros.colores">
+                <field  name="name"> DeepPink3 </field>
+                <field  name="color"> #cd1076 </field>
+                </record>
+             <record id="color_DeepPink4" model="appcc.maestros.colores">
+                <field  name="name"> DeepPink4 </field>
+                <field  name="color"> #8b0a50 </field>
+                </record>
+             <record id="color_DeepSkyBlue1" model="appcc.maestros.colores">
+                <field  name="name"> DeepSkyBlue1 </field>
+                <field  name="color"> #00bfff </field>
+                </record>
+             <record id="color_DeepSkyBlue2" model="appcc.maestros.colores">
+                <field  name="name"> DeepSkyBlue2 </field>
+                <field  name="color"> #00b2ee </field>
+                </record>
+             <record id="color_DeepSkyBlue3" model="appcc.maestros.colores">
+                <field  name="name"> DeepSkyBlue3 </field>
+                <field  name="color"> #009acd </field>
+                </record>
+             <record id="color_DeepSkyBlue4" model="appcc.maestros.colores">
+                <field  name="name"> DeepSkyBlue4 </field>
+                <field  name="color"> #00688b </field>
+                </record>
+             <record id="color_DimGray" model="appcc.maestros.colores">
+                <field  name="name"> DimGray </field>
+                <field  name="color"> #696969 </field>
+                </record>
+             <record id="color_DodgerBlue1" model="appcc.maestros.colores">
+                <field  name="name"> DodgerBlue1 </field>
+                <field  name="color"> #1e90ff </field>
+                </record>
+             <record id="color_DodgerBlue2" model="appcc.maestros.colores">
+                <field  name="name"> DodgerBlue2 </field>
+                <field  name="color"> #1c86ee </field>
+                </record>
+             <record id="color_DodgerBlue3" model="appcc.maestros.colores">
+                <field  name="name"> DodgerBlue3 </field>
+                <field  name="color"> #1874cd </field>
+                </record>
+             <record id="color_DodgerBlue4" model="appcc.maestros.colores">
+                <field  name="name"> DodgerBlue4 </field>
+                <field  name="color"> #104e8b </field>
+                </record>
+             <record id="color_firebrick" model="appcc.maestros.colores">
+                <field  name="name"> firebrick </field>
+                <field  name="color"> #b22222 </field>
+                </record>
+             <record id="color_firebrick1" model="appcc.maestros.colores">
+                <field  name="name"> firebrick1 </field>
+                <field  name="color"> #ff3030 </field>
+                </record>
+             <record id="color_firebrick2" model="appcc.maestros.colores">
+                <field  name="name"> firebrick2 </field>
+                <field  name="color"> #ee2c2c </field>
+                </record>
+             <record id="color_firebrick3" model="appcc.maestros.colores">
+                <field  name="name"> firebrick3 </field>
+                <field  name="color"> #cd2626 </field>
+                </record>
+             <record id="color_firebrick4" model="appcc.maestros.colores">
+                <field  name="name"> firebrick4 </field>
+                <field  name="color"> #8b1a1a </field>
+                </record>
+             <record id="color_FloralWhite" model="appcc.maestros.colores">
+                <field  name="name"> FloralWhite </field>
+                <field  name="color"> #fffaf0 </field>
+                </record>
+             <record id="color_ForestGreen" model="appcc.maestros.colores">
+                <field  name="name"> ForestGreen </field>
+                <field  name="color"> #228b22 </field>
+                </record>
+             <record id="color_gainsboro" model="appcc.maestros.colores">
+                <field  name="name"> gainsboro </field>
+                <field  name="color"> #dcdcdc </field>
+                </record>
+             <record id="color_GhostWhite" model="appcc.maestros.colores">
+                <field  name="name"> GhostWhite </field>
+                <field  name="color"> #f8f8ff </field>
+                </record>
+             <record id="color_gold1" model="appcc.maestros.colores">
+                <field  name="name"> gold1 </field>
+                <field  name="color"> #ffd700 </field>
+                </record>
+             <record id="color_gold2" model="appcc.maestros.colores">
+                <field  name="name"> gold2 </field>
+                <field  name="color"> #eec900 </field>
+                </record>
+             <record id="color_gold3" model="appcc.maestros.colores">
+                <field  name="name"> gold3 </field>
+                <field  name="color"> #cdad00 </field>
+                </record>
+             <record id="color_gold4" model="appcc.maestros.colores">
+                <field  name="name"> gold4 </field>
+                <field  name="color"> #8b7500 </field>
+                </record>
+             <record id="color_goldenrod" model="appcc.maestros.colores">
+                <field  name="name"> goldenrod </field>
+                <field  name="color"> #daa520 </field>
+                </record>
+             <record id="color_goldenrod1" model="appcc.maestros.colores">
+                <field  name="name"> goldenrod1 </field>
+                <field  name="color"> #ffc125 </field>
+                </record>
+             <record id="color_goldenrod2" model="appcc.maestros.colores">
+                <field  name="name"> goldenrod2 </field>
+                <field  name="color"> #eeb422 </field>
+                </record>
+            </data>
+    </openerp>

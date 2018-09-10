@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="appcc.report_evalreg_document">
+            <t t-call="appcc.simple_layout">
+                <div class="page">
+                    <div class="header first-page">
+
+                        <table class="table table-condensed">
+                            <tr>
+                                <td>
+                                    <strong>Intervalo registros</strong>
+                                </td>
+                                <td>
+                                    <t t-if="data['date_from']">
+                                        <strong>Fecha Desde :</strong>
+                                        <span t-esc="data['date_from']"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <t t-if="data['date_to']">
+                                        <strong>Fecha Hasta :</strong>
+                                        <span t-esc="data['date_to']"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+
+                    <t t-foreach="eval['lineval']" t-as="a">
+                        <h3>
+                            <center>
+                                <span t-field="a.evaldet_id.name"/>
+                            </center>
+                        </h3>
+
+                        <div class="col-xs-3" >
+                            <div>Fecha de revisión:</div></div>
+                        <div class="col-xs-5">
+                            <p t-field="a.evaldet_id.fecha"/></div>
+
+                        <table class="table table-condensed table-striped table-bordered" style="overflow-x:auto;">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Verificacion</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">Observaciones</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table table-striped table-bordered">
+                                <tr t-foreach="a.evallin_ids" t-as="b">
+                                    <td class="text-left">
+                                        <span t-field="b.indicador_id.name" />
+                                    </td>
+                                    <td class="text-center" >
+                                        <span t-field="b.siono"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="b.observa"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </t>
+                    <t t-foreach="eval['detevalreg']" t-as="detevalreg">
+                        <div>
+                            <t t-foreach="detevalreg['detgreg']" t-as="detgreg">
+                                <p t-field="detgreg.name"/>
+                            </t>
+                            <table class="table table-condensed table-striped table-bordered" style="overflow-x:auto;">
+                                <thead>
+                                    <tr t-foreach="detevalreg['linreg']" t-as="titlinreg">
+                                        <t t-if="titlinreg_first">
+                                            <th class="text-center">F.Realizado</th>
+                                            <t t-if="titlinreg.tipo == 'V'">
+                                                <th class="text-center">Valor</th>
+                                            </t>
+                                            <t t-if="titlinreg.tipo == 'V'">
+                                                <th class="text-center">Unidades</th>
+                                            </t>
+                                            <t t-if="titlinreg.tipo == 'C'">
+                                                <th class="text-center">Estado</th>
+                                            </t>
+                                        </t>
+                                    </tr>
+                                </thead>
+                                <tbody class="table table-condensed table-striped table-bordered">
+                                    <tr t-foreach="detevalreg['linreg']" t-as="linreg">
+                                        <td class="text-center" >
+                                            <span t-field="linreg.stop_datetime" t-field-options='{"format":"dd-MM-yyyy"}'/>
+                                        </td>
+                                        <t t-if="linreg.tipo == 'V'">
+                                            <td class="text-center">
+                                                <span  t-field="linreg.valor"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="linreg.tipo == 'V'">
+                                            <td class="text-center">
+                                                <span t-field="linreg.detreg_id.indicador_id.indicador_id.unidades_id.name"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="linreg.tipo == 'C'" >
+                                            <td class="text-center">
+                                                <span t-field="linreg.estado"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                    <table class="table table-condensed table-striped table-bordered" style="overflow-x:auto;">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Firma técnico mantenimiento:</th>
+                                <th class="text-left">Firma responsable:</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table table-condensed table-striped table-bordered">
+                            <tr  t-foreach="eval['lineval']" t-as="firma">
+                                <td class="text-left">
+                                    <img t-if="firma.evaldet_id.tecnicos_id.imgsignature" t-att-src="'data:image/png;base64,%s' % firma.evaldet_id.tecnicos_id.imgsignature"
+                                         style="max-width:50%; max-height:auto; margin-top:15px;"/>
+                                </td>
+                                <td class="text-left" >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+
+
+        <template id="report_evalreg">
+            <t t-call="report.html_container">
+                <t t-foreach="datoslayaout" t-as="o">
+                    <t t-foreach="evaluaciones" t-as="eval">
+                        <t t-call="appcc.report_evalreg_document"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

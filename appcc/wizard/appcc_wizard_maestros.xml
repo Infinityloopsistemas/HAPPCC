@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="appcc_maestros_generaetapas_view" model="ir.ui.view">
+            <field name="name">wizard.appcc.maestros.generaetapasl.form</field>
+            <field name="model">appcc.maestros.generaetapas</field>
+            <field name="arch" type="xml">
+                <form string="Etapas">
+                    <group col="4" string="Generar Etapas">
+                        <field name="prefijo"/>
+                    </group>
+                    <group string="Configurar">
+                        <field name="niveles"/>
+                        <field name="apartados"/>
+                        <field name="profundidad"/>
+                    </group>
+                    <footer>
+                        <button string="Generar Etapas" name="action_button_genera" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="action_appcc_maestros_genetap"
+                    name="Generador de Etapas"
+                    src_model="appcc.maestros.etapas"
+                    res_model="appcc.maestros.generaetapas"
+                    view_mode="form"
+                    view_type="form"
+                    target="new"
+                    multi="True" />
+
+
+        <menuitem name="Generar Etapas"
+                  action="action_appcc_maestros_genetap"
+                  id="menu_appcc_maestros_proce_geneta"
+                  parent="menu_appcc_maestros_proces"
+                  sequence="5"/>
+
+        </data>
+</openerp>

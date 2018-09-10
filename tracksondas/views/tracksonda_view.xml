@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+      <!-- Configuracion -->
+
+        <record id="tracksonda_hub_tree_view" model="ir.ui.view">
+            <field name="name">tracksonda.hub.tree</field>
+            <field name="model">tracksonda.hub</field>
+            <field name="arch" type="xml">
+                <tree string="HUB de Sondas">
+                    <field name="name"/>
+                    <field name="hostname"/>
+                    <field name="macaddress"/>
+                    <field name="ubicacion_id"/>
+                    <field name="fechaalta"/>
+                    <field name="tracksonda_ids" string="No.Sondas" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_tracksonda_hub_form_view" model="ir.ui.view">
+            <field name="name">tracksonda.hub.form</field>
+            <field name="model">tracksonda.hub</field>
+            <field name="arch" type="xml">
+                <form string="HUB de Sondas" version="9.0">
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fechaalta" widget="date"/>
+                                <field name="tiporecepcion"/>
+                                <field name="cadenaconexion" attrs="{'invisible':[('tiporecepcion','=','P')]} " />
+                                <field name="name"/>
+                                <field name="hostname"/>
+                                <field name="macaddress"/>
+                            </group>
+                            <group>
+                                <field name="ubicacion_id"/>
+                                <field name="active"/>
+                                <field name="dias"/>
+                                <field name="ihora"/>
+                                <field name="fhora"/>
+                                <field name="company_id"  groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <field colspan="4" nolabel="1" name="tracksonda_ids" widget="one2many_list">
+                            <tree string="Sondas" editable="bottom">
+                                <field name="name"/>
+                                <field name="family"/>
+                                <field name="romid"/>
+                                <field name="rangoaviso"/>
+                                <field name="tolerancia"/>
+                                <field name="tmpocalc"/>
+                                <field name="desstd"/>
+                                <field name="active"/>
+                                <field name="company_id"  invisible="1" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_loaddata" model="ir.actions.server">
+            <field name="name">Actualizar Datos</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_tracksonda_hub"/>
+            <field name="state">code</field>
+            <field name="code">object.cron_action_loaddata()</field>
+        </record>
+
+        <record id="id_action_loaddata_value" model="ir.values">
+            <field name="name">Actualizar Datos</field>
+            <field name="action_id" ref="action_loaddata"/>
+            <field name="value" eval="'ir.actions.server,' + str(ref('action_loaddata'))"/>
+            <field name="key">action</field>
+            <field name="model_id" ref="model_tracksonda_hub"/>
+            <field name="model">tracksonda.hub</field>
+            <field name="key2">client_action_multi</field>
+        </record>
+
+
+        <record id="action_tracksonda_hub" model="ir.actions.act_window">
+            <field name="name">Hub de Sondas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tracksonda.hub</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Monitorizar"
+                  id="menu_tracksonda"
+                  groups="group_tracksonda_user,group_tracksonda_conf"
+                  web_icon="tracksondas,static/description/icon.png"
+                  sequence="30"/>
+
+        <menuitem name="Configuración"
+                  id="menu_tracksonda_conf"
+                  parent="menu_tracksonda"
+                  groups="group_tracksonda_conf"
+                  sequence="100"/>
+
+        <menuitem name="Sondas"
+                  action="action_tracksonda_hub"
+                  id="menu_tracksonda_sondas"
+                  groups="group_tracksonda_user,group_tracksonda_conf"
+                  parent="menu_tracksonda_conf"
+                  sequence="10"/>
+
+    <!-- Load Data Sondas -->
+
+         <record id="tracksonda_loaddatson_tree_view" model="ir.ui.view">
+            <field name="name">tracksonda.loaddatson.tree</field>
+            <field name="model">tracksonda.loaddatson</field>
+            <field name="arch" type="xml">
+                <tree string="Registro de Valores Sondas">
+                    <field name="name"  string="Modelo"/>
+                    <field name="tracksonda_id" string="Sonda" />
+                    <field name="valor"/>
+                    <field name="humidity"/>
+                    <field name="dewpoint"/>
+                    <field name="humidex" />
+                    <field name="heatindex" />
+                    <field name="tiempo"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record model="ir.ui.view" id="view_tracksonda_loaddatson_graph">
+            <field name="name">tracksonda.loaddatson.graph</field>
+            <field name="model">tracksonda.loaddatson</field>
+            <field name="arch" type="xml">
+                <graph string="Valores Sondas" type="line">
+                    <field name="tiempo"  interval="day" type="row"/>
+                    <field name="tracksonda_id" type="col"/>
+                    <field name="valor" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_tracksonda_loaddatson_pivot" model="ir.ui.view">
+            <field name="name">tracksonda.loaddatson.pivot</field>
+            <field name="model">tracksonda.loaddatson</field>
+            <field name="arch" type="xml">
+                <pivot string="Tabla Registros Sondas">
+                    <field name="tiempo" type="row"/>
+                    <field name="tracksonda_id" type="col"/>
+                    <field name="valor" operator="+" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record model='ir.ui.view' id='view_tracksonda_loaddatson_search'>
+            <field name="name">tracksonda.loaddatson.search</field>
+            <field name="model">tracksonda.loaddatson</field>
+            <field name="arch" type="xml">
+                <search string="Registros Sondas">
+                    <field name="tracksonda_id"/>
+                    <filter string="Hoy" name="today"
+                            domain="[('tiempo','&gt;=',datetime.datetime.now().replace(hour=0, minute=0, second=0)),('name','&lt;=',datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+                    <filter string="Mes Actual"
+                            domain="[('tiempo','&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+
+                    <group expand="1" string="Group By">
+                        <separator/>
+                        <filter name="groupby_sonda" context="{'group_by': 'tracksonda_id'}" string="Sondas"
+                                help="Registros por Sonda"/>
+                        <filter name="groupby_semana" context="{'group_by': 'tiempo:week'}" string="Semana"
+                                help="Registros por Semana"/>
+                        <filter name="groupby_date" context="{'group_by': 'tiempo:month'}" string="Mes"
+                                help="Registros por mes"/>
+                        <filter name="groupby_year" context="{'group_by': 'tiempo:year'}" string="Año"
+                                help="Registros por Año"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_tracksonda_loaddatson_graph" model="ir.actions.act_window">
+            <field name="name">Graficos Registro Sondas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tracksonda.loaddatson</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph,pivot</field>
+            <field name="search_view_id" ref="view_tracksonda_loaddatson_search"/>
+        </record>
+
+
+        <menuitem name="Analisis"
+                  id="menu_tracksonda_ana"
+                  parent="menu_tracksonda"
+                  groups="group_tracksonda_user,group_tracksonda_conf"
+                  sequence="50"/>
+
+        <menuitem name="Datos Sondas"
+                  action="action_tracksonda_loaddatson_graph"
+                  id="menu_tracksonda_datsondas"
+                  parent="menu_tracksonda_ana"
+                  groups="group_tracksonda_user,group_tracksonda_conf"
+                  sequence="10"/>
+
+        <!-- Avisos de Tracks Sondas -->
+
+         <record id="tracksonda_envios_tree_view" model="ir.ui.view">
+            <field name="name">tracksonda.envios.tree</field>
+            <field name="model">tracksonda.envios</field>
+            <field name="arch" type="xml">
+                <tree string="Envios">
+                    <field name="tipo" />
+                    <field name="trackhub_id" />
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tracksonda_envios_form_view" model="ir.ui.view">
+            <field name="name">tracksonda.envios.form</field>
+            <field name="model">tracksonda.envios</field>
+            <field name="arch" type="xml">
+                <form string="Tipos envios Sondas" version="9.0">
+
+                   <!-- <head>
+                     <button name="cron_graph_temp"  type="object" string="Envios Email" class="oe_highlight" />
+                    </head>-->
+                    <sheet>
+                        <group>
+                                <field name="partner_ids" widget="many2many_tags"/>
+                                <field name="trackhub_id"/>
+                                <field name="tipo" />
+                                <field name="tipoenvio" />
+                                <field name="active"/>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+
+                        </group>
+                                <field name="imagen" type="base64" />
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tracksonda_envios" model="ir.actions.act_window">
+            <field name="name">Envios Sondas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tracksonda.envios</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Envios"
+                  action="action_tracksonda_envios"
+                  id="menu_tracksonda_envios"
+                  parent="menu_tracksonda_conf"
+                  groups="group_tracksonda_conf"
+                  sequence="15"/>
+
+
+    </data>
+</openerp>

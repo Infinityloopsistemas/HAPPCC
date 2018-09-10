@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appcc_wizard_planforma_view" model="ir.ui.view">
+            <field name="name">appcc.wizard.planforma.form</field>
+            <field name="model">appcc.wizard.planformacion</field>
+            <field name="arch" type="xml">
+                <form string="Certificacdos Formacion">
+                  <sheet>
+                      <group col="4" string="Generar Certificados de Formacion">
+                          <group>
+                              <field name="personal_ids"/>
+                              <field name="tercero_id"/>
+                              <field name="fechavalida"/>
+
+                              <field name="frecuencia_id" />
+                              <field name="tiposcursos_ids"/>
+                          </group>
+
+                      </group>
+
+                    </sheet>
+                    <footer>
+                        <button string="Generar Personal Formacion" name="action_button_generar" type="object" default_focus="1"  class="btn-primary"/>
+                        <button string="Cancelar" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <act_window id="action_appcc_wizard_planforma"
+                    name="Generar Certificados"
+                    src_model="appcc.planformacion"
+                    res_model="appcc.wizard.planformacion"
+                    view_mode="form"
+                    view_type="form"
+                    target="new"
+                    multi="True" />
+
+
+        <menuitem name="Generar Certificados Formacion"
+                  action="action_appcc_wizard_planforma"
+                  id="menu_appcc_wizard_planforma"
+                  parent="menu_appcc_maestros_proces"
+                  groups="group_appcc_tecnicos"
+                  />
+
+        </data>
+</odoo>

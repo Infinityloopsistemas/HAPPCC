@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="appcc.appcc_report">
+            <link href="/report/static/src/css/report.css" rel="stylesheet"/>
+            <link href="/report/static/src/css/reset.min.css" rel="stylesheet"/>
+            <style type="text/css">
+                <![CDATA[
+                /* OpenSans */
+                                @font-face {
+                                font-family: 'Open Sans';
+                                font-style: normal;
+                                font-weight: 400;
+                                src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+                                    }
+             ]]>
+            </style>
+        </template>
+
+        <template id="manualauto_layout">
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="initial-scale=1"/>
+                <t t-call-assets="appcc.appcc_report"/>
+            </head>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company"  t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <div class="header">
+                <div class="row mt16 mb16" style="border:1px solid rgb(204, 204, 204);max-height:55px;">
+                    <div class="col-xs-4">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
+                             style="max-height:45px; margin-top:5px;margin-bottom:5px;"/>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <address t-field="o.company_id.partner_id"
+                                 t-field-options='{"widget": "contact", "fields": ["name"], "no_marker": true}'
+                                 style="font-size:14px; font-weight: bold; margin-top:15px;margin-bottom:15px;"/>
+                    </div>
+                    <div class="col-xs-2 text-right" style="font-size:10px;margin-top:15px;border-right:2px solid rgb(124, 167, 39);align:right;" >
+                        <div>FECHA REVISIÓN:</div>
+                    </div>
+                    <div class="col-xs-2 text-left" style="font-size:10px;margin-top:15px;">
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                    </div>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-xs-12">
+                    </div>
+                </div>
+
+            </div>
+            <t t-raw="0" />
+            <div class="footer">
+
+            <div style="font-size:10;">
+                <div class="row" style="border:1px solid rgb(204, 204, 204);max-height:55px;">
+                    <div class="col-xs-2" style="margin-top:5px;">
+
+                        <img t-if="company.auditora_id.image" t-att-src="'data:image/png;base64,%s' % company.auditora_id.image"
+                             style="max-height:45px; margin-top:5px;margin-bottom:5px;"/>
+                    </div>
+
+                    <div class="col-xs-6"  style="margin-top:5px;">
+                        <div class="text-center"  style="margin-top:10px;line-height:2px;">
+                            <p><strong>Sistema Integral de Vigilancia</strong></p>
+                            <p>928 794 577 - givasl.com</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2"  t-if="company.write_uid" style="margin-top:5px;" >
+                        <strong>Usuario</strong>
+
+                        <p t-field="company.write_uid.login"/>
+                    </div>
+
+                    <div class="col-xs-2  text-right" style="margin-top:5px;">
+                        <ul class="list-inline">
+
+                            <li><strong>Página</strong></li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div></div>
+        </template>
+    </data>
+</odoo>

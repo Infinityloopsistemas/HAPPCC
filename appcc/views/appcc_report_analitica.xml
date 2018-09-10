@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <template id="appcc.report_analitica_document">
+        <t t-call="appcc.manualauto_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.company_id.partner_id.lang})"/>
+            <div class="page">
+                <div class="row">
+                    <div class="row mt16 mb16">
+                        <h3>
+                            <center>
+                                <span t-field="o.name"/>
+                            </center>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row mt16 mb16">
+
+                    <div class="col-xs-6">
+                        <strong>Fecha de realización:</strong>
+                        <p t-field="o.fecha"/>
+                    </div>
+                    <div class="col-xs-6">
+                        <strong>Registro asociado:</strong>
+                        <p t-field="o.detreg_id.name"/>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <strong>Laboratorio:</strong>
+                        <p t-field="o.laboratorio_id.name"/>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <strong>Observaciones:</strong>
+                        <p t-field="o.observaciones" t-field-options='{"widget": "html"}'/>
+                    </div>
+                </div>
+
+                <table class="table table-striped table-bordered" style="overflow-x:auto;">
+                    <thead>
+                        <tr>
+                                <th class="text-center">Fecha muestra</th>
+                                <th class="text-center">Parámetros de análisis</th>
+                                <th class="text-center">Valor</th>
+                                <th class="text-center">Unidades</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table table-striped table-bordered">
+                        <tr t-foreach="o.cabana_ids" t-as="dana">
+                            <td class="text-center">
+                                <span t-field="dana.fecha"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="dana.parametros"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="dana.valores"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="dana.parametros.unidades_id.name"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="appcc_report_analitica">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="appcc.report_analitica_document"/>
+            </t>
+    </template>
+
+
+</data>
+</openerp>

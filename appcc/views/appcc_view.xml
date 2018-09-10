@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- APCC CONFIG AVISOS -->
+
+        <record id="appcc_confavisos_tree_view" model="ir.ui.view">
+            <field name="name">confavisos.tree</field>
+            <field name="model">appcc.config.avisos</field>
+            <field name="arch" type="xml">
+                <tree string="Notificaciones Agenda">
+                    <field name="name"/>
+                    <field name="partner_ids" />
+                    <field name="tipoaviso" />
+                    <field name="tipodeplan_id" />
+                    <field name="diasdesfase" />
+                    <field name="tipoenvio" />
+                    <field name="tpturnos_id" />
+                    <field name="company_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_confavisos_form_view" model="ir.ui.view">
+            <field name="name">confavisos.form</field>
+            <field name="model">appcc.config.avisos</field>
+            <field name="arch" type="xml">
+                <form string="Notificaciones Agenda" version="9.0">
+                    <sheet>
+                        <header>
+                            <h2> <field name="name" />  </h2>
+                        </header>
+
+                        <group>
+                            <field name="partner_ids" widget="many2many_tags"
+                                   options="{'no_create':True, 'no_open':True}"/>
+                            <field name="tipoaviso" />
+                            <field name="tipodeplan_id" options="{'no_create': True, 'no_open':True }" attrs="{ 'invisible':[('tipoaviso','=','R')] }" />
+                            <field name="detreg_ids"
+                                   options="{'no_create': True, 'no_open':True }" attrs="{'invisible':[('tipoaviso','=','P')]}" />
+                            <field name="tpturnos_id"
+                                   options="{'no_create': True, 'no_open':True}"/>
+                            <field name="diasdesfase" />
+                            <field name="tipoenvio" />
+                            <field name="active" />
+                            <field name="company_id"  groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_configavisos" model="ir.actions.act_window">
+            <field name="name">Notificaciones Agenda</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.config.avisos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_generar_avisos" model="ir.actions.server">
+            <field name="name">Notificaciones Agenda</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_appcc_config_avisos"/>
+            <field name="state">code</field>
+            <field name="code">object.action_genera_revision()</field>
+        </record>
+
+        <record id="id_generaravisos_action_value" model="ir.values">
+            <field name="name">Notificaciones Agenda</field>
+            <field name="action_id" ref="action_generar_avisos"/>
+            <field name="value" eval="'ir.actions.server,' + str(ref('action_generar_avisos'))"/>
+            <field name="key">action</field>
+            <field name="model_id" ref="model_appcc_config_avisos"/>
+            <field name="model">appcc.config.avisos</field>
+            <field name="key2">client_action_multi</field>
+        </record>
+
+        <menuitem name="Notificaciones Agenda"
+                  action="action_appcc_configavisos"
+                  id="menu_appcc_configavisos"
+                  parent="menu_appcc_maestros_proces"
+                  sequence="30"/>
+
+        <!-- HISTORIAL REVISIONES -->
+
+        <record id="appcc_historialrev_tree_view" model="ir.ui.view">
+            <field name="name">appcc.historialrev.tree</field>
+            <field name="model">appcc.historialrevisiones</field>
+            <field name="arch" type="xml">
+                <tree string="Versionado">
+                    <field name="name"/>
+                    <field name="fecharevision"/>
+                    <field name="tecnico_id" />
+                    <field name="coordinador_id" />
+                    <field name="major"/>
+                    <field name="minor"/>
+                    <field name="revision"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_historialrev_form_view" model="ir.ui.view">
+            <field name="name">appcc.historialrev.form</field>
+            <field name="model">appcc.historialrevisiones</field>
+            <field name="arch" type="xml">
+                <form string="Versionado" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+
+                            <group string="Versión">
+                                <field name="name" readonly="1"/>
+                                <field name="fecharevision"/>
+                                <field name="major"/>
+                                <field name="minor"/>
+                                <field name="revision"/>
+                            </group>
+                            <group string="Validado">
+                                <field name="tecnico_id"/>
+                                <field name="coordinador_id"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_historialrev" model="ir.actions.act_window">
+            <field name="name">Versionado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.historialrevisiones</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Versiones"
+                  action="action_appcc_historialrev"
+                  id="menu_maestros_historialrev"
+                  parent="menu_appcc_maestros_tipos"
+                  sequence="30"
+                />
+
+        <!-- APPCC -->
+
+        <record id="appcc_kaban_view" model="ir.ui.view">
+            <field name="name">appcc.kanban</field>
+            <field name="model">appcc</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_hr_kanban">
+                    <field name="name"/>
+                    <field name="company_id"  groups="base.group_multi_company"/>
+                    <field name="color"/>
+                    <field name="qrimage"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click ">
+                                <div>
+
+                                    <div class="oe_kanban_vignette">
+                                        <div class="o_kanban_card_header">
+                                            <div class="o_kanban_card_header_title">
+                                                <div class="o_primary">
+                                                    <field name="name"/>
+                                                </div>
+                                                <div groups="appcc.group_appcc_tecnicos">
+                                                    <t t-if="record.qrimage.raw_value">
+                                                        <img t-att-src="'data:image/png;base64,'+record.qrimage.raw_value" class="oe_module_icon"  />
+                                                    </t>
+                                                </div>
+                                            </div>
+                                            <div class="o_kanban_manage_button_section">
+                                                <a class="o_kanban_manage_toggle_button" href="#">Mas
+                                                    <i class="fa fa-caret-down"/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <h3>
+                                                <field name="company_id"  groups="base.group_multi_company"/>
+                                            </h3>
+                                            <ul>
+                                                <li>
+                                                    <field name="fecimplanta"/>
+                                                </li>
+                                                <li>
+                                                    <field name="revision_id"/>
+                                                </li>
+                                                <li>
+                                                    <field name="propietario_id"/>
+                                                </li>
+                                                <li>
+                                                    <field name="configpass"/>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="container o_kanban_card_manage_pane o_invisible">
+                                    <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                        <div class="col-xs-8">
+                                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="appc_form_view" model="ir.ui.view">
+            <field name="name">appcc.form</field>
+            <field name="model">appcc</field>
+            <field name="arch" type="xml">
+                <form string="APPCC" version="9.0">
+
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>APPCC
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                            <div align="right">
+                                <button  class="oe_stat_button" name="attachment_tree_view"  type="object" icon="fa-files-o">
+                                    <field string="Documentos" name="doc_count" widget="statinfo"/>
+                                </button>
+                                <button  class="oe_stat_button" name="planes_tree_view"  type="object" icon="fa-tasks">
+                                <field string="P. Autocontrol" name="num_planes" widget="statinfo"/>
+                                </button>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="fecimplanta"/>
+                                <field name="revision_id"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                                <field name="propietario_id"
+                                       options="{'no_create': True}"/>
+                                <field name="configpass" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="coordinadores_ids" widget="many2many_tags" />
+                            <field name="tecnicos_ids" widget="many2many_tags"/>
+
+                        </group>
+                        <group>
+                            <field name="contenido" widget="html"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+        <act_window id="action_appcc"
+                    name="APPCC"
+                    res_model="appcc"
+                    view_mode="kanban,form"
+                />
+
+        <menuitem name="APPCC"
+                  action="action_appcc"
+                  id="menu_appcc_definicion"
+                  parent="menu_appcc_appcc"
+                  sequence="1"
+                />
+
+        <!-- PLAN DE AUTOCONTROL, ANTIGUO MANUAL AUTO CONTROL -->
+
+        <record id="appcc_manualauto_tree_view" model="ir.ui.view">
+            <field name="name">manualauto.tree</field>
+            <field name="model">appcc.manualautocontrol</field>
+            <field name="arch" type="xml">
+                <tree string="Plan Autocontrol">
+                    <field name="name"/>
+                    <field name="tpplancontrol_id"/>
+                    <field name="appcc_id"/>
+                    <field name="revision_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_manualauto_form_view" model="ir.ui.view">
+            <field name="name">manualauto.form</field>
+            <field name="model">appcc.manualautocontrol</field>
+            <field name="arch" type="xml">
+                <form string="Plan Autocontrol" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="appcc_id"
+                                       options="{'no_create':True, 'no_open':True}"/>
+                                <!-- <field name="appcc_id" attrs="{'readonly': [('appcc_id','!=',False)] }"/> -->
+                                <field name="revision_id"
+                                       options="{'no_create':True, 'no_open':True}"/>
+                                <field name="name" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="tpplancontrol_id"
+                                       options="{'no_create':True, 'no_open':True}"/>
+                                <field name="company_id"   groups="base.group_multi_company"
+                                       options="{'no_create':True, 'no_open':True}"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+
+                            <page string="Objeto">
+                                <separator string="Definición del objeto"/>
+                                <field name="objeto" widget="html"/>
+                            </page>
+                            <page string="Alcance">
+                                <separator string="Definición del alcance"/>
+                                <field name="alcance" widget="html"/>
+                            </page>
+                            <page string="Contenido">
+                                <separator string="Definición del contenido"/>
+                                <field name="contenido" widget="html"/>
+                            </page>
+                            <page string="Marco Legal">
+                                <separator string="Definición del marco legal"/>
+                                <field name="marcolegal" widget="html"/>
+                            </page>
+                            <page string="Procedimiento">
+                                <separator string="Definición del procedimiento"/>
+                                <field name="procedimiento" widget="html"/>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='view_appcc_plan_search'>
+            <field name="name">appcc.plan.search</field>
+            <field name="model">appcc.manualautocontrol</field>
+            <field name="arch" type="xml">
+                <search string="Filtros">
+                    <group expand="1" string="Agrupar por">
+                        <separator/>
+                        <filter name="groupby_appcc" context="{'group_by': 'appcc_id'}" string="Appcc"
+                                help="por Appcc"/>
+
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_appcc_mautocontrol" model="ir.actions.act_window">
+            <field name="name">Plan Autocontrol</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.manualautocontrol</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_groupby_appcc":1}</field>
+            <field name="search_view_id" ref="view_appcc_plan_search"/>
+        </record>
+
+        <menuitem name="Plan Autocontrol"
+                  action="action_appcc_mautocontrol"
+                  id="menu_appcc_mautocontrol"
+                  parent="menu_appcc_planauto"
+                  sequence="1"
+                />
+
+        <!-- PROCEDIMIENTO DE TRABAJO ANTES PLAN DE AUTOCONTROL (OJO CON _ID) -->
+
+        <record id="appcc_planauto_tree_view" model="ir.ui.view">
+            <field name="name">planauto.tree</field>
+            <field name="model">appcc.planautocontrol</field>
+            <field name="arch" type="xml">
+                <tree string="Procedimiento Trabajo">
+                    <field name="name" string="Procedimiento"/>
+                    <field name="manautctrl_id" string="Plan Autocontrol"/>
+                    <field name="zonas_ids"/>
+                    <field name="fecha"/>
+                    <field name="revision_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appc_planauto_form_view" model="ir.ui.view">
+            <field name="name">planauto.form</field>
+            <field name="model">appcc.planautocontrol</field>
+            <field name="arch" type="xml">
+                <form string="Procedimiento Trabajo" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="name"/>
+                            <field name="manautctrl_id"
+                                   options="{'no_create':True, 'no_open':True}"/>
+                            <field name="revision_id"
+                                   options="{'no_create':True, 'no_open':True}"/>
+
+                        </group>
+                        <notebook>
+                            <page string="Operaciones">
+                                <group>
+                                    <field name="tercero_id" string="Mantenedor" options="{'no_create': True, 'no_open':True}"/>
+                                </group>
+                                <group>
+                                    <field name="frecuencia_id"
+                                           options="{'no_create': True, 'no_open':True}"/>
+                                </group>
+                                <group>
+                                    <field name="zonas_ids" string="Zonas"
+                                           options="{'no_create': True }" />
+                                </group>
+                                <group>
+                                    <field name="zonalimpieza" string="Detalle zonas" widget="html"/>
+                                </group>
+                                <group>
+                                    <field name="equipos_ids" string="Equipos" options="{'no_create': True}" widget="many2many_tags" />
+                                </group>
+                                <!--<field name="equipos_ids" domain="[('property_stock_asset','in', zonas_ids )]"/>-->
+                                <group>
+                                    <field name="personal_ids" string="Personal implicado" options="{'no_create': True}" widget="many2many_tags" />
+                                </group>
+                                <separator string="Productos a emplear"/>
+                                <field name="productos_ids" options="{'no_create': True}"  widget="many2many_tags"/>
+                                <field colspan="4" nolabel="1" name="consumibles_ids" options="{'no_create': True}" widget="one2many_list">
+                                    <tree string="Valores productos" editable="bottom">
+                                        <field name="consumible_id"/>
+                                        <field name="name"/>
+                                        <field name="dosis"/>
+                                    </tree>
+                                </field>
+
+                                <separator string="Procedimientos"/>
+                                <field name="operaciones" widget="html"/>
+                            </page>
+                            <page string="Medidas">
+                                <separator string="Medidas de actuación"/>
+                                <group>
+                                    <group>
+                                        <field name="tpmedvig_id"
+                                               options="{'no_create': True}"/>
+                                        <field name="tpmedactp_id"
+                                               options="{'no_create': True}"/>
+                                    </group>
+                                    <group>
+                                        <field name="tpmedactc_id"
+                                               options="{'no_create': True}"/>
+                                    </group>
+                                </group>
+
+                                <label for="observaciones" string="Observaciones"/>
+                                <field name="observaciones" widget="html"/>
+                                <separator string="Valores a analizar"/>
+                                <field colspan="4" nolabel="1" name="valanali_ids" options="{'no_create': True}" widget="one2many_list">
+                                    <tree string="Valores analíticas" editable="bottom">
+                                        <field name="paramanali_id"/>
+                                        <field name="valores"/>
+                                        <field name="tolerancia"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model='ir.ui.view' id='view_appcc_procedi_search'>
+            <field name="name">appcc.plan.search</field>
+            <field name="model">appcc.planautocontrol</field>
+            <field name="arch" type="xml">
+                <search string="Filtros">
+                    <group expand="1" string="Agrupar por">
+                        <separator/>
+                        <filter name="groupby_procedi" context="{'group_by': 'manautctrl_id'}" string="Procedimiento"
+                                help="por procedimiento de trabajo"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_appcc_pautocontrol" model="ir.actions.act_window">
+            <field name="name">Procedimiento Trabajo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.planautocontrol</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_groupby_procedi":1}</field>
+            <field name="search_view_id" ref="view_appcc_procedi_search"/>
+
+        </record>
+
+        <menuitem name="Procedimiento Trabajo"
+                  action="action_appcc_pautocontrol"
+                  id="menu_appcc_pautocontrol"
+                  parent="menu_appcc_appcc"
+                  sequence="20"/>
+
+
+        <!-- CABECERA REGISTROS -->
+
+
+        <record id="appcc_cabreg_tree_view" model="ir.ui.view">
+            <field name="name">appcc.cabreg.tree</field>
+            <field name="model">appcc.cabregistros</field>
+            <field name="arch" type="xml">
+                <tree string="Registros de control">
+                    <field name="name"/>
+                    <field name="manautctrl_id"/>
+                    <field name="cabreg_ids"/>
+                    <field name="revision_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_cabreg_form_view" model="ir.ui.view">
+            <field name="name">appcc.cabreg.form</field>
+            <field name="model">appcc.cabregistros</field>
+            <field name="arch" type="xml">
+                <form string="Registros de control" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="revision_id"
+                                       options="{'no_create': True, 'no_open':True}"/>
+                            </group>
+                            <group>
+                                <field name="manautctrl_id"  options="{'no_create': True}"/>
+                                <field name="tpmedvig_id"    options="{'no_create': True}"/>
+                                <field name="tpmedactc_id"   options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <!-- <field colspan="4" nolabel="1"  name="cabreg_ids" widget="one2many_list" > -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_cabreg" model="ir.actions.act_window">
+            <field name="name">Registros Control</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.cabregistros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Registros Control"
+                  action="action_appcc_cabreg"
+                  id="menu_appcc_cabreg"
+                  parent="menu_appcc_registros"
+                  sequence="1"/>
+
+
+        <!-- DETALLE REGISTROS -->
+
+
+        <record id="appcc_detreg_tree_view" model="ir.ui.view">
+            <field name="name">appcc.detreg.tree</field>
+            <field name="model">appcc.detallesregistros</field>
+            <field name="arch" type="xml">
+                <tree string="Detalle de registro de control">
+
+                    <field name="cabreg_id"/>
+                    <field name="name"
+                           string="Tarea"/>
+                    <field name="equipos_id"/>
+                    <field name="indicador_id"/>
+                    <field name="frecuencia_id"/>
+                    <field name="fecha"/>
+                    <field name="ordagenda"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_cabregdet_form_view" model="ir.ui.view">
+            <field name="name">appcc.detreg.form</field>
+            <field name="model">appcc.detallesregistros</field>
+            <field name="arch" type="xml">
+                <form string="Detalle de registro de control" version="9.0">
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="name"/>
+                                <field name="equipos_id"      options="{'no_create': True}"/>
+                                <field name="zonas_id"        options="{'no_create': True, 'no_open':True}"/>
+                                <field name="actividades_id"/>
+                                <field name="frecuencia_id"  options="{'no_create': True, 'no_open':True}"/>
+                                <field name="diaejecuta"/>
+                                <field name="departamento_ids" widget="many2many_tags" options="{'no_create': True, 'no_open':True}" />
+                                <field name="qrimage" widget="image" readonly="1" class="oe_avatar" />
+                            </group>
+                            <group>
+                                <field name="revision_id"    options="{'no_create': True, 'no_open':True}"/>
+                                <field name="cabreg_id"      options="{'no_create': True}"/>
+                                <field name="indicador_id"   options="{'no_create': True, 'no_open':True}"/>
+                                <field name="tplimitcrit_id" options="{'no_create': True}"/>
+                                <field name="tpturnos_id"    options="{'no_create': True, 'no_open':True}"/>
+                                <field name="tracksonda_id"  options="{'no_create': True, 'no_open':True}"/>
+                                <field name="ordagenda"/>
+                                <field name="active" />
+                                <field name="tpadquisicion"/>
+                            </group>
+                        </group>
+                        <field colspan="4" nolabel="1" name="detreg_ids" widget="one2many_list">
+                            <tree string="Valores de registros" editable="bottom">
+                                <field name="tipo" invisible="1"/>
+                                <field name="state" invisible="1"/>
+                                <field name="start_date" widget="date"/>
+                                <field name="stop_date" readonly="1" string="F.Guarda" />
+                                <field name="valor" attrs="{'invisible': [('tipo','=','C')]}"/>
+                                <field name="estado" attrs="{'invisible': [('tipo','=','V')]}"/>
+                                <field name="firmas_id" options="{'no_create':True, 'no_open':True}"/>
+                                <field name="horarioturno_id"
+                                       domain="[('id','=',parent.tpturnos_id)]"
+                                       options="{'no_create':True, 'no_open':True}"/>
+                                <field name="observaciones"/>
+                                <field name="stop_date" invisible="1"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_detreg" model="ir.actions.act_window">
+            <field name="name">Detalle Reg. Control</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.detallesregistros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="action_generar_agenda" model="ir.actions.server">
+            <field name="name">Actualizar Agenda</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_appcc_detallesregistros"/>
+            <field name="state">code</field>
+            <field name="code">object.action_button_generaragenda()</field>
+        </record>
+
+        <record id="id_agend_action_value" model="ir.values">
+            <field name="name">Actualizar Agenda</field>
+            <field name="action_id" ref="action_generar_agenda"/>
+            <field name="value" eval="'ir.actions.server,' + str(ref('action_generar_agenda'))"/>
+            <field name="key">action</field>
+            <field name="model_id" ref="model_appcc_detallesregistros"/>
+            <field name="model">appcc.detallesregistros</field>
+            <field name="key2">client_action_multi</field>
+        </record>
+
+
+        <menuitem name="Detalle Reg. Control"
+                  action="action_appcc_detreg"
+                  id="menu_appcc_detreg"
+                  parent="menu_appcc_registros"
+                  sequence="2"/>
+
+        <!-- GRAFICAS REGISTROS -->
+
+        <record model="ir.ui.view" id="view_appc_registros_graph">
+            <field name="name">appcc.registros.graph</field>
+            <field name="model">appcc.registros</field>
+            <field name="arch" type="xml">
+                <graph string="Registros" type="line" >
+                    <field name="start_date" interval="day" type="row"/>
+                    <field name="detreg_id"  type="col"/>
+                    <field name="valor" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_appc_registros_pivot" model="ir.ui.view">
+            <field name="name">appcc.registros.pivot</field>
+            <field name="model">appcc.registros</field>
+            <field name="arch" type="xml">
+                <pivot string="Tabla de registros" disable_linking="True">
+                    <field name="start_date" type="row"/>
+                    <field name="detreg_id" type="col"/>
+                    <field name="valor"  type="avg"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='view_appc_registros_search'>
+            <field name="name">appcc.registros.search</field>
+            <field name="model">appcc.registros</field>
+            <field name="arch" type="xml">
+                <search string="Registros">
+                    <field name="name"/>
+                    <field name="firmas_id"/>
+                    <field name="stop_date"/>
+                    <filter string="Hoy" name="today"
+                            domain="[ ('stop_date','&gt;=',datetime.datetime.now().replace(hour=0, minute=0, second=0)),('name','&lt;=',datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+                    <filter string="Mes Actual" name="mes"
+                            domain="[ ('stop_date','&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+
+                    <group expand="1" string="Group By">
+                        <separator/>
+                        <filter name="groupby_semana" context="{'group_by': 'stop_date:week'}" string="Semana"
+                                help="Registros por Semana"/>
+                        <filter name="groupby_date" context="{'group_by': 'stop_date:month'}" string="Mes"
+                                help="Registros por mes"/>
+                        <filter name="groupby_year" context="{'group_by': 'stop_date:year'}" string="Año"
+                                help="Registros por Año"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_appcc_reg_graph" model="ir.actions.act_window">
+            <field name="name">Graficos Registros</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.registros</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="context">{"search_default_mes":1}</field>
+            <field name="domain">[('tipo', '=', 'V' ), ('state','=','done') ]</field>
+            <field name="search_view_id" ref="view_appc_registros_search"/>
+        </record>
+
+        <menuitem name="Graficas"
+                  action="action_appcc_reg_graph"
+                  id="menu_appcc_reg_graph"
+                  parent="menu_appcc_registros"
+                  groups="group_appcc_user"
+                  sequence="3"/>
+
+
+        <!--Excepciones de Calendario -->
+
+        <record id="appcc_excepcal_tree_view" model="ir.ui.view">
+            <field name="name">appcc.excepcal.tree</field>
+            <field name="model">appcc.excepcalendar</field>
+            <field name="arch" type="xml">
+                <tree string="Excepciones de calendario">
+                    <field name="name"/>
+                    <field name="fechaini"/>
+                    <field name="fechafin"/>
+                    <field name="activo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_excepcal_form_view" model="ir.ui.view">
+            <field name="name">appcc.excepcal.form</field>
+            <field name="model">appcc.excepcalendar</field>
+            <field name="arch" type="xml">
+                <form string="Excepciones de calendario" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="activo"/>
+                            </group>
+                            <group>
+                                <field name="fechaini"/>
+                                <field name="fechafin"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observa" widget="html"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_excepcal" model="ir.actions.act_window">
+            <field name="name">ExcepcionesCalendario</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.excepcalendar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('activo','=',True)]</field>
+        </record>
+
+
+        <menuitem name="Excepciones de calendario"
+                  action="action_appcc_excepcal"
+                  id="menu_appcc_excepcal"
+                  parent="menu_appcc_registros"
+                  groups="group_appcc_tecnicos"
+                  sequence="4"/>
+
+
+        <!-- GESTOR DE INCIDENCIAS -->
+
+
+        <record id="appcc_gesinc_tree_view" model="ir.ui.view">
+            <field name="name">appcc.gesinc.tree</field>
+            <field name="model">appcc.gestorincidencias</field>
+            <field name="arch" type="xml">
+                <tree string="Avisos">
+                    <field name="fincidencia"/>
+                    <field name="name"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_gesinc_form_view" model="ir.ui.view">
+            <field name="name">appcc.gesinc.form</field>
+            <field name="model">appcc.gestorincidencias</field>
+            <field name="arch" type="xml">
+                <form string="Avisos" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fincidencia"/>
+                                <field name="name"/>
+                                <field name="etapa_id"  options="{'no_create': True ,'no_open':True }"/>
+                                <field name="manautctrl_id"  options="{'no_create': True, 'no_open':True }"/>
+                                <field name="zonas_id"  options="{'no_create': True, 'no_open':True }"/>
+                                <field name="equipo_id" options="{'no_create': True, 'no_open':True }"/>
+                            </group>
+                            <group>
+                                <field name="estado"/>
+                                <field name="festado"/>
+                                <field name="tpmedactc_id" options="{'no_create': True ,'no_open':True }"/>
+                                <field name="tipogenera"/>
+                                <field name="personal_id" options="{'no_create': True, 'no_open':True }"/>
+                                <field name="detreg_id"  options="{'no_create': True, 'no_open':True }" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observaciones" widget="html"/>
+                        </group>
+                        <footer>
+
+                            <button name="action_button_solmante"
+                                    type="object"
+                                    string="Solicitud de mantenimiento"
+                                    class="oe_highlight" />
+
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_gesinc" model="ir.actions.act_window">
+            <field name="name">Avisos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.gestorincidencias</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Avisos"
+                  action="action_appcc_gesinc"
+                  id="menu_appcc_gesinc"
+                  parent="menu_appcc_appccanexo"
+                  sequence="100"
+                />
+
+        <!-- Graficos Analiticas -->
+
+        <record model="ir.ui.view" id="view_appc_detana_graph">
+            <field name="name">appcc.cabana.graph</field>
+            <field name="model">appcc.detanaliticas</field>
+            <field name="arch" type="xml">
+                <graph string="Analíticas" type="line">
+                    <field name="fecha" interval="day" type="row"/>
+                    <field name="parametros" type="col"/>
+                    <field name="valores" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_appc_detana_pivot" model="ir.ui.view">
+            <field name="name">appcc.detana.pivot</field>
+            <field name="model">appcc.detanaliticas</field>
+            <field name="arch" type="xml">
+                <pivot string="Tabla Analíticas">
+                    <field name="fecha" type="row" interval="day"/>
+                    <field name="parametros" type="col"/>
+                    <field name="valores" operator="+" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='view_appc_detana_search'>
+            <field name="name">appcc.detana.search</field>
+            <field name="model">appcc.detanaliticas</field>
+            <field name="arch" type="xml">
+                <search string="Analíticas">
+                    <field name="parametros"/>
+
+                    <filter string="Hoy" name="today"
+                            domain="[('fecha','&gt;=',datetime.datetime.now().replace(hour=0, minute=0, second=0)),('name','&lt;=',datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+                    <filter string="Mes Actual"
+                            domain="[('fecha','&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+
+                    <group expand="1" string="Agrupar por">
+                        <separator/>
+                        <filter name="groupby_semana" context="{'group_by': 'fecha:week'}" string="Semana"
+                                help="Analíticas por semana"/>
+                        <filter name="groupby_date" context="{'group_by': 'fecha:month'}" string="Mes"
+                                help="Analíticas por mes"/>
+                        <filter name="groupby_year" context="{'group_by': 'fecha:year'}" string="Año"
+                                help="Analíticas por año"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_appcc_detana_graph" model="ir.actions.act_window">
+            <field name="name">Graficos Analiticas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.detanaliticas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,pivot</field>
+            <field name="search_view_id" ref="view_appc_detana_search"/>
+        </record>
+
+        <!-- PLAN DE FORMACION -->
+
+        <record id="appcc_pformacion_tree_view" model="ir.ui.view">
+            <field name="name">appcc.pformacion.tree</field>
+            <field name="model">appcc.planformacion</field>
+            <field name="arch" type="xml">
+                <tree string="Plan Formación Continuada">
+                    <field name="personal_id"/>
+                    <field name="fechavalida"/>
+                    <field name="frecuencia_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_pformacion_form_view" model="ir.ui.view">
+            <field name="name">appcc.pformacion.form</field>
+            <field name="model">appcc.planformacion</field>
+            <field name="arch" type="xml">
+                <form string="Plan Formación Continuada" version="9.0">
+                    <header>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fechavalida"/>
+                                [('id','child_of',[user.company_id.id])]
+                                <field name="company_id"  groups="base.group_multi_company" options="{'no_create':True, 'no_open':True}" />
+                            </group>
+                            <group>
+                                <field name="personal_id" options="{'no_create':True, 'no_open':True}"/>
+                                <field name="tercero_id" options="{'no_create':True, 'no_open':True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tiposcursos_ids" options="{'no_create':True}" widget="many2many_tags"/>
+                            <field name="frecuencia_id" options="{'no_create':True, 'no_open':True}"/>
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_appcc_pformacion" model="ir.actions.act_window">
+            <field name="name">Plan Formacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.planformacion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Certificados Formativos"
+                  action="action_appcc_pformacion"
+                  id="menu_appcc_planforma"
+                  groups="group_appcc_manager"
+                  parent="menu_appcc_planauto"
+                />
+
+        <!-- GESTOR DE ANALITICAS -->
+
+        <record id="appcc_cabana_tree_view" model="ir.ui.view">
+            <field name="name">appcc.cabana.tree</field>
+            <field name="model">appcc.cabanaliticas</field>
+            <field name="arch" type="xml">
+                <tree string="Analíticas">
+                    <field name="fecha"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_cabana_form_view" model="ir.ui.view">
+            <field name="name">appcc.cabana.form</field>
+            <field name="model">appcc.cabanaliticas</field>
+            <field name="arch" type="xml">
+                <form string="Analíticas" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="detreg_id" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="laboratorio_id" options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observaciones" widget="html"/>
+                        </group>
+                        <field colspan="4" nolabel="1" name="cabana_ids" widget="one2many_list">
+                            <tree string="Valores analíticas" editable="bottom">
+                                <field name="fecha"/>
+                                <field name="parametros"/>
+                                <field name="valores"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_appcc_cabana" model="ir.actions.act_window">
+            <field name="name">Analiticas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.cabanaliticas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Analiticas"
+                  id="menu_appcc_cabana"
+                  parent="menu_appcc_appccanexo"
+                  groups="group_appcc_tecnicos"
+                />
+
+        <menuitem name="Analiticas"
+                  action="action_appcc_cabana"
+                  id="menu_appcc_analisis"
+                  parent="menu_appcc_cabana"
+                  sequence="1"/>
+
+        <menuitem name="Graficos"
+                  action="action_appcc_detana_graph"
+                  id="menu_appcc_detreg_graph"
+                  parent="menu_appcc_cabana"
+                  sequence="2"/>
+
+
+        <!-- GESTOR DE INFORMES TECNICOS -->
+
+
+        <record id="appcc_cabinfortec_tree_view" model="ir.ui.view">
+            <field name="name">appcc.cabinfortec.tree</field>
+            <field name="model">appcc.cabinfotecnicos</field>
+            <field name="arch" type="xml">
+                <tree string="Informe Auditoría">
+                    <field name="fecha"/>
+                    <field name="expediente"/>
+                    <field name="establecimiento"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appcc_cabinfortec_form_view" model="ir.ui.view">
+            <field name="name">appcc.cabinfortec.form</field>
+            <field name="model">appcc.cabinfotecnicos</field>
+            <field name="arch" type="xml">
+                <form string="Informe Auditoría" version="9.0">
+                    <header>
+                    </header>
+                    <sheet>
+                        <!--<div class="oe_button_box" name="button_box" groups="base.group_user">-->
+                        <!---->
+                        <!--</div>-->
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="expediente"/>
+                            </group>
+                            <group>
+                                <field name="establecimiento"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="auditor_ids" widget="many2many_tags"/>
+                            <field name="responsables_ids" widget="many2many_tags"/>
+                            <field name="legislacion_ids" string="Legislación"/>
+                        </group>
+                        <field colspan="4" nolabel="1" name="cabinfortec_ids" widget="one2many" >
+                            <tree>
+                                <field name="orden"/>
+                                <field name="titulo"/>
+                                <button  class="oe_stat_button" name="attachment_tree_view"  type="object" icon="fa-files-o">
+                                    <field string="Documents" name="doc_count" widget="statinfo"/>
+                                </button>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="appcc_detinfortec_form_view" model="ir.ui.view">
+            <field name="name">appcc.detinfortec.form</field>
+            <field name="model">appcc.detinfotecnicos</field>
+            <field name="arch" type="xml">
+                <form string="Lineas del informe Auditoria" version="9.0" create="true">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                              <field name="titulo"/>
+                              <field name="orden"/>
+                        </group>
+                              <field name="texto" widget="html"/>
+                        <button  class="oe_stat_button" name="attachment_tree_view"  type="object" icon="fa-files-o">
+                              <field string="Documents" name="doc_count" widget="statinfo"/>
+                        </button>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_appcc_detinfortec" model="ir.actions.act_window">
+            <field name="name">Auditoria Lineas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.detinfotecnicos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="appcc_detinfortec_form_view"/>
+        </record>
+
+        <record id="action_appcc_cabinfortec" model="ir.actions.act_window">
+            <field name="name">Auditoria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.cabinfotecnicos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Informes"
+                  action="action_appcc_cabinfortec"
+                  id="menu_appcc_cabinfortec"
+                  parent="menu_appcc_auditorias"
+                  sequence="4"
+                />
+
+
+        <!-- Cuadros de Gestion -->
+        <!--<act_window-->
+        <!--id="act_cuadgest"-->
+        <!--name="Appc activos"-->
+        <!--res_model="appcc"-->
+        <!--src_model="appcc.cuadrosgestion"/>-->
+
+
+        <record id="view_appcc_cuadgest_tree_hierarchy" model="ir.ui.view">
+            <field name="name">appcc.cuadgest.hierarchy</field>
+            <field name="model">appcc.cuadrosgestion</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <tree string="Cuadros de gestión" toolbar="1" editable="bottom" default_order="name">
+                    <field name="etapa_id"/>
+                    <field name="name"/>
+                    <field name="parent_id" invisible="1"/>
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="appcc_cuadgest_tree_view" model="ir.ui.view">
+            <field name="name">appcc.cuadgest.tree</field>
+            <field name="model">appcc.cuadrosgestion</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <tree string="Cuadros de gestión">
+                    <field name="etapa_id"/>
+                    <field name="name"/>
+                    <field name="appcc_id"/>
+                    <field name="parent_id" invisible="1"/>
+                </tree>
+
+            </field>
+        </record>
+
+
+        <record id="appcc_cuadgest_form_view" model="ir.ui.view">
+            <field name="name">appcc.cuadgest.form</field>
+            <field name="model">appcc.cuadrosgestion</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string="Etapa del cuadro de gestión" version="9.0">
+                    <header>
+                        <span><h2>Denominacion:</h2></span>
+                        <field name="name"/>
+                    </header>
+
+                    <field name="inicuad_id" invisible="1" />
+                    <group>
+                        <field name="parent_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                        <field name="appcc_id"  options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+
+                        <field name="revision_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="etapa_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="peligro_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="probabilidad" />
+                        <field name="severidad" />
+                        <field name="tipopeligro" />
+                        <field name="tpmedactp_ids" widget="many2many_tags"
+                               options="{'no_create':True, 'no_open':True}"/>
+                        <field name="ptocritico"/>
+                        <field name="ptoctrlcrit"/>
+
+                        <field name="tplimitcrit_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="tpmedvig_ids" widget="many2many_tags"
+                               options="{'no_create':True, 'no_open':True}"/>
+                        <field name="momento"/>
+                        <field name="ente_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="tpmedactc_ids" widget="many2many_tags"
+                               options="{'no_create':True, 'no_open':True}"/>
+                        <field name="registros_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="tpfrecreg_id" options="{'no_create':True, 'no_open':True}"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_appcc_cuadgest_search_view" model="ir.ui.view">
+            <field name="name">appcc.cuadgest.search</field>
+            <field name="model">appcc.cuadrosgestion</field>
+            <field name="arch" type="xml">
+                <search string="Cuadros gestión">
+                    <filter name="filter_etapas"
+                            string="Etapas padre"
+                            domain="[('parent_id','=',False)]"
+                            icon="terp-check"
+                            help="Filtra las etapas"/>
+
+                    <filter name="filter_nodes"
+                            string="Subetapas"
+                            domain="[('child_ids','!=',False),('parent_id','!=',False)]"
+                            icon="terp-folder-green"
+                            help="Filtra las subetapas"/>
+                    <filter name="group_by_appcc" string="Por APPCC" context ="{'group_by':'appcc_id'}"/>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="action_appcc_cuadgest_tree" model="ir.actions.act_window">
+            <field name="name">Cuadros de Gestion</field>
+            <field name="res_model">appcc.cuadrosgestion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="appcc_cuadgest_tree_view"/>
+            <field name="search_view_id" ref="view_appcc_cuadgest_search_view"/>
+            <field name="domain">[('id', 'child_of', active_id)]</field>
+            <field name="context">{'search_default_filter_filter_nodes': 1}</field>
+        </record>
+
+        <record id="ir_value_appcc_cuadgest" model="ir.values">
+            <field name="key2">tree_but_open</field>
+            <field name="model">appcc.cuadrosgestion</field>
+            <field name="name">Abrir Etapas</field>
+            <field name="value" eval="'ir.actions.act_window,%d'%action_appcc_cuadgest_tree"/>
+        </record>
+
+        <record id="action_appcc_cuadgest_tree_hierarchy" model="ir.actions.act_window">
+            <field name="name">Cuadros de Gestion</field>
+            <field name="res_model">appcc.cuadrosgestion</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_appcc_cuadgest_tree_hierarchy"/>
+            <field name="domain">[('parent_id','=',False)]</field>
+
+        </record>
+
+        <record id="action_appcc_cuadgest_form" model="ir.actions.act_window">
+            <field name="name">Inicio Cuadros de Gestion</field>
+            <field name="res_model">appcc.cuadrosgestion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="appcc_cuadgest_tree_view"/>
+            <field name="domain">[('parent_id','=',False)]</field>
+        </record>
+
+        <menuitem name="Cuadros de Gestion"
+                  id="menu_appcc_cuadgest"
+                  parent="menu_appcc_appcc"
+                  groups="group_appcc_manager"
+                />
+
+        <menuitem name="Inicio cuadro"
+                  action="action_appcc_cuadgest_form"
+                  id="menu_appcc_inicio_cuadrogest"
+                  parent="menu_appcc_cuadgest"
+                  groups="group_appcc_tecnicos"
+                  sequence="1"/>
+
+        <menuitem name="Arbol cuadro"
+                  action="action_appcc_cuadgest_tree_hierarchy"
+                  id="menu_appcc_arbol_cuadgest"
+                  parent="menu_appcc_cuadgest"
+                  groups="group_appcc_manager"
+                  sequence="2"/>
+    </data>
+</openerp>

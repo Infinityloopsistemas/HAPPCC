@@ -1,0 +1,9 @@
+<openerp>
+
+    <data noupdate="1">
+        <record id="textmagic_1" model="textmagicsms.configuration">
+            <field name="name"></field>
+            <field name="token"></field>
+        </record>
+    </data>
+</openerp>

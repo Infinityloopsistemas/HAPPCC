@@ -1,0 +1,215 @@
+<openerp>
+    <data noupdate="1">
+        <record id="tpvig_1" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE LA POTABILIDAD DEL AGUA</field>
+            <field name="ayuda">&lt;span&gt;Determinar
+                a diario por colorimetría (DPD), nivel de cloro en el agua fria. Dejar salir durante 5 minutos y tomar
+                la muestra. El control de nivel de cloro se realizará diariamente y de forma rotatoria en cada punto de
+                la red.&lt;br&gt;
+
+                Análisis
+                físico-químico y&amp;nbsp;microbiológico según R.D. 140/2003 de 7 de febrero. En función del consumo de
+                agua en la actividad por laboratorio.
+
+                &lt;/span&gt;</field>
+        </record>
+        <record id="tpvig_2" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE TEMPERATURA DE REFRIGERACIÓN</field>
+            <field name="ayuda">&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; -&amp;nbsp;
+                Se registrará la temperatura de los &lt;/span&gt;displays
+                ópticos de los equipos a temperatura regulada, anotándolos por la mañana y por
+                la tarde en el registro de autocontrol. Además se adjuntarán los registros de
+                los termógrafos de las cámaras. Ver anexo (registros autocontrol).&lt;/span&gt;
+
+                &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+
+                &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Se registrará en cada recepción la
+                temperatura a la que se recibe cada pedido a temperatura regulada.&lt;/span&gt;</field>
+        </record>
+        <record id="tpvig_3" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE TEMPERATURAS DE CONGELACIÓN</field>
+            <field name="ayuda">&lt;span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; -&amp;nbsp;
+                Se registrará la temperatura de los &lt;/span&gt;displays
+                ópticos de los equipos a temperatura regulada, anotándolos por la mañana y por
+                la tarde en el registro de autocontrol. Además se adjuntarán los registros de
+                los termógrafos de las cámaras. Ver anexo (registros autocontrol).&lt;/span&gt;
+
+                &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+
+                &lt;span&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; - Se registrará en cada recepción la
+                temperatura a la que se recibe cada pedido a temperatura regulada.&lt;/span&gt;</field>
+        </record>
+        <record id="tpvig_5" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DEL PLAN DE LIMPIEZA Y DESINFECCIÓN</field>
+            <field name="ayuda">REVISAR LA CORRECTA LIMPIEZA Y DESINFECCIÓN DE ZONAS INDICADAS Y/O EQUIPOS EN SU CASO.
+            </field>
+        </record>
+        <record id="tpvig_6" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">PLAN DE LUCHA CONTRA PLAGAS</field>
+            <field name="ayuda">REVISAR ESTACIONES PORTACEBOS Y LA PRESENCIA/ AUSENCIA DE PLAGAS EN LAS INSTALACIONES Y
+                PRODUCTOS, EN LAS CÁMARAS DE CONGELACIÓN Y REFRIGERACIÓN ASI COMO EN ALMACENAMIENTO EN SECO.
+            </field>
+        </record>
+        <record id="tpvig_7" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">AUDITORÍA INTERNA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_8" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">SIMULACROS DE ALERTA SANITARIA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_9" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL MICROBIOLÓGICO DE ALIMENTOS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_10" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL F-Q</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_11" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL MICROBIOLÓGICO DE MANIPULADORES</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_12" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL MICROBIOLÓGICO DE AGUAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_13" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL CONTAMINACIÓN AMBIENTAL</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_14" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONDICIONES TERMOHIGROMÉTRICAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_15" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CALIBRACIÓN TMG IR</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_16" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE CLORO</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_17" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL PASTERIZACIÓN</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_18" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE PH</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_19" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE EVIDENCIAS DE PLAGAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_20" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE TEMPERATURA EN REFRIGERACIÓN</field>
+            <field name="ayuda">TEMPERATURA 0-4ºC con un margen de +2ºC</field>
+        </record>
+        <record id="tpvig_21" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE TEMPERATURA EN CONGELACIÓN</field>
+            <field name="ayuda">CONTROL DE TEMPERATURA EN CONGELACIÓN A -18ºC, CON UN MARGEN DE +2ºC</field>
+        </record>
+        <record id="tpvig_22" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">AUDITORÍA DE HOMOLOGACIÓN DE PROVEEDORES</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_23" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DEL ESTADO DEL CAJÓN DEL CAMIÓN</field>
+            <field name="ayuda">Inspección
+                ocular cajón camión y mercancía. Vigilar condiciones de limpieza y
+                mantenimiento.
+            </field>
+        </record>
+        <record id="tpvig_24" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN DE TIEMPO DE DESCARGA Y TEMPERATURA DE CAMIÓN/PRODUCTOS</field>
+            <field name="ayuda">&lt;span&gt;-
+                Jefe de almacén supervisa tiempo de carga.&lt;br&gt;- J&lt;/span&gt;efe de almacén mide temperatura
+                vehículo y mercancía&amp;nbsp;
+            </field>
+        </record>
+        <record id="tpvig_25" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN DE CÁMARAS DE CONGELACIÓN</field>
+            <field name="ayuda">Inspección
+                ocular cámaras &amp;nbsp;de congelación, mercancía. Vigilar condiciones de
+                limpieza y mantenimiento.
+            </field>
+        </record>
+        <record id="tpvig_26" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN DE CÁMARAS DE REFRIGERACIÓN</field>
+            <field name="ayuda">- Inspección
+                ocular cámaras frigoríficas . Vigilar condiciones de
+                limpieza y mantenimiento.
+            </field>
+        </record>
+        <record id="tpvig_27" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE EXPEDICIÓN DE MERCANCIAS</field>
+            <field name="ayuda">-
+                Jefe de almacén mide temperatura vehículo y mercancía a la expedición. El
+                transportista lo verifica a la entrega en el punto de&amp;nbsp;destino.
+            </field>
+        </record>
+        <record id="tpvig_28" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">Inspección ocular cajón camión y mercancía. Vigilar condiciones de limpieza y
+                mantenimiento
+            </field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_29" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE RECEPCIÓN DE MERCANCÍAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_30" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DEL TIEMPO DE DESCARGA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_31" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE TEMPERATURA DE PRODUCTOS TERMOREGULADOS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_32" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE LAS CONDICIONES HIGIÉNICAS DE CÁMARAS TERMOREGULADAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_33" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL DE TIEMPO DE CARGA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_34" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE LA LIMPIEZA Y DESINFECCIÓN DE LA ZONA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_35" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE LA LIMPIEZA Y DESINFECCIÓN DEL EQUIPO</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_36" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DEL PLAN DE MANTENIMIENTO DE INSTALACIONES Y EQUIPOS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_37" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VIGILANCIA DE PRESENCIA DE PLAGAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_3872" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">CONTROL EN LA RECOGIDA DE MERCANCÍA</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_3873" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE LAS CONDICIONES HIGIÉNICAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_3874" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">INSPECCIÓN OCULAR DE LAS CONDICIONES HIGIÉNICAS Y DE MANTENIMIENTO</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_3875" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">VARIAS</field>
+            <field name="ayuda"/>
+        </record>
+        <record id="tpvig_3895" model="appcc.maestros.tpmedvigilancia">
+            <field name="name">BUENAS PRÁCTICAS DE MANUFACTURA</field>
+            <field name="ayuda"/>
+        </record>
+    </data>
+</openerp>

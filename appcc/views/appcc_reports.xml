@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <!-- QWeb Reports -->
+        <report
+            id="appcc_detregistros"
+            model="appcc.detallesregistros"
+            string="Registros"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_registros"
+            file="appcc.appcc_report_registros"
+            attachment_use="False"
+            paperformat="report.paperformat_euro"
+        />
+
+        <report
+            id="action_report_registros"
+            model="report.appcc.report_regfecha"
+            string="Registros Fechas"
+            report_type="qweb-pdf"
+            name="appcc.report_regfecha"
+            file="appcc.report_regfecha"
+            paperformat="report.paperformat_euro"
+         />
+
+        <report
+            id="action_report_qr"
+            model="report.appcc.report_detreg_qr"
+            string="Impresion QR"
+            report_type="qweb-pdf"
+            name="appcc.report_detreg_qr"
+            file="appcc.appcc_report_qr"
+            paperformat="paperformat_label_qr"
+
+         />
+
+        <report
+            id="action_report_evareg"
+            model="report.appcc.report_evalreg"
+            string="Evaluacion Registros"
+            report_type="qweb-pdf"
+            name="appcc.report_evalreg"
+            file="appcc.report_evalregistros"
+            paperformat="report.paperformat_euro"
+         />
+
+        <report
+            id="action_report_avisos registros"
+            model="appcc.config.avisos"
+            string="Avisos Registros"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_avisos"
+            file="appcc.appcc_report_avisos"
+            paperformat="report.paperformat_euro"
+         />
+
+        <report
+            id="report_evaluaciones"
+            model="appcc.evaluacion.lineas"
+            string="Evaluaciones"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_evaluaciones"
+            file="appcc.appcc_report_evaluaciones"
+            paperformat="report.paperformat_euro"
+         />
+
+        <report
+            id="action_report_toteval_res"
+            model="report.appcc.report_toteval_res"
+            string="Resumen Evaluacion"
+            report_type="qweb-pdf"
+            name="appcc.report_toteval_res"
+            file="appcc.report_toteval"
+            paperformat="paperformat_landscape_a4"
+         />
+
+        <report
+            id="action_report_totevalm"
+            model="report.appcc.report_toteval_multi"
+            string="Multi Local Resumen Evaluacion"
+            report_type="qweb-pdf"
+            name="appcc.report_toteval_multi"
+            file="appcc.report_totevalm"
+            paperformat="paperformat_landscape_a4"
+        />
+
+        <report
+            id="action_report_avisos registros"
+            model="appcc.config.avisos"
+            string="Avisos Registros"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_avisos"
+            file="appcc.appcc_report_avisos"
+         />
+
+        <report
+            id="action_appcc_analitica"
+            model="appcc.cabanaliticas"
+            string="Analitica"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_analitica"
+            file="appcc.appcc_report_analitica"
+            attachment_use="False"
+        />
+
+        <report
+            id="action_appcc_cuadrog"
+            model="appcc.cuadrosgestion"
+            string="Cuadro de gestion"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_cuadrog"
+            file="appcc.appcc_report_cuadrog"
+            attachment_use="False"
+        />
+
+        <report
+            id="action_appcc_plan"
+            model="appcc.manualautocontrol"
+            string="Plan"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_plan"
+            file="appcc.appcc_report_plan"
+            attachment_use="False"
+        />
+
+        <report
+            id="action_appcc_certforma"
+            model="report.appcc.report_certforma"
+            string="Certificado de formacion"
+            report_type="qweb-pdf"
+            name="appcc.report_certforma"
+            file="appcc.report_certforma"
+            attachment_use="False"
+        />
+
+        <report
+            id="action_appcc_inicio"
+            model="appcc"
+            string="Appcc"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_inicio"
+            file="appcc.appcc_report_inicio"
+            attachment_use="False"
+        />
+        <report
+            id="action_appcc_procedimiento"
+            model="appcc.planautocontrol"
+            string="Procedimiento"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_procedimiento"
+            file="appcc.appcc_report_procedimiento"
+            attachment_use="False"
+        />
+
+
+        <report
+            id="action_appcc_informeaud"
+            model="appcc.cabinfotecnicos"
+            string="Informes de auditoria"
+            report_type="qweb-pdf"
+            name="appcc.appcc_report_informeaud"
+            file="appcc.appcc_report_informeaud"
+            attachment_use="False"
+        />
+
+
+    </data>
+</openerp>

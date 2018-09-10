@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Reporte Registros entre fechas -->
+
+    <record id="appcc_report_comun_reg_view" model="ir.ui.view">
+        <field name="name">Registros</field>
+        <field name="model">appcc.report.reg</field>
+        <field name="inherit_id" ref="appcc_common_report_view"/>
+        <field name="arch" type="xml">
+        <data>
+        <xpath expr="//field[@name='date_from']" position="before">
+            <field name="detreg_id" widget="many2many_tags" options="{'no_create': True}" />
+            <newline/>
+        </xpath>
+        </data>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_comreg_menu" model="ir.actions.act_window">
+        <field name="name">Registros</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.reg</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_comun_reg_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_registros"
+        name="Lista Registros"
+        parent="menu_appcc_informes"
+        action="action_appcc_report_comreg_menu"
+        groups="group_appcc_tecnicos"
+       />
+
+    <!-- Reportes Eesumen x Evaluacion -->
+
+    <record id="appcc_report_toteval_view" model="ir.ui.view">
+        <field name="name">ResumenEvaluacion</field>
+        <field name="model">appcc.report.toteval</field>
+        <field name="arch" type="xml">
+        <form string="Resumen Reportes">
+            <newline/>
+            <group col="6">
+                <field name="date_from" />
+                <field name="period_length"/>
+            </group>
+            <newline/>
+            <footer>
+                <button name="check_report" string="Impresion" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+
+        </form>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_toteval_menu" model="ir.actions.act_window">
+        <field name="name">Evaluacion Resumen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.toteval</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_toteval_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_report_toteval"
+        name="Resumen"
+        parent="menu_report_evaluacion"
+        action="action_appcc_report_toteval_menu"
+        groups="group_appcc_manager"
+       />
+
+
+    <!-- Reportes Resumen x Evaluacion MultiLocal-->
+
+    <record id="appcc_report_totevalm_view" model="ir.ui.view">
+        <field name="name">ResumenEvaluacionMulti</field>
+        <field name="model">appcc.report.totevalm</field>
+        <field name="arch" type="xml">
+        <form string="Resumen Reportes">
+            <newline/>
+            <group col="6">
+                <field name="date_from" />
+                <field name="period_length"/>
+            </group>
+            <newline/>
+            <footer>
+                <button name="check_report" string="Impresion" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+
+        </form>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_totevalm_menu" model="ir.actions.act_window">
+        <field name="name">Evaluacion Resumen Multilocal</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.totevalm</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_totevalm_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_report_totevalm"
+        name="Resumen Multilocal"
+        parent="menu_report_evaluacion"
+        action="action_appcc_report_totevalm_menu"
+        groups="group_appcc_manager"
+       />
+
+    <!-- Reportes de tipos de evaluaciones registros -->
+
+    <record id="appcc_report_evalreg_view" model="ir.ui.view">
+        <field name="name">Evaluacion-Registro</field>
+        <field name="model">appcc.report.evalreg</field>
+        <field name="inherit_id" ref="appcc_common_report_view"/>
+        <field name="arch" type="xml">
+        <data>
+            <xpath expr="//div" position="inside">
+            <newline/>
+                <group>
+                <field name="equipo_id"     options="{'no_create': True}" />
+                <field name="evallin_id"    string="Evaluacion" options="{'no_create': True}" />
+                <field name="frecuencia_id" options="{'no_create': True}" />
+                </group>
+            <newline/>
+        </xpath>
+        </data>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_evalreg_menu" model="ir.actions.act_window">
+        <field name="name">Evaluacion-Registros</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.evalreg</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_evalreg_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_regeval"
+        name="Evaluaciones Registros"
+        parent="menu_report_evaluacion"
+        action="action_appcc_report_evalreg_menu"
+        groups="group_appcc_manager"
+       />
+
+    <!-- Reportes QR -->
+
+    <record id="appcc_report_qr_view" model="ir.ui.view">
+        <field name="name">Registros QR</field>
+        <field name="model">appcc.report.reg.qr</field>
+        <field name="arch" type="xml">
+        <form string="Reporte QR">
+            <field name="detreg_id"  options="{'no_create': True}" />
+            <newline/>
+            <footer>
+                <button name="check_report" string="Impresion" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="oe_link" special="cancel"/>
+            </footer>
+
+        </form>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_qr_menu" model="ir.actions.act_window">
+        <field name="name">Registros QR</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.reg.qr</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_qr_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_reg_qr"
+        name="Lista Etiquetas QR"
+        parent="menu_appcc_informes"
+        action="action_appcc_report_qr_menu"
+        groups="group_appcc_tecnicos"
+       />
+
+
+    <!-- Reportes Certificado cursos -->
+
+    <record id="appcc_report_certforma_view" model="ir.ui.view">
+        <field name="name">Certificados de formativos</field>
+        <field name="model">appcc.report.certforma</field>
+        <field name="arch" type="xml">
+        <form string="Certificados formativos">
+            <field name="curso_id"  options="{'no_create': True}" />
+            <newline/>
+            <footer>
+                <button name="check_report" string="Impresion" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+    <record id="action_appcc_report_certforma_menu" model="ir.actions.act_window">
+        <field name="name">Certificados formativos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appcc.report.certforma</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="appcc_report_certforma_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_certforma"
+        name="Imprimir Formacion"
+        parent="menu_appcc_planauto"
+        action="action_appcc_report_certforma_menu"
+        groups="group_appcc_user"
+    />
+
+</odoo>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Plantillas evaluaciones -->
+
+       <record id="appcc_template_eval_tree_view" model="ir.ui.view">
+            <field name="name">appcc.template.evaluacion.tree</field>
+            <field name="model">appcc.template.evaluacion</field>
+            <field name="arch" type="xml">
+                <tree string="Plantilla de evaluaciones">
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="tipo"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+       </record>
+
+       <record id="appcc_template_eval_form_view" model="ir.ui.view">
+            <field name="name">appcc.template.evaluacion.form</field>
+            <field name="model">appcc.template.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Plantilla de evaluaciones" version="9.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="name"/>
+                                <field name="tipo"/>
+                                <field name="company_id"  widget="many2many_tags" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <field colspan="4" nolabel="1" name="tevaluacion_ids" widget="one2many_list">
+                            <tree string="Descripción de evaluadores" editable="bottom">
+                                <field name="name"/>
+                                <field name="puntuable" />
+                                <field name="active" />
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+
+       <record id="action_template_eval" model="ir.actions.act_window">
+            <field name="name">PlantillasdeEvaluacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.template.evaluacion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+
+
+       <menuitem name="Evaluaciones"
+                  action="action_template_eval"
+                  id="menu_template_eval"
+                  parent="menu_appcc_template"
+                  groups="group_appcc_tecnicos"
+                  sequence="10"/>
+
+
+        <!-- Evaluaciones -->
+
+       <record id="appcc_eval_form_view" model="ir.ui.view">
+            <field name="name">appcc.evaluacion.form</field>
+            <field name="model">appcc.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Plantilla de evaluaciones" version="9.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="name"/>
+                                <field name="secuencia"/>
+                            </group>
+                            <group>
+                                 <field name="regeval_id"  options="{'no_create': True}" />
+                                 <field name="tecnicos_id" options="{'no_create': True}"/>
+                                 <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+
+                        </group>
+                       <!-- <field colspan="4" nolabel="1" name="evaldet_ids" widget="one2many_list" readonly="1">
+                            <tree string="Lineas Evaluacion" editable="bottom">
+                                <field name="name"/>
+                                <field name="totpuntuacion" />
+                                <field name="templatevalua_id" options="{'no_create': True}" />
+                            </tree>
+                        </field>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- Lineas Evaluaciones -->
+
+       <record id="appcc_evaluacion_lineas_tree_view" model="ir.ui.view">
+            <field name="name">appcc.evaluacion.lineas.tree</field>
+            <field name="model">appcc.evaluacion.lineas</field>
+            <field name="arch" type="xml">
+                <tree string="Evaluaciones">
+                                    <field name="evaldet_id" string="Evaluación" />
+                                    <field name="fecha" />
+                                    <field name="templatevalua_id"      />
+                                    <field name="property_departament"    />
+                                    <field name="property_employee"    />
+                                    <field name="property_centro"      />
+                                    <field name="property_equipos"   />
+                                    <field name="totpuntuacion" />
+                                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+       <record id="appcc_evaluacion_lineas_form_view" model="ir.ui.view">
+            <field name="name">appcc.evaluacion.form</field>
+            <field name="model">appcc.evaluacion.lineas</field>
+            <field name="arch" type="xml">
+                <form string="Evaluación" version="9.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                    <field name="evaldet_id" string="Evaluación"/>
+                                    <field name="templatevalua_id"   readonly="1"   />
+                                    <field name="property_departament" readonly="1"  attrs="{'invisible' : [('property_departament','=',False)] }"  widget="selection"  />
+                                    <field name="property_employee"    readonly="1"  attrs="{'invisible' : [('property_employee','=',False)] }"     widget="selection"  />
+                                    <field name="property_centro"      readonly="1"  attrs="{'invisible' : [('property_centro','=',False)] }"       widget="selection"  />
+                                    <field name="property_equipos"     readonly="1"  attrs="{'invisible' : [('property_equipos','=',False)] }"      widget="selection"  />
+                                    <field name="name"/>
+                                    <field name="company_id"  />
+                            </group>
+                        </group>
+
+
+
+                            <field colspan="4"  name="evallin_ids" widget="one2many_list" mode="tree">
+                                <tree string="Asignación de evaluaciones" editable="bottom">
+                                        <field name="puntuable" invisible="1" />
+                                        <field name="indicador_id"  readonly="1"    />
+                                        <field name="puntuacion" attrs="{'invisible' : [('puntuable','=',False)] }"/>
+                                        <field name="siono"  attrs="{'invisible' : [('puntuable','!=',False)] }"/>
+                                        <field name="observa" />
+                                 </tree>
+                            </field>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+       <record model='ir.ui.view' id='view_appc_eval_lin_search'>
+            <field name="name">appcc.evaluacion.search</field>
+            <field name="model">appcc.evaluacion.lineas</field>
+            <field name="arch" type="xml">
+                <search string="Evaluación">
+                    <field name="name" string="Denominación"
+                           filter_domain="['|', ('name', 'ilike', self)"/>
+                    <field name="evaldet_id" string="Evaluación"/>
+                    <field name="templatevalua_id" widget="selection"/>
+                    <group string="Agrupar por">
+                        <filter name="group_by_name" string="Denominación"
+                                context="{'group_by': 'name'}"/>
+                        <filter name="group_by_evaldet" string="Evaluaciones"
+                                context="{'group_by': 'evaldet_id'}"/>
+                        <filter name="group_by_company" string="Empresas"
+                                context="{'group_by': 'company_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+       <record id="action_appcc_evaluacion" model="ir.actions.act_window">
+            <field name="name">Evaluacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.evaluacion.lineas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+       </record>
+
+
+        <record id="action_generar_name_eval" model="ir.actions.server">
+            <field name="name">Actualizar Departamentos</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_appcc_evaluacion_lineas"/>
+            <field name="state">code</field>
+            <field name="code">object.action_button_renombrar()</field>
+        </record>
+
+        <record id="id_evaluacion_genera_name_value" model="ir.values">
+            <field name="name">Actualizar Departamentos</field>
+            <field name="action_id" ref="action_generar_name_eval"/>
+            <field name="value" eval="'ir.actions.server,' + str(ref('action_generar_name_eval'))"/>
+            <field name="key">action</field>
+            <field name="model_id" ref="model_appcc_evaluacion_lineas"/>
+            <field name="model">appcc.evaluacion.lineas</field>
+            <field name="key2">client_action_multi</field>
+        </record>
+
+
+
+            <menuitem name="Evaluaciones"
+                  action="action_appcc_evaluacion"
+                  id="menu_appcc_evaluacion"
+                  parent="menu_appcc_auditorias"
+                  groups="group_appcc_manager"
+                  sequence="2"/>
+
+        <!-- Analisis Evaluaciones-->
+
+       <record model="ir.ui.view" id="view_appc_evaluacion_detalle_graph">
+            <field name="name">appcc.evaluacion.detalle.graph</field>
+            <field name="model">appcc.evaluacion.detalle</field>
+            <field name="arch" type="xml">
+                <graph string="Gráfica de puntuaciones" type="line">
+                    <field name="name"  type="row"/>
+                    <field name="indicador_id" type="col"/>
+                    <field name="puntua" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="view_appc_evaluacion_detalle_pivot" model="ir.ui.view">
+            <field name="name">appcc.evaluacion.detalle.pivot</field>
+            <field name="model">appcc.evaluacion.detalle</field>
+            <field name="arch" type="xml">
+                <pivot string="Tabla de evaluaciones">
+                    <field name="name" type="row"/>
+                    <field name="indicador_id" type="col"/>
+                    <field name="puntua" operator="+" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+       <record model='ir.ui.view' id='view_appc_evaluacion_det_search'>
+            <field name="name">appcc.evaluacion.search</field>
+            <field name="model">appcc.evaluacion.detalle</field>
+            <field name="arch" type="xml">
+                <search string="Evaluación">
+                    <filter name="grupoevaluador" widget="selection" string="Evaluación"/>
+                    <group string="Agrupar por">
+                        <filter name="group_by_denomina" string="Denomina"
+                                context="{'group_by': 'grupoevaluador'}"/>
+                        <filter name="group_by_name" string="Entidad"
+                                context="{'group_by': 'name'}"/>
+                        <filter name="group_by_texto" string="Evaluaciones"
+                                context="{'group_by': 'indicador_id'}"/>
+                        <filter name="group_by_company" string="Empresas"
+                                context="{'group_by': 'company_id'}"/>
+                    </group>
+                </search>
+            </field>
+       </record>
+
+
+        <record id="action_appcc_evaluacion_ana" model="ir.actions.act_window">
+            <field name="name">Analisis Evaluacion</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appcc.evaluacion.detalle</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,pivot</field>
+        </record>
+
+        <menuitem name="Analisis"
+                  action="action_appcc_evaluacion_ana"
+                  id="menu_appcc_evaluacion_ana"
+                  parent="menu_appcc_auditorias"
+                  groups="group_appcc_manager"
+        sequence="3"/>
+
+    </data>
+</odoo>
